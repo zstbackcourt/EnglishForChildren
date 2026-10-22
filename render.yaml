@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: english-for-children
+    runtime: docker
+    plan: starter
+    numInstances: 1
+    healthCheckPath: /api/health
+    autoDeployTrigger: off
+    envVars:
+      - key: GAME_PASSWORD
+        generateValue: true
+    disk:
+      name: family-save
+      mountPath: /app/data
+      sizeGB: 1

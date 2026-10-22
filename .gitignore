@@ -1,0 +1,8 @@
+.DS_Store
+New-Concept-English/
+.tools/
+tmp/
+data/
+bin/
+*.log
+.env

@@ -1,0 +1,10 @@
+.git
+New-Concept-English
+.tools
+tmp
+data
+bin
+docs
+*.log
+.env
+.DS_Store
