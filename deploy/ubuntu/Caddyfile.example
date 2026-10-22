@@ -1,0 +1,14 @@
+# Replace both occurrences with the server's public IPv4 address.
+{
+    default_sni 203.0.113.10
+    admin 127.0.0.1:2019
+}
+
+https://203.0.113.10 {
+    tls {
+        issuer acme https://acme-v02.api.letsencrypt.org/directory {
+            profile shortlived
+        }
+    }
+    reverse_proxy 127.0.0.1:8080
+}

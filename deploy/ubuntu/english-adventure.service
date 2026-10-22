@@ -1,0 +1,20 @@
+[Unit]
+Description=English Adventure learning game
+After=network.target
+
+[Service]
+Type=simple
+DynamicUser=yes
+StateDirectory=english-adventure
+WorkingDirectory=/opt/english-adventure
+EnvironmentFile=-/etc/english-adventure/environment
+ExecStart=/opt/english-adventure/english-adventure -root /opt/english-adventure -addr 127.0.0.1:8080 -save /var/lib/english-adventure/save.json
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectHome=yes
+ProtectSystem=strict
+
+[Install]
+WantedBy=multi-user.target

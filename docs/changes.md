@@ -106,3 +106,22 @@
 - 文件：share.sh、scripts/share.py、scripts/install_cloudflared.sh、scripts/test_share.py、docs/local-sharing.md、README.md、.gitignore。
 
 - 审查修复：关闭终端产生 SIGHUP 时也执行停止清理，避免脱离终端的隧道残留；新增信号回归测试先失败后通过，分享脚本共 5 项测试通过。子进程恰好退出的竞态也做幂等处理。
+
+## 014 2026-10-22 阿里云 Windows 部署准备
+
+- 用户调整：公司不允许本机外网隧道，改用已有阿里云 ECS；暂无域名。不再尝试本机穿透。
+- 实机检查：杭州 ECS 为 Windows Server 2022 x64，2 核 2 GiB，系统盘约 25 GiB 可用；80/443/8080/8090 无监听，tar.exe 与 curl.exe 可用，未安装 Git/Docker。
+- 方案：交叉编译 Windows amd64 原生程序，离线打包网页、144 课内容及 72 组音频；不重装服务器系统、不迁移本机家庭存档。Go 仅监听回环地址，由 HTTPS 反向代理提供公网访问。
+- 验证：Windows 二进制编译成功；部署包已生成 SHA256。远端 GitHub 请求超时，改走阿里云官方文件上传。控制台上传组件持续加载；用户已完成 Workbench 服务器登录。Windows 使用重定向驱动盘拖拽传输，部署包分成小于 100 MB 的两部分，当前等待拖入文件。
+- HTTPS 准备：下载官方 Caddy 2.11.7 Windows amd64，按官方清单验证 SHA512 一致。尚未运行或签发证书。
+- 状态：尚未上传或启动远端游戏，尚未调整防火墙、创建证书或产生可分享地址。IP HTTPS 与开机自启仍待实机配置验证。
+
+## 015 2026-10-22 Ubuntu 实机部署与验证
+
+- 用户已将同一 ECS 更换为 Ubuntu；实机确认为 Ubuntu 26.04.1 LTS x86_64，根分区约 35 GiB 空闲。
+- 使用 Workbench Linux 文件管理自行上传完整部署包和 Caddy，远端 SHA256 与本地一致；不再使用 Windows 部署包。
+- 游戏安装在 `/opt/english-adventure`，systemd 动态用户运行，监听 `127.0.0.1:8080`，已启用开机自启；持久化路径独立于程序目录。
+- 隔离测试进程验证：144 课、音频 Range 206、双角色隔离、困难挑战 5/5 与 30 星光、重复领奖幂等、重启后恢复对话位置与奖杯，全部通过。测试存档未写入正式家庭空间。
+- 已准备 HTTPS 代理服务和 IP 证书配置，Caddy 配置解析与 systemd 单元检查通过；Ubuntu 自带 xfs 单元仅报告已废弃 CPUAccounting 参数警告。
+- 当前：游戏已在服务器内部运行，公网规则、家庭密码与证书签发等待用户确认；尚未交付外网链接。
+- 文件：deploy/ubuntu/english-adventure.service、english-adventure-proxy.service、Caddyfile.example、docs/deployment.md。
