@@ -9,7 +9,8 @@
 - `node --test web/*.test.js`：4 项通过，覆盖字幕边界、迟到测验响应、角色/页面切换、提交后立即关闭弹窗的奖励刷新。
 - `node --check web/app.js` 通过。
 - `python3 scripts/test_content.py` 通过：144 个连续课次、72 组音频、时间轴、教材页、偶数课配对及独立标题。
-- `bash -n scripts/fetch_assets.sh start.sh` 通过。
+- `bash -n scripts/fetch_assets.sh start.sh` 与容器入口 `sh -n` 通过。
+- 在全新隔离安装目录执行 `scripts/fetch_assets.sh`，从 GitHub 获取固定版本素材后，144 课/72 组音频完整性检查通过。
 - `CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build ./cmd/server` 通过。
 
 ## 浏览器验收

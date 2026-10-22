@@ -86,3 +86,12 @@
 - 审查优化：新挂载磁盘覆盖镜像目录权限，入口运行时初始化存档目录所有权后降权为 game 用户，避免部署成功却无法创建角色。
 - 文件：Dockerfile、compose.yaml、render.yaml、scripts/fetch_assets.sh、scripts/docker-entrypoint.sh、internal/game/access.go、cmd/server/main.go、docs/deployment.md、docs/verification.md、README.md。
 - 验证：家庭密码测试先失败后通过；全量 Go race/vet、4 项 JS 测试、内容完整性、shell 语法和 Linux amd64 交叉编译通过。本机未安装 Docker，不声称容器构建或云部署已完成。
+
+- 安装验证：在全新隔离目录重新从 GitHub 拉取固定素材版本，完整性检查通过；下载脚本无需现有完整教材仓库。
+
+## 012 2026-10-22 远程交付
+
+- 首次完整版本 `02d9aef` 已推送至 `https://github.com/zstbackcourt/EnglishForChildren` 的 `main` 分支。
+- 首次大文件上传返回 HTTP 400，远程确认无提交后，以单次 `http.postBuffer=157286400` 重试成功；未修改全局 Git 配置。
+- 交付设计、实施计划、素材审计、逐次变更、验证和部署文档；家庭/测试存档、本地工具链及原教材仓库不提交。
+- 用户选择仅一键部署入口，未创建或购买云服务；真实云端运行仍待将来部署验收。
