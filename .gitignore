@@ -6,3 +6,6 @@ data/
 bin/
 *.log
 .env
+
+__pycache__/
+*.pyc

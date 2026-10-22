@@ -98,3 +98,9 @@ python3 scripts/import_content.py
 - [美术来源和生成提示词](docs/art-direction.md)
 - [验证报告](docs/verification.md)
 - [部署与分享](docs/deployment.md)
+
+## 本地运行并分享给外网
+
+详见 [本地外网分享方案](docs/local-sharing.md)。安装 `cloudflared` 后，先停止原游戏服务，再执行 `./share.sh`；使用 `./share.sh status` 查看状态，`./share.sh stop` 停止分享。密码、日志与状态保存在被 Git 忽略的 `data/share/`。
+
+当前机器的 macOS 隧道程序签名校验失败，尚未获得可用外网链接；脚本和故障处理已实现，需安装有效签名的程序后继续外网验收。
