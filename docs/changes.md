@@ -123,5 +123,8 @@
 - 游戏安装在 `/opt/english-adventure`，systemd 动态用户运行，监听 `127.0.0.1:8080`，已启用开机自启；持久化路径独立于程序目录。
 - 隔离测试进程验证：144 课、音频 Range 206、双角色隔离、困难挑战 5/5 与 30 星光、重复领奖幂等、重启后恢复对话位置与奖杯，全部通过。测试存档未写入正式家庭空间。
 - 已准备 HTTPS 代理服务和 IP 证书配置，Caddy 配置解析与 systemd 单元检查通过；Ubuntu 自带 xfs 单元仅报告已废弃 CPUAccounting 参数警告。
-- 当前：游戏已在服务器内部运行，公网规则、家庭密码与证书签发等待用户确认；尚未交付外网链接。
+- 经用户确认，已开放 TCP 80/443，创建权限为 0600 的家庭密码文件并启用认证；Caddy 成功取得 Let’s Encrypt 公网 IP 证书，自动续期服务已启用。
+- 外网验收：HTTPS 健康检查 200、未认证首页 401、认证首页 200、音频 Range 206/1024 字节、HTTP 308 跳转 HTTPS，证书校验通过。正式家庭角色列表为空，未混入测试角色。
+- 两个 systemd 服务均为 enabled/active；Go 仅监听回环 8080。安全组表单误选的 23 端口规则已立即撤销并核验最终规则；保留原有 SSH/RDP/ICMP 规则。
+- 分享地址已单独交付给用户；访问密码不写入源码、文档或 Git。当前多人共享同一家庭空间。
 - 文件：deploy/ubuntu/english-adventure.service、english-adventure-proxy.service、Caddyfile.example、docs/deployment.md。

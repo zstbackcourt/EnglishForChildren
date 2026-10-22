@@ -53,7 +53,7 @@ bash scripts/fetch_assets.sh
 
 ### Ubuntu 原生服务部署
 
-已有 Ubuntu ECS 可使用 `deploy/ubuntu` 的 systemd 配置，无需 Docker。将 Linux amd64 二进制命名为 `english-adventure`，与 `web`、`content`、第一册音频目录一起放在 `/opt/english-adventure`。Caddy 官方 Linux amd64 二进制也放在该目录；部署前核对官方摘要。当前准备使用 Caddy 2.11.7。
+已有 Ubuntu ECS 可使用 `deploy/ubuntu` 的 systemd 配置，无需 Docker。将 Linux amd64 二进制命名为 `english-adventure`，与 `web`、`content`、第一册音频目录一起放在 `/opt/english-adventure`。Caddy 官方 Linux amd64 二进制也放在该目录；部署前核对官方摘要。本次实际使用 Caddy 2.11.7。
 
 - 游戏：`english-adventure.service`，仅监听 `127.0.0.1:8080`。
 - 存档：`/var/lib/english-adventure/save.json`，由 systemd 的 `StateDirectory` 管理权限；更新程序时保留此目录。
@@ -76,4 +76,8 @@ bash scripts/fetch_assets.sh
 
 ## 当前验证范围
 
-已验证 macOS 本地运行、全部自动测试与 Linux amd64 二进制交叉编译。当前工作机未安装 Docker，未执行容器构建或真实 Render 部署；一键配置不能替代部署完成后的浏览器验收。
+已验证 macOS 本地运行、全部自动测试、Ubuntu ECS 原生服务及外网 HTTPS/家庭认证/音频分段访问。Ubuntu 隔离测试验证角色、奖杯、学习位置在进程重启后保留；正式家庭空间保持为空。两个服务已启用开机自启，未为测试而重启整台 ECS。
+
+分享时发送 HTTPS 地址、用户名 `family` 和单独交付的家庭密码；获得密码的人共享该服务器的全部角色。无需保持个人电脑开机，但 ECS 和代理服务须持续运行以供访问及自动续期。
+
+当前工作机未安装 Docker，未执行容器构建或真实 Render 部署。内置浏览器打开公网登录页被客户端阻止，本次公网验收使用保留证书校验的 HTTP 客户端完成；游戏交互浏览器验收见验证报告中的本机测试。
