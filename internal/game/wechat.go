@@ -25,6 +25,7 @@ type WeChatCodeExchanger interface {
 type WeChatConfig struct {
 	Backend    MySQLAccountBackend
 	SaveDir    string
+	ReleaseID  string
 	SessionKey []byte
 	Exchanger  WeChatCodeExchanger
 	SessionTTL time.Duration
@@ -201,7 +202,11 @@ func (g *wechatGateway) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 				return
 			}
 		}
-		reply(w, 200, map[string]string{"status": "ok"})
+		response := map[string]string{"status": "ok"}
+		if g.config.ReleaseID != "" {
+			response["releaseId"] = g.config.ReleaseID
+		}
+		reply(w, 200, response)
 		return
 	}
 	if r.URL.Path == "/api/session" {

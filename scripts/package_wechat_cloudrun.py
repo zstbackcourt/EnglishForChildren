@@ -8,7 +8,7 @@ import zipfile
 
 def package(root, output):
     root = root.resolve()
-    selected = ['go.mod', 'go.sum', 'Dockerfile', 'deploy/wechat/cloudrun-entrypoint.sh', 'content/book1.json']
+    selected = ['go.mod', 'go.sum', 'Dockerfile', 'deploy/wechat/cloudrun-entrypoint.sh', 'deploy/wechat/release-id.txt', 'content/book1.json']
     for prefix in ('cmd/wechat-server', 'internal/game'):
         selected.extend(str(p.relative_to(root)) for p in sorted((root / prefix).glob('*.go')))
     for rel in selected:

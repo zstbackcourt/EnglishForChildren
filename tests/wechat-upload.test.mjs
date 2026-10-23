@@ -5,7 +5,7 @@ import os from 'node:os';
 import path from 'node:path';
 import {createRequire} from 'node:module';
 const require=createRequire(import.meta.url);
-const {prepareUpload,stageProject}=require('../scripts/upload_wechat.cjs');
+const {prepareUpload,stageProject,performUpload}=require('../scripts/upload_wechat.cjs');
 
 function fixture(t) {
  const dir=fs.mkdtempSync(path.join(os.tmpdir(),'wechat-upload-'));
@@ -45,4 +45,18 @@ test('staged upload contains only mini-program and project config, never server 
 test('upload refuses environment files mistakenly copied into native source',async t=>{
  const {root,env}=fixture(t);fs.writeFileSync(path.join(root,'miniprogram/server.env'),'WECHAT_APP_SECRET=not-a-real-secret');
  await assert.rejects(prepareUpload(root,env),/server.env/);
+});
+test('successful platform upload produces a receipt while removing staged files',async t=>{
+ const {root,env}=fixture(t),options=await prepareUpload(root,env);let staged;
+ const ci={Project:class{constructor(p){staged=p.projectPath;}},upload:async()=>({strUint64Version:'12345'})};
+ const result=await performUpload(options,ci);
+ assert.equal(result.status,'development-uploaded');assert.equal(result.platformVersion,'12345');assert.equal(result.experiencePublished,false);
+ assert.equal(fs.existsSync(staged),false);
+ const receipt=fs.readFileSync(result.receiptPath,'utf8');assert.doesNotMatch(receipt,/PRIVATE KEY|TEST ONLY|privateKeyPath/);
+});
+test('rejected upload cleans up and reports allowed diagnostic fields without creating a receipt',async t=>{
+ const {root,env}=fixture(t),options=await prepareUpload(root,env);let staged;
+ const ci={Project:class{constructor(p){staged=p.projectPath;}},upload:async()=>{throw new Error('invalid ip: 192.0.2.5; private-token-must-not-leak');}};
+ await assert.rejects(performUpload(options,ci),error=>{assert.match(error.message,/192\.0\.2\.5/);assert.doesNotMatch(error.message,/private-token/);return true;});
+ assert.equal(fs.existsSync(staged),false);assert.equal(fs.existsSync(path.join(root,'tmp')),false);
 });

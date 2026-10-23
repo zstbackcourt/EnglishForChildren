@@ -1,0 +1,156 @@
+name: WeChat release
+
+on:
+  push:
+    branches: [wechat]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: wechat-release
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Require a fresh release marker for this push
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+        shell: bash
+        run: |
+          marker=$(cat deploy/wechat/release-id.txt)
+          [[ "$marker" =~ ^[0-9a-f]{32}$ ]] || { echo 'Invalid release marker'; exit 1; }
+          if [[ "$BEFORE_SHA" =~ ^[0-9a-f]{40}$ ]] && [[ "$BEFORE_SHA" != 0000000000000000000000000000000000000000 ]] && git cat-file -e "$BEFORE_SHA:deploy/wechat/release-id.txt" 2>/dev/null; then
+            previous=$(git show "$BEFORE_SHA:deploy/wechat/release-id.txt")
+            [[ "$marker" != "$previous" ]] || { echo 'Update deploy/wechat/release-id.txt for each push'; exit 1; }
+          fi
+          echo 'Release marker is new for this push.'
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: tools/wechat-ci/package-lock.json
+      - uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6
+        with:
+          go-version: '1.27.3'
+      - name: Test application and release tools
+        run: |
+          go test -race ./cmd/... ./internal/...
+          go vet ./cmd/... ./internal/...
+          node --test tests/*.test.mjs tests/miniprogram/*.test.cjs web/*.test.js
+          python3 scripts/test_share.py
+      - name: Compile native mini-program
+        run: |
+          npm ci --prefix tools/wechat-ci
+          node scripts/compile_wechat.cjs
+          node scripts/prepare_wechat.mjs --cloudrun --release --output tmp/wechat-release
+      - name: Build and boot the production image with disposable MySQL
+        run: |
+          docker build --tag english-wechat:ci .
+          bash scripts/test_wechat_image.sh english-wechat:ci
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: wechat-client-${{ github.sha }}
+          path: tmp/wechat-release
+          if-no-files-found: error
+          retention-days: 7
+
+  release-config:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 3
+    steps:
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24'
+      - name: Require the upload key and a runner with an allowlisted fixed egress IP
+        env:
+          UPLOAD_RUNNER: ${{ vars.WECHAT_UPLOAD_RUNNER }}
+          UPLOAD_IP: ${{ vars.WECHAT_UPLOAD_EGRESS_IP }}
+          UPLOAD_KEY: ${{ secrets.WECHAT_UPLOAD_KEY }}
+        shell: bash
+        run: |
+          node <<'NODE'
+          let labels;
+          try { labels = JSON.parse(process.env.UPLOAD_RUNNER || 'null'); } catch {}
+          if (!Array.isArray(labels) || labels.some(x => typeof x !== 'string' || !x.trim()) || !['self-hosted','linux','wechat-upload'].every(x => labels?.includes(x))) {
+            console.error('Set WECHAT_UPLOAD_RUNNER to a JSON array of fixed-egress runner labels, e.g. ["self-hosted","linux","wechat-upload"]. Allowlist its public IP in WeChat. Shared GitHub-hosted runners do not have a fixed egress IP.');
+            process.exit(1);
+          }
+          if (require('node:net').isIP(process.env.UPLOAD_IP || '') !== 4) {
+            console.error('Set WECHAT_UPLOAD_EGRESS_IP to that dedicated runner public IPv4, and allowlist it in WeChat.');
+            process.exit(1);
+          }
+          if (!process.env.UPLOAD_KEY) {
+            console.error('Set the WECHAT_UPLOAD_KEY repository Actions secret to the mini-program upload private key.');
+            process.exit(1);
+          }
+          console.log('Upload configuration is present. Runner availability and WeChat IP authorization are checked when uploading.');
+          NODE
+
+  backend-ready:
+    needs: [verify]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 13
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24'
+      - name: Wait for the CloudRun GitHub deployment
+        run: |
+          node scripts/prepare_wechat.mjs --cloudrun --release --output tmp/wechat-release
+          node scripts/check_wechat_backend.mjs --project tmp/wechat-release --release-id-file deploy/wechat/release-id.txt --wait 600
+
+  upload-client:
+    needs: [verify, release-config, backend-ready]
+    # The fallback only keeps the expression valid. release-config prevents its use.
+    runs-on: ${{ fromJSON(vars.WECHAT_UPLOAD_RUNNER || '["ubuntu-24.04"]') }}
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24'
+      - name: Upload the mini-program development version
+        env:
+          UPLOAD_KEY: ${{ secrets.WECHAT_UPLOAD_KEY }}
+          UPLOAD_IP: ${{ vars.WECHAT_UPLOAD_EGRESS_IP }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          private_dir=$(mktemp -d "$RUNNER_TEMP/wechat-key.XXXXXX")
+          project_dir=$(mktemp -d "$RUNNER_TEMP/wechat-client.XXXXXX")
+          rmdir "$project_dir"
+          trap 'rm -rf "$private_dir" "$project_dir"' EXIT
+          umask 077
+          printf '%s\n' "$UPLOAD_KEY" > "$private_dir/upload.key"
+          unset UPLOAD_KEY
+          export WECHAT_UPLOAD_KEY_PATH="$private_dir/upload.key"
+          export WECHAT_APP_ID=wx1f23b102bcb34ed7
+          export WECHAT_VERSION="0.1.${GITHUB_RUN_NUMBER}"
+          export WECHAT_DESCRIPTION="wechat commit ${GITHUB_SHA:0:7}"
+          actual_ip=$(curl --fail --silent --show-error --max-time 10 https://api.ipify.org)
+          [[ "$actual_ip" == "$UPLOAD_IP" ]] || { echo 'Upload runner public IP differs from WECHAT_UPLOAD_EGRESS_IP; upload stopped.'; exit 1; }
+          npm ci --prefix tools/wechat-ci
+          node scripts/prepare_wechat.mjs --cloudrun --release --output "$project_dir"
+          node scripts/upload_wechat.cjs --project "$project_dir" --upload
+          mkdir -p tmp/wechat-receipts
+          cp "$project_dir"/tmp/wechat-upload-*.json tmp/wechat-receipts/
+          printf 'Development version uploaded. Set it as the trial version in WeChat, add testers, and complete phone acceptance checks.\n' >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: wechat-upload-receipt-${{ github.sha }}
+          path: tmp/wechat-receipts/*.json
+          if-no-files-found: error
+          retention-days: 14

@@ -29,6 +29,12 @@ func newServer(args []string, getenv func(string) string) (*http.Server, error) 
 		return nil, errors.New("unexpected positional arguments")
 	}
 	config := game.WeChatConfig{SaveDir: *save, SessionKey: []byte(getenv("WECHAT_SESSION_KEY")), DevLogin: *dev, ListenAddr: *addr}
+	if releaseID := getenv("WECHAT_RELEASE_ID"); releaseID != "" {
+		if len(releaseID) != 32 || strings.Trim(releaseID, "0123456789abcdef") != "" {
+			return nil, errors.New("invalid WECHAT_RELEASE_ID")
+		}
+		config.ReleaseID = releaseID
+	}
 	if *dev {
 		if len(config.SessionKey) == 0 {
 			// Local sessions intentionally expire across restarts unless a key is supplied.

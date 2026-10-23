@@ -29,6 +29,7 @@ COPY --from=materials ["/source/course/新概念英语第1册美音（MP3+LRC）
 COPY --from=materials /source/art/web/assets/scenes ./web/assets/scenes
 COPY --from=materials /source/art/web/assets/pages ./web/assets/pages
 COPY content ./content
+COPY deploy/wechat/release-id.txt ./deploy/wechat/release-id.txt
 COPY --chmod=755 deploy/wechat/cloudrun-entrypoint.sh /usr/local/bin/cloudrun-entrypoint
 USER game
 ENV PORT=8080 WECHAT_STORAGE=mysql

@@ -65,3 +65,20 @@ func TestMySQLConfigurationFailsClosed(t *testing.T) {
 		t.Fatal("unknown storage accepted")
 	}
 }
+
+func TestHealthReportsDeploymentReleaseMarker(t *testing.T) {
+	root, err := filepath.Abs(filepath.Join("..", ".."))
+	if err != nil { t.Fatal(err) }
+	marker := "7c4721d86a017f20a6a61bba5f0cc999"
+	env := map[string]string{
+		"WECHAT_APP_ID": "app", "WECHAT_APP_SECRET": "test-only-secret",
+		"WECHAT_SESSION_KEY": "0123456789abcdef0123456789abcdef", "WECHAT_RELEASE_ID": marker,
+	}
+	server, err := newServer([]string{"-root", root}, func(k string) string { return env[k] })
+	if err != nil { t.Fatal(err) }
+	w := httptest.NewRecorder()
+	server.Handler.ServeHTTP(w, httptest.NewRequest("GET", "/healthz", nil))
+	if w.Code != 200 || !strings.Contains(w.Body.String(), `"releaseId":"`+marker+`"`) {
+		t.Fatalf("health release marker: %d %s", w.Code, w.Body)
+	}
+}
