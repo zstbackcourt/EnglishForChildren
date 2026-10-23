@@ -5,6 +5,7 @@ function nativePage(Controller, methods) {
     onLoad(options) {
       this.options = options || {};
       this.controller = new Controller(getApp().api, wx, data => this.setData(data));
+      this.setData(this.controller.data);
     },
     onShow() { return this.controller.load(this.options); },
     onHide() { this.controller.hide(); },

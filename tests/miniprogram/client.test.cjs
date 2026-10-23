@@ -41,3 +41,19 @@ test('challenge and role and reward native pages register with refresh lifecycle
 test('lesson serializes progress and new lifecycle has its own save queue',async()=>{const s=setup();await signed(s);s.wx.storage.playerId='p1';const c=new LessonController(s.api,s.wx);async function load(){const p=c.load({id:2});await tick();for(const r of s.wx.requests.splice(0))respond(r,r.url.endsWith('/api/players')?[player]:lesson);await p}await load();c.playLine(0);await tick();const old=s.wx.requests.shift();c.playLine(1);await tick();assert.equal(s.wx.requests.length,0);c.hide();await load();c.playLine(2);await tick();assert.equal(s.wx.requests.length,0,'new lifecycle waits for earlier write to preserve server cursor ordering');respond(old,{saved:true});await tick();assert.equal(s.wx.requests.length,1,'new lifecycle save is not lost after hidden write completes');assert.equal(s.wx.requests[0].data.cursor,2);respond(s.wx.requests.shift(),{saved:true});await tick();assert.equal(c.data.cursor,2)});
 test('changing role while lesson is loading cannot render previous player lesson state',async()=>{const s=setup();await signed(s);s.wx.storage.playerId='p1';const c=new LessonController(s.api,s.wx);const p=c.load({id:2});await tick();const requests=s.wx.requests.splice(0);respond(requests.find(r=>r.url.endsWith('/api/players')),[player]);await tick();s.wx.storage.playerId='p2';respond(requests.find(r=>r.url.endsWith('/api/lessons/2')),lesson);await p;assert.equal(c.data.lesson,null)});
 test('audio is stopped immediately when a sentence ends and stale canplay cannot restart it',()=>{const wx=fakeWX(),states=[];const a=new AudioPlayer(wx,x=>states.push(x));a.play('/media/audio/1',lesson.lines,1,false);const raw=wx.audio[0];raw.emit('canplay');raw.emit('time',7);raw.emit('canplay');assert.equal(raw.paused,true);assert.equal(states.at(-1).playing,false)});
+test('native page initially exposes all difficulty choices and avatar labels',()=>{
+ const s=setup(),view=page('lesson',s);view.onLoad({id:'2'});
+ assert.deepEqual(Object.keys(view.data.difficulties||{}),['easy','medium','hard']);
+ assert.equal(view.data.avatars.rabbit,'🐰');
+});
+test('returning after role creation completed while hidden permits another creation',async()=>{
+ const s=setup();await signed(s);const view=page('players',s);view.onLoad({});
+ let loading=view.onShow();await tick();respond(s.wx.requests.shift(),[player]);await loading;
+ const creating=view.controller.create('新朋友','fox');await tick();const req=s.wx.requests.shift();view.onHide();
+ const created={...player,id:'p2',name:'新朋友',avatar:'fox'};respond(req,created);await creating;
+ loading=view.onShow();await tick();respond(s.wx.requests.shift(),[player,created]);await loading;
+ assert.equal(view.data.busy,false);assert.equal(view.data.players.length,2);
+ const next=view.controller.create('另一位','cat');await tick();assert.equal(s.wx.requests.length,1);
+ respond(s.wx.requests.shift(),{...player,id:'p3',name:'另一位',avatar:'cat'});await next;
+ assert.equal(view.data.players.length,3);
+});

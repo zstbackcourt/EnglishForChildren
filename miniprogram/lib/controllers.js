@@ -38,7 +38,7 @@ class MapController extends Controller {
 }
 class PlayersController extends Controller {
   constructor(...args) { super(...args); this.set({players: [], busy: false}); }
-  async load() { const g = this.begin(); try { await this.family(g); if (this.live(g)) this.set({loading: false}); } catch (e) { this.fail(g,e); } }
+  async load() { const g = this.begin(); this.set({busy: false}); try { await this.family(g); if (this.live(g)) this.set({loading: false}); } catch (e) { this.fail(g,e); } }
   select(id) {
     const player = this.data.players.find(p => p.id === id);
     if (!this.active || !player) return;
