@@ -5,16 +5,43 @@ import (
 	"database/sql"
 	"encoding/json"
 	"errors"
+	"fmt"
 	"github.com/DATA-DOG/go-sqlmock"
 	"github.com/go-sql-driver/mysql"
+	"net"
 	"net/http"
 	"net/http/httptest"
 	"os"
 	"strings"
 	"sync"
+	"syscall"
 	"testing"
 	"time"
 )
+
+func TestMySQLStartupDiagnosticsNeverExposeConnectionValues(t *testing.T) {
+	for _, tc := range []struct {
+		name  string
+		cause error
+		want  string
+	}{
+		{"authentication", &mysql.MySQLError{Number: 1045, Message: "private-password private-host"}, "server error 1045 (authentication_denied)"},
+		{"database", &mysql.MySQLError{Number: 1049, Message: "private-database"}, "server error 1049 (database_missing)"},
+		{"permission", &mysql.MySQLError{Number: 1142, Message: "private-user private-table"}, "server error 1142 (permission_denied)"},
+		{"unknown server code", &mysql.MySQLError{Number: 9999, Message: "private-secret"}, "server error 9999 (server_error)"},
+		{"refused", &net.OpError{Op: "dial", Net: "tcp", Err: syscall.ECONNREFUSED}, "connection_refused"},
+		{"dns", &net.DNSError{Name: "private-host", Err: "private-error"}, "dns_resolution_failed"},
+		{"timeout", context.DeadlineExceeded, "connection_timeout"},
+		{"unknown", errors.New("private-dsn"), "unclassified_error"},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			err := mysqlInitializationError("create_table", fmt.Errorf("private-wrapper: %w", tc.cause))
+			if !strings.Contains(err.Error(), "MySQL initialization failed at create_table") || !strings.Contains(err.Error(), tc.want) || strings.Contains(err.Error(), "private") {
+				t.Fatal(err)
+			}
+		})
+	}
+}
 
 type memoryAccounts struct {
 	mu   sync.Mutex

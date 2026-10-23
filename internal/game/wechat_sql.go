@@ -6,7 +6,10 @@ import (
 	"database/sql"
 	"encoding/json"
 	"errors"
+	"fmt"
+	"net"
 	"net/http"
+	"syscall"
 	"time"
 
 	"github.com/go-sql-driver/mysql"
@@ -23,6 +26,43 @@ type MySQLAccountBackend interface {
 }
 
 type MySQLAccounts struct{ db *sql.DB }
+
+// Log only stable categories/codes: driver messages may contain credentials,
+// account names, database names or internal network addresses.
+func mysqlInitializationError(stage string, cause error) error {
+	category := "unclassified_error"
+	var server *mysql.MySQLError
+	if errors.As(cause, &server) {
+		category = "server_error"
+		switch server.Number {
+		case 1045, 1698:
+			category = "authentication_denied"
+		case 1049:
+			category = "database_missing"
+		case 1044, 1142, 1143, 1227:
+			category = "permission_denied"
+		case 1040, 1203:
+			category = "connection_limit"
+		}
+		return fmt.Errorf("MySQL initialization failed at %s: server error %d (%s)", stage, server.Number, category)
+	}
+	var dns *net.DNSError
+	var network net.Error
+	switch {
+	case errors.Is(cause, context.DeadlineExceeded):
+		category = "connection_timeout"
+	case errors.Is(cause, syscall.ECONNREFUSED):
+		category = "connection_refused"
+	case errors.As(cause, &dns):
+		category = "dns_resolution_failed"
+	case errors.As(cause, &network):
+		category = "network_error"
+		if network.Timeout() {
+			category = "connection_timeout"
+		}
+	}
+	return fmt.Errorf("MySQL initialization failed at %s: %s", stage, category)
+}
 
 // OpenMySQLAccounts creates only this application's table in an existing database.
 func OpenMySQLAccounts(ctx context.Context, address, user, password, database string) (*MySQLAccounts, error) {
@@ -43,7 +83,7 @@ func OpenMySQLAccounts(ctx context.Context, address, user, password, database st
 	cfg.WriteTimeout = 10 * time.Second
 	db, err := sql.Open("mysql", cfg.FormatDSN())
 	if err != nil {
-		return nil, errors.New("MySQL initialization failed")
+		return nil, mysqlInitializationError("configure_driver", err)
 	}
 	db.SetMaxOpenConns(10)
 	db.SetMaxIdleConns(5)
@@ -52,7 +92,7 @@ func OpenMySQLAccounts(ctx context.Context, address, user, password, database st
 	defer cancel()
 	if _, err = db.ExecContext(ctx, `CREATE TABLE IF NOT EXISTS english_wechat_accounts (account_id CHAR(64) CHARACTER SET ascii COLLATE ascii_bin PRIMARY KEY, state MEDIUMBLOB NOT NULL) ENGINE=InnoDB`); err != nil {
 		db.Close()
-		return nil, errors.New("MySQL initialization failed")
+		return nil, mysqlInitializationError("create_table", err)
 	}
 	return &MySQLAccounts{db: db}, nil
 }
