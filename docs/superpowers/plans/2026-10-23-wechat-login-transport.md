@@ -27,3 +27,8 @@ bf2f1ec上线后，官方模拟器以新wx.login调用，版本标记ab1884f3391
 验证新增两层：独立Go子进程验证额外CA目录（对照组失败、信任正确证书后成功、错误hostname仍拒绝）；生产Docker+MySQL在隔离网络中访问HTTPS模拟微信，验证不信任CA时失败、读取平台目录后真实登录链路可用。仅使用临时证书和假凭证。CI镜像验证通过后继续真实云服务验收。
 
 依据：[Go SystemCertPool](https://pkg.go.dev/crypto/x509#SystemCertPool)、[Linux根证书路径](https://go.dev/src/crypto/x509/root_linux.go)、[微信官方Go镜像](https://github.com/WeixinCloud/wxcloudrun-golang/blob/main/Dockerfile)。
+
+
+## 云端结果
+
+fc796944：CI生产镜像CA正反对照通过；新云端标记匹配后真实微信登录200。三难度奖励、重复结算、新会话存档和原生页面通过。用户确认0.1.2026102320设为体验版；真机随后发现末句end=0被当作立即停止，连续播放修复跟踪见docs/wechat-changes.md第18节。完整手机验收尚未通过。

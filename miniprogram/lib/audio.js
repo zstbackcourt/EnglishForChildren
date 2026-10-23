@@ -52,7 +52,9 @@ class AudioPlayer {
     context.onTimeUpdate(() => {
       if (!active() || !ready || stopped) return;
       const time = context.currentTime;
-      if (time >= (continuous ? lines[lines.length - 1].end : lines[index].end)) { finish(); return; }
+      const boundary = continuous ? lines[lines.length - 1] : lines[index];
+      // A final end of zero means play to the native end of the audio file.
+      if (Number.isFinite(boundary.end) && boundary.end > boundary.start && time >= boundary.end) { finish(); return; }
       if (continuous) {
         let next = index;
         for (let i = index; i < lines.length; i++) { if (time >= lines[i].start) next = i; }
