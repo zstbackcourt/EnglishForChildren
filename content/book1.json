@@ -72,7 +72,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/001&002－Excuse Me.mp3",
       "audioUrl": "/media/audio/1",
       "pageImage": "/assets/pages/page-007.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-002.png",
       "lines": [
         {
           "start": 15.11,
@@ -134,7 +134,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/003&004－Sorry, Sir..mp3",
       "audioUrl": "/media/audio/3",
       "pageImage": "/assets/pages/page-009.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-003.png",
       "lines": [
         {
           "start": 17.56,
@@ -219,7 +219,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/003&004－Sorry, Sir..mp3",
       "audioUrl": "/media/audio/3",
       "pageImage": "/assets/pages/page-011.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-004.png",
       "lines": [
         {
           "start": 17.56,
@@ -304,7 +304,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/005&006－Nice to Meet You..mp3",
       "audioUrl": "/media/audio/5",
       "pageImage": "/assets/pages/page-013.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-005.png",
       "lines": [
         {
           "start": 14.23,
@@ -437,7 +437,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/005&006－Nice to Meet You..mp3",
       "audioUrl": "/media/audio/5",
       "pageImage": "/assets/pages/page-015.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-006.png",
       "lines": [
         {
           "start": 14.23,
@@ -570,7 +570,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/007&008－Are You a Teacher.mp3",
       "audioUrl": "/media/audio/7",
       "pageImage": "/assets/pages/page-017.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-007.png",
       "lines": [
         {
           "start": 15.24,
@@ -679,7 +679,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/007&008－Are You a Teacher.mp3",
       "audioUrl": "/media/audio/7",
       "pageImage": "/assets/pages/page-019.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-008.png",
       "lines": [
         {
           "start": 15.24,
@@ -788,7 +788,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/009&010－How Are You Today.mp3",
       "audioUrl": "/media/audio/9",
       "pageImage": "/assets/pages/page-021.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-009.png",
       "lines": [
         {
           "start": 15.17,
@@ -885,7 +885,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/009&010－How Are You Today.mp3",
       "audioUrl": "/media/audio/9",
       "pageImage": "/assets/pages/page-023.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-010.png",
       "lines": [
         {
           "start": 15.17,
@@ -982,7 +982,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/011&012－Is This Your Shirt.mp3",
       "audioUrl": "/media/audio/11",
       "pageImage": "/assets/pages/page-025.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-011.png",
       "lines": [
         {
           "start": 17.18,
@@ -1091,7 +1091,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/011&012－Is This Your Shirt.mp3",
       "audioUrl": "/media/audio/11",
       "pageImage": "/assets/pages/page-027.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-012.png",
       "lines": [
         {
           "start": 17.18,
@@ -1200,7 +1200,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/013&014－A New Dress.mp3",
       "audioUrl": "/media/audio/13",
       "pageImage": "/assets/pages/page-029.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-013.png",
       "lines": [
         {
           "start": 16.67,
@@ -1291,7 +1291,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/013&014－A New Dress.mp3",
       "audioUrl": "/media/audio/13",
       "pageImage": "/assets/pages/page-031.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-014.png",
       "lines": [
         {
           "start": 16.67,
@@ -1382,7 +1382,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/015&016－Your Passports, Please..mp3",
       "audioUrl": "/media/audio/15",
       "pageImage": "/assets/pages/page-033.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-015.png",
       "lines": [
         {
           "start": 18.83,
@@ -1503,7 +1503,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/015&016－Your Passports, Please..mp3",
       "audioUrl": "/media/audio/15",
       "pageImage": "/assets/pages/page-035.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-016.png",
       "lines": [
         {
           "start": 18.83,
@@ -1624,7 +1624,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/017&018－How do you do.mp3",
       "audioUrl": "/media/audio/17",
       "pageImage": "/assets/pages/page-037.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-017.png",
       "lines": [
         {
           "start": 19.59,
@@ -1745,7 +1745,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/017&018－How do you do.mp3",
       "audioUrl": "/media/audio/17",
       "pageImage": "/assets/pages/page-039.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-018.png",
       "lines": [
         {
           "start": 19.59,
@@ -1866,7 +1866,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/019&020－Tired and Thirsty.mp3",
       "audioUrl": "/media/audio/19",
       "pageImage": "/assets/pages/page-041.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-019.png",
       "lines": [
         {
           "start": 17.95,
@@ -1963,7 +1963,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/019&020－Tired and Thirsty.mp3",
       "audioUrl": "/media/audio/19",
       "pageImage": "/assets/pages/page-043.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-020.png",
       "lines": [
         {
           "start": 17.95,
@@ -2060,7 +2060,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/021&022－Which Book.mp3",
       "audioUrl": "/media/audio/21",
       "pageImage": "/assets/pages/page-045.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-021.png",
       "lines": [
         {
           "start": 16.7,
@@ -2121,7 +2121,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/021&022－Which Book.mp3",
       "audioUrl": "/media/audio/21",
       "pageImage": "/assets/pages/page-047.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-022.png",
       "lines": [
         {
           "start": 16.7,
@@ -2182,7 +2182,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/023&024－Which Glasses.mp3",
       "audioUrl": "/media/audio/23",
       "pageImage": "/assets/pages/page-049.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-023.png",
       "lines": [
         {
           "start": 17.14,
@@ -2249,7 +2249,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/023&024－Which Glasses.mp3",
       "audioUrl": "/media/audio/23",
       "pageImage": "/assets/pages/page-051.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-024.png",
       "lines": [
         {
           "start": 17.14,
@@ -2316,7 +2316,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/025&026－Mrs. Smith's Kitchen.mp3",
       "audioUrl": "/media/audio/25",
       "pageImage": "/assets/pages/page-053.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-025.png",
       "lines": [
         {
           "start": 18.31,
@@ -2401,7 +2401,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/025&026－Mrs. Smith's Kitchen.mp3",
       "audioUrl": "/media/audio/25",
       "pageImage": "/assets/pages/page-055.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-026.png",
       "lines": [
         {
           "start": 18.31,
@@ -2486,7 +2486,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/027&028－Mrs. Smith's Living Room.mp3",
       "audioUrl": "/media/audio/27",
       "pageImage": "/assets/pages/page-057.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-027.png",
       "lines": [
         {
           "start": 16.76,
@@ -2577,7 +2577,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/027&028－Mrs. Smith's Living Room.mp3",
       "audioUrl": "/media/audio/27",
       "pageImage": "/assets/pages/page-059.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-028.png",
       "lines": [
         {
           "start": 16.76,
@@ -2668,7 +2668,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/029&030－Come In, Amy..mp3",
       "audioUrl": "/media/audio/29",
       "pageImage": "/assets/pages/page-061.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-029.png",
       "lines": [
         {
           "start": 17.3,
@@ -2735,7 +2735,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/029&030－Come In, Amy..mp3",
       "audioUrl": "/media/audio/29",
       "pageImage": "/assets/pages/page-063.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-030.png",
       "lines": [
         {
           "start": 17.3,
@@ -2802,7 +2802,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/031&032－Where's Sally.mp3",
       "audioUrl": "/media/audio/31",
       "pageImage": "/assets/pages/page-065.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-031.png",
       "lines": [
         {
           "start": 15.84,
@@ -2899,7 +2899,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/031&032－Where's Sally.mp3",
       "audioUrl": "/media/audio/31",
       "pageImage": "/assets/pages/page-067.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-032.png",
       "lines": [
         {
           "start": 15.84,
@@ -2996,7 +2996,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/033&034－A Fine Day.mp3",
       "audioUrl": "/media/audio/33",
       "pageImage": "/assets/pages/page-069.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-033.png",
       "lines": [
         {
           "start": 16.26,
@@ -3075,7 +3075,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/033&034－A Fine Day.mp3",
       "audioUrl": "/media/audio/33",
       "pageImage": "/assets/pages/page-071.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-034.png",
       "lines": [
         {
           "start": 16.26,
@@ -3154,7 +3154,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/035&036－Our Village.mp3",
       "audioUrl": "/media/audio/35",
       "pageImage": "/assets/pages/page-073.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-035.png",
       "lines": [
         {
           "start": 18.97,
@@ -3257,7 +3257,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/035&036－Our Village.mp3",
       "audioUrl": "/media/audio/35",
       "pageImage": "/assets/pages/page-075.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-036.png",
       "lines": [
         {
           "start": 18.97,
@@ -3360,7 +3360,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/037&038－Making a Bookcase.mp3",
       "audioUrl": "/media/audio/37",
       "pageImage": "/assets/pages/page-077.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-037.png",
       "lines": [
         {
           "start": 17.45,
@@ -3481,7 +3481,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/037&038－Making a Bookcase.mp3",
       "audioUrl": "/media/audio/37",
       "pageImage": "/assets/pages/page-079.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-038.png",
       "lines": [
         {
           "start": 17.45,
@@ -3602,7 +3602,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/039&040－Don't Drop It.mp3",
       "audioUrl": "/media/audio/39",
       "pageImage": "/assets/pages/page-081.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-039.png",
       "lines": [
         {
           "start": 18.55,
@@ -3687,7 +3687,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/039&040－Don't Drop It.mp3",
       "audioUrl": "/media/audio/39",
       "pageImage": "/assets/pages/page-083.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-040.png",
       "lines": [
         {
           "start": 18.55,
@@ -3772,7 +3772,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/041&042－Penny's Bag.mp3",
       "audioUrl": "/media/audio/41",
       "pageImage": "/assets/pages/page-085.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-041.png",
       "lines": [
         {
           "start": 17.89,
@@ -3881,7 +3881,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/041&042－Penny's Bag.mp3",
       "audioUrl": "/media/audio/41",
       "pageImage": "/assets/pages/page-087.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-042.png",
       "lines": [
         {
           "start": 17.89,
@@ -3990,7 +3990,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/043&044－Hurry Up.mp3",
       "audioUrl": "/media/audio/43",
       "pageImage": "/assets/pages/page-089.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-043.png",
       "lines": [
         {
           "start": 18.21,
@@ -4105,7 +4105,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/043&044－Hurry Up.mp3",
       "audioUrl": "/media/audio/43",
       "pageImage": "/assets/pages/page-091.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-044.png",
       "lines": [
         {
           "start": 18.21,
@@ -4220,7 +4220,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/045&046－The Boss's Letter.mp3",
       "audioUrl": "/media/audio/45",
       "pageImage": "/assets/pages/page-093.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-045.png",
       "lines": [
         {
           "start": 17.66,
@@ -4341,7 +4341,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/045&046－The Boss's Letter.mp3",
       "audioUrl": "/media/audio/45",
       "pageImage": "/assets/pages/page-095.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-046.png",
       "lines": [
         {
           "start": 17.66,
@@ -4462,7 +4462,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/047&048－A Cup of Coffee.mp3",
       "audioUrl": "/media/audio/47",
       "pageImage": "/assets/pages/page-097.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-047.png",
       "lines": [
         {
           "start": 17.15,
@@ -4559,7 +4559,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/047&048－A Cup of Coffee.mp3",
       "audioUrl": "/media/audio/47",
       "pageImage": "/assets/pages/page-099.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-048.png",
       "lines": [
         {
           "start": 17.15,
@@ -4656,7 +4656,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/049&050－At the Butcher's.mp3",
       "audioUrl": "/media/audio/49",
       "pageImage": "/assets/pages/page-101.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-049.png",
       "lines": [
         {
           "start": 15.71,
@@ -4771,7 +4771,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/049&050－At the Butcher's.mp3",
       "audioUrl": "/media/audio/49",
       "pageImage": "/assets/pages/page-103.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-050.png",
       "lines": [
         {
           "start": 15.71,
@@ -4886,7 +4886,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/051&052－A Pleasant Climate.mp3",
       "audioUrl": "/media/audio/51",
       "pageImage": "/assets/pages/page-105.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-051.png",
       "lines": [
         {
           "start": 17.01,
@@ -4995,7 +4995,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/051&052－A Pleasant Climate.mp3",
       "audioUrl": "/media/audio/51",
       "pageImage": "/assets/pages/page-107.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-052.png",
       "lines": [
         {
           "start": 17.01,
@@ -5104,7 +5104,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/053&054－An Interesting Climate.mp3",
       "audioUrl": "/media/audio/53",
       "pageImage": "/assets/pages/page-109.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-053.png",
       "lines": [
         {
           "start": 21.65,
@@ -5207,7 +5207,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/053&054－An Interesting Climate.mp3",
       "audioUrl": "/media/audio/53",
       "pageImage": "/assets/pages/page-111.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-054.png",
       "lines": [
         {
           "start": 21.65,
@@ -5310,7 +5310,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/055&056－The Sawyer Family.mp3",
       "audioUrl": "/media/audio/55",
       "pageImage": "/assets/pages/page-113.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-055.png",
       "lines": [
         {
           "start": 16.81,
@@ -5413,7 +5413,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/055&056－The Sawyer Family.mp3",
       "audioUrl": "/media/audio/55",
       "pageImage": "/assets/pages/page-115.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-056.png",
       "lines": [
         {
           "start": 16.81,
@@ -5516,7 +5516,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/057&058－An Unusual Day.mp3",
       "audioUrl": "/media/audio/57",
       "pageImage": "/assets/pages/page-117.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-057.png",
       "lines": [
         {
           "start": 17.62,
@@ -5631,7 +5631,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/057&058－An Unusual Day.mp3",
       "audioUrl": "/media/audio/57",
       "pageImage": "/assets/pages/page-119.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-058.png",
       "lines": [
         {
           "start": 17.62,
@@ -5746,7 +5746,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/059&060－Is That All.mp3",
       "audioUrl": "/media/audio/59",
       "pageImage": "/assets/pages/page-121.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-059.png",
       "lines": [
         {
           "start": 16.33,
@@ -5873,7 +5873,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/059&060－Is That All.mp3",
       "audioUrl": "/media/audio/59",
       "pageImage": "/assets/pages/page-123.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-060.png",
       "lines": [
         {
           "start": 16.33,
@@ -6000,7 +6000,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/061&062－A Bad Cold.mp3",
       "audioUrl": "/media/audio/61",
       "pageImage": "/assets/pages/page-125.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-061.png",
       "lines": [
         {
           "start": 16.55,
@@ -6109,7 +6109,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/061&062－A Bad Cold.mp3",
       "audioUrl": "/media/audio/61",
       "pageImage": "/assets/pages/page-127.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-062.png",
       "lines": [
         {
           "start": 16.55,
@@ -6218,7 +6218,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/063&064－Thank You, Doctor..mp3",
       "audioUrl": "/media/audio/63",
       "pageImage": "/assets/pages/page-129.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-063.png",
       "lines": [
         {
           "start": 19.22,
@@ -6351,7 +6351,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/063&064－Thank You, Doctor..mp3",
       "audioUrl": "/media/audio/63",
       "pageImage": "/assets/pages/page-131.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-064.png",
       "lines": [
         {
           "start": 19.22,
@@ -6484,7 +6484,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/065&066－Not a Baby.mp3",
       "audioUrl": "/media/audio/65",
       "pageImage": "/assets/pages/page-133.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-065.png",
       "lines": [
         {
           "start": 17.67,
@@ -6629,7 +6629,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/065&066－Not a Baby.mp3",
       "audioUrl": "/media/audio/65",
       "pageImage": "/assets/pages/page-135.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-066.png",
       "lines": [
         {
           "start": 17.67,
@@ -6774,7 +6774,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/067&068－The Weekend.mp3",
       "audioUrl": "/media/audio/67",
       "pageImage": "/assets/pages/page-137.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-067.png",
       "lines": [
         {
           "start": 17.79,
@@ -6883,7 +6883,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/067&068－The Weekend.mp3",
       "audioUrl": "/media/audio/67",
       "pageImage": "/assets/pages/page-139.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-068.png",
       "lines": [
         {
           "start": 17.79,
@@ -6992,7 +6992,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/069&070－The Car Race.mp3",
       "audioUrl": "/media/audio/69",
       "pageImage": "/assets/pages/page-141.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-069.png",
       "lines": [
         {
           "start": 19.15,
@@ -7095,7 +7095,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/069&070－The Car Race.mp3",
       "audioUrl": "/media/audio/69",
       "pageImage": "/assets/pages/page-143.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-070.png",
       "lines": [
         {
           "start": 19.15,
@@ -7198,7 +7198,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/071&072－He's Awful.mp3",
       "audioUrl": "/media/audio/71",
       "pageImage": "/assets/pages/page-145.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-071.png",
       "lines": [
         {
           "start": 19.64,
@@ -7325,7 +7325,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/071&072－He's Awful.mp3",
       "audioUrl": "/media/audio/71",
       "pageImage": "/assets/pages/page-147.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-072.png",
       "lines": [
         {
           "start": 19.64,
@@ -7452,7 +7452,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/073&074－The Way to King Street.mp3",
       "audioUrl": "/media/audio/73",
       "pageImage": "/assets/pages/page-153.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-073.png",
       "lines": [
         {
           "start": 18.73,
@@ -7555,7 +7555,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/073&074－The Way to King Street.mp3",
       "audioUrl": "/media/audio/73",
       "pageImage": "/assets/pages/page-155.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-074.png",
       "lines": [
         {
           "start": 18.73,
@@ -7658,7 +7658,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/075&076－Uncomfortable Shoes.mp3",
       "audioUrl": "/media/audio/75",
       "pageImage": "/assets/pages/page-157.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-075.png",
       "lines": [
         {
           "start": 18.01,
@@ -7785,7 +7785,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/075&076－Uncomfortable Shoes.mp3",
       "audioUrl": "/media/audio/75",
       "pageImage": "/assets/pages/page-159.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-076.png",
       "lines": [
         {
           "start": 18.01,
@@ -7912,7 +7912,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/077&078－Terrible Toothache.mp3",
       "audioUrl": "/media/audio/77",
       "pageImage": "/assets/pages/page-161.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-077.png",
       "lines": [
         {
           "start": 21.17,
@@ -8039,7 +8039,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/077&078－Terrible Toothache.mp3",
       "audioUrl": "/media/audio/77",
       "pageImage": "/assets/pages/page-163.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-078.png",
       "lines": [
         {
           "start": 21.17,
@@ -8166,7 +8166,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/079&080－Carol's Shopping List.mp3",
       "audioUrl": "/media/audio/79",
       "pageImage": "/assets/pages/page-165.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-079.png",
       "lines": [
         {
           "start": 17.91,
@@ -8287,7 +8287,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/079&080－Carol's Shopping List.mp3",
       "audioUrl": "/media/audio/79",
       "pageImage": "/assets/pages/page-167.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-080.png",
       "lines": [
         {
           "start": 17.91,
@@ -8408,7 +8408,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/081&082－Roast Beef and Potatoes.mp3",
       "audioUrl": "/media/audio/81",
       "pageImage": "/assets/pages/page-169.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-081.png",
       "lines": [
         {
           "start": 17.01,
@@ -8559,7 +8559,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/081&082－Roast Beef and Potatoes.mp3",
       "audioUrl": "/media/audio/81",
       "pageImage": "/assets/pages/page-171.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-082.png",
       "lines": [
         {
           "start": 17.01,
@@ -8710,7 +8710,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/083&084－Going on Holiday.mp3",
       "audioUrl": "/media/audio/83",
       "pageImage": "/assets/pages/page-173.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-083.png",
       "lines": [
         {
           "start": 19.0,
@@ -8867,7 +8867,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/083&084－Going on Holiday.mp3",
       "audioUrl": "/media/audio/83",
       "pageImage": "/assets/pages/page-175.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-084.png",
       "lines": [
         {
           "start": 19.0,
@@ -9024,7 +9024,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/085&086－Paris in the Spring..mp3",
       "audioUrl": "/media/audio/85",
       "pageImage": "/assets/pages/page-177.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-085.png",
       "lines": [
         {
           "start": 18.63,
@@ -9145,7 +9145,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/085&086－Paris in the Spring..mp3",
       "audioUrl": "/media/audio/85",
       "pageImage": "/assets/pages/page-179.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-086.png",
       "lines": [
         {
           "start": 18.63,
@@ -9266,7 +9266,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/087&088－A Car Crash.mp3",
       "audioUrl": "/media/audio/87",
       "pageImage": "/assets/pages/page-181.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-087.png",
       "lines": [
         {
           "start": 17.39,
@@ -9387,7 +9387,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/087&088－A Car Crash.mp3",
       "audioUrl": "/media/audio/87",
       "pageImage": "/assets/pages/page-183.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-088.png",
       "lines": [
         {
           "start": 17.39,
@@ -9508,7 +9508,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/089&090－For Sale.mp3",
       "audioUrl": "/media/audio/89",
       "pageImage": "/assets/pages/page-185.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-089.png",
       "lines": [
         {
           "start": 16.25,
@@ -9647,7 +9647,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/089&090－For Sale.mp3",
       "audioUrl": "/media/audio/89",
       "pageImage": "/assets/pages/page-187.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-090.png",
       "lines": [
         {
           "start": 16.25,
@@ -9786,7 +9786,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/091&092－Poor Ian.mp3",
       "audioUrl": "/media/audio/91",
       "pageImage": "/assets/pages/page-189.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-091.png",
       "lines": [
         {
           "start": 17.55,
@@ -9919,7 +9919,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/091&092－Poor Ian.mp3",
       "audioUrl": "/media/audio/91",
       "pageImage": "/assets/pages/page-191.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-092.png",
       "lines": [
         {
           "start": 17.55,
@@ -10052,7 +10052,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/093&094－Our New Neighbour.mp3",
       "audioUrl": "/media/audio/93",
       "pageImage": "/assets/pages/page-193.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-093.png",
       "lines": [
         {
           "start": 17.19,
@@ -10143,7 +10143,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/093&094－Our New Neighbour.mp3",
       "audioUrl": "/media/audio/93",
       "pageImage": "/assets/pages/page-195.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-094.png",
       "lines": [
         {
           "start": 17.19,
@@ -10234,7 +10234,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/095&096－Tickets, Please..mp3",
       "audioUrl": "/media/audio/95",
       "pageImage": "/assets/pages/page-197.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-095.png",
       "lines": [
         {
           "start": 19.39,
@@ -10379,7 +10379,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/095&096－Tickets, Please..mp3",
       "audioUrl": "/media/audio/95",
       "pageImage": "/assets/pages/page-199.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-096.png",
       "lines": [
         {
           "start": 19.39,
@@ -10524,7 +10524,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/097&098－A Small Blue Case.mp3",
       "audioUrl": "/media/audio/97",
       "pageImage": "/assets/pages/page-201.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-097.png",
       "lines": [
         {
           "start": 18.4,
@@ -10657,7 +10657,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/097&098－A Small Blue Case.mp3",
       "audioUrl": "/media/audio/97",
       "pageImage": "/assets/pages/page-203.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-098.png",
       "lines": [
         {
           "start": 18.4,
@@ -10790,7 +10790,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/099&100－Ow.mp3",
       "audioUrl": "/media/audio/99",
       "pageImage": "/assets/pages/page-205.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-099.png",
       "lines": [
         {
           "start": 15.56,
@@ -10899,7 +10899,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/099&100－Ow.mp3",
       "audioUrl": "/media/audio/99",
       "pageImage": "/assets/pages/page-207.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-100.png",
       "lines": [
         {
           "start": 15.56,
@@ -11008,7 +11008,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/101&102－A Card From Jimmy.mp3",
       "audioUrl": "/media/audio/101",
       "pageImage": "/assets/pages/page-209.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-101.png",
       "lines": [
         {
           "start": 23.61,
@@ -11141,7 +11141,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/101&102－A Card From Jimmy.mp3",
       "audioUrl": "/media/audio/101",
       "pageImage": "/assets/pages/page-211.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-102.png",
       "lines": [
         {
           "start": 23.61,
@@ -11274,7 +11274,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/103&104－The French Test.mp3",
       "audioUrl": "/media/audio/103",
       "pageImage": "/assets/pages/page-213.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-103.png",
       "lines": [
         {
           "start": 17.91,
@@ -11413,7 +11413,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/103&104－The French Test.mp3",
       "audioUrl": "/media/audio/103",
       "pageImage": "/assets/pages/page-215.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-104.png",
       "lines": [
         {
           "start": 17.91,
@@ -11552,7 +11552,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/105&106－Full of Mistakes.mp3",
       "audioUrl": "/media/audio/105",
       "pageImage": "/assets/pages/page-217.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-105.png",
       "lines": [
         {
           "start": 18.33,
@@ -11691,7 +11691,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/105&106－Full of Mistakes.mp3",
       "audioUrl": "/media/audio/105",
       "pageImage": "/assets/pages/page-219.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-106.png",
       "lines": [
         {
           "start": 18.33,
@@ -11830,7 +11830,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/107&108－It's Too Small..mp3",
       "audioUrl": "/media/audio/107",
       "pageImage": "/assets/pages/page-221.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-107.png",
       "lines": [
         {
           "start": 19.27,
@@ -11951,7 +11951,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/107&108－It's Too Small..mp3",
       "audioUrl": "/media/audio/107",
       "pageImage": "/assets/pages/page-223.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-108.png",
       "lines": [
         {
           "start": 19.27,
@@ -12072,7 +12072,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/109&110－A Good Idea.mp3",
       "audioUrl": "/media/audio/109",
       "pageImage": "/assets/pages/page-225.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-109.png",
       "lines": [
         {
           "start": 16.97,
@@ -12223,7 +12223,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/109&110－A Good Idea.mp3",
       "audioUrl": "/media/audio/109",
       "pageImage": "/assets/pages/page-227.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-110.png",
       "lines": [
         {
           "start": 16.97,
@@ -12374,7 +12374,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/111&112－The Most Expensive Model.mp3",
       "audioUrl": "/media/audio/111",
       "pageImage": "/assets/pages/page-229.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-111.png",
       "lines": [
         {
           "start": 23.63,
@@ -12507,7 +12507,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/111&112－The Most Expensive Model.mp3",
       "audioUrl": "/media/audio/111",
       "pageImage": "/assets/pages/page-231.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-112.png",
       "lines": [
         {
           "start": 23.63,
@@ -12640,7 +12640,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/113&114－Small Change.mp3",
       "audioUrl": "/media/audio/113",
       "pageImage": "/assets/pages/page-233.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-113.png",
       "lines": [
         {
           "start": 17.39,
@@ -12785,7 +12785,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/113&114－Small Change.mp3",
       "audioUrl": "/media/audio/113",
       "pageImage": "/assets/pages/page-235.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-114.png",
       "lines": [
         {
           "start": 17.39,
@@ -12930,7 +12930,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/115&116－Knock, Knock.mp3",
       "audioUrl": "/media/audio/115",
       "pageImage": "/assets/pages/page-237.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-115.png",
       "lines": [
         {
           "start": 18.07,
@@ -13087,7 +13087,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/115&116－Knock, Knock.mp3",
       "audioUrl": "/media/audio/115",
       "pageImage": "/assets/pages/page-239.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-116.png",
       "lines": [
         {
           "start": 18.07,
@@ -13244,7 +13244,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/117&118－Tommy's Breakfast.mp3",
       "audioUrl": "/media/audio/117",
       "pageImage": "/assets/pages/page-241.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-117.png",
       "lines": [
         {
           "start": 21.27,
@@ -13341,7 +13341,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/117&118－Tommy's Breakfast.mp3",
       "audioUrl": "/media/audio/117",
       "pageImage": "/assets/pages/page-243.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-118.png",
       "lines": [
         {
           "start": 21.27,
@@ -13438,7 +13438,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/119&120－A True Story.mp3",
       "audioUrl": "/media/audio/119",
       "pageImage": "/assets/pages/page-245.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-119.png",
       "lines": [
         {
           "start": 18.34,
@@ -13559,7 +13559,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/119&120－A True Story.mp3",
       "audioUrl": "/media/audio/119",
       "pageImage": "/assets/pages/page-247.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-120.png",
       "lines": [
         {
           "start": 18.34,
@@ -13680,7 +13680,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/121&122－The Man in a Hat.mp3",
       "audioUrl": "/media/audio/121",
       "pageImage": "/assets/pages/page-249.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-121.png",
       "lines": [
         {
           "start": 20.48,
@@ -13789,7 +13789,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/121&122－The Man in a Hat.mp3",
       "audioUrl": "/media/audio/121",
       "pageImage": "/assets/pages/page-251.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-122.png",
       "lines": [
         {
           "start": 20.48,
@@ -13898,7 +13898,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/123&124－A Trip to Australia.mp3",
       "audioUrl": "/media/audio/123",
       "pageImage": "/assets/pages/page-253.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-123.png",
       "lines": [
         {
           "start": 17.83,
@@ -14037,7 +14037,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/123&124－A Trip to Australia.mp3",
       "audioUrl": "/media/audio/123",
       "pageImage": "/assets/pages/page-255.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-124.png",
       "lines": [
         {
           "start": 17.83,
@@ -14176,7 +14176,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/125&126－Tea for Two.mp3",
       "audioUrl": "/media/audio/125",
       "pageImage": "/assets/pages/page-257.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-125.png",
       "lines": [
         {
           "start": 16.47,
@@ -14309,7 +14309,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/125&126－Tea for Two.mp3",
       "audioUrl": "/media/audio/125",
       "pageImage": "/assets/pages/page-259.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-126.png",
       "lines": [
         {
           "start": 16.47,
@@ -14442,7 +14442,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/127&128－A Famous Actress.mp3",
       "audioUrl": "/media/audio/127",
       "pageImage": "/assets/pages/page-261.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-127.png",
       "lines": [
         {
           "start": 20.6,
@@ -14581,7 +14581,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/127&128－A Famous Actress.mp3",
       "audioUrl": "/media/audio/127",
       "pageImage": "/assets/pages/page-263.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-128.png",
       "lines": [
         {
           "start": 20.6,
@@ -14720,7 +14720,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/129&130－Seventy Miles an Hour.mp3",
       "audioUrl": "/media/audio/129",
       "pageImage": "/assets/pages/page-265.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-129.png",
       "lines": [
         {
           "start": 19.23,
@@ -14865,7 +14865,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/129&130－Seventy Miles an Hour.mp3",
       "audioUrl": "/media/audio/129",
       "pageImage": "/assets/pages/page-267.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-130.png",
       "lines": [
         {
           "start": 19.23,
@@ -15010,7 +15010,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/131&132－Don't be So Sure.mp3",
       "audioUrl": "/media/audio/131",
       "pageImage": "/assets/pages/page-269.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-131.png",
       "lines": [
         {
           "start": 19.7,
@@ -15137,7 +15137,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/131&132－Don't be So Sure.mp3",
       "audioUrl": "/media/audio/131",
       "pageImage": "/assets/pages/page-271.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-132.png",
       "lines": [
         {
           "start": 19.7,
@@ -15264,7 +15264,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/133&134－Sensational News.mp3",
       "audioUrl": "/media/audio/133",
       "pageImage": "/assets/pages/page-273.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-133.png",
       "lines": [
         {
           "start": 20.87,
@@ -15385,7 +15385,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/133&134－Sensational News.mp3",
       "audioUrl": "/media/audio/133",
       "pageImage": "/assets/pages/page-275.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-134.png",
       "lines": [
         {
           "start": 20.87,
@@ -15506,7 +15506,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/135&136－The Latest Report.mp3",
       "audioUrl": "/media/audio/135",
       "pageImage": "/assets/pages/page-277.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-135.png",
       "lines": [
         {
           "start": 18.83,
@@ -15645,7 +15645,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/135&136－The Latest Report.mp3",
       "audioUrl": "/media/audio/135",
       "pageImage": "/assets/pages/page-279.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-136.png",
       "lines": [
         {
           "start": 18.83,
@@ -15784,7 +15784,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/137&138－A Pleasant Dream.mp3",
       "audioUrl": "/media/audio/137",
       "pageImage": "/assets/pages/page-281.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-137.png",
       "lines": [
         {
           "start": 18.93,
@@ -15893,7 +15893,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/137&138－A Pleasant Dream.mp3",
       "audioUrl": "/media/audio/137",
       "pageImage": "/assets/pages/page-283.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-138.png",
       "lines": [
         {
           "start": 18.93,
@@ -16002,7 +16002,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/139&140－Is That You, John.mp3",
       "audioUrl": "/media/audio/139",
       "pageImage": "/assets/pages/page-285.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-139.png",
       "lines": [
         {
           "start": 20.29,
@@ -16123,7 +16123,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/139&140－Is That You, John.mp3",
       "audioUrl": "/media/audio/139",
       "pageImage": "/assets/pages/page-287.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-140.png",
       "lines": [
         {
           "start": 20.29,
@@ -16244,7 +16244,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/141&142－Sally's First Train Ride.mp3",
       "audioUrl": "/media/audio/141",
       "pageImage": "/assets/pages/page-289.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-141.png",
       "lines": [
         {
           "start": 17.91,
@@ -16347,7 +16347,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/141&142－Sally's First Train Ride.mp3",
       "audioUrl": "/media/audio/141",
       "pageImage": "/assets/pages/page-291.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-142.png",
       "lines": [
         {
           "start": 17.91,
@@ -16450,7 +16450,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/143&144－A Walk Through the Woods.mp3",
       "audioUrl": "/media/audio/143",
       "pageImage": "/assets/pages/page-293.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-143.png",
       "lines": [
         {
           "start": 19.84,
@@ -16529,7 +16529,7 @@
       "audioFile": "New-Concept-English/新概念英语第1册美音（MP3+LRC）/NCE1-美音-(MP3+LRC)/143&144－A Walk Through the Woods.mp3",
       "audioUrl": "/media/audio/143",
       "pageImage": "/assets/pages/page-295.jpg",
-      "scene": "",
+      "scene": "/assets/scenes/lesson-144.png",
       "lines": [
         {
           "start": 19.84,

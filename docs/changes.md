@@ -128,3 +128,11 @@
 - 两个 systemd 服务均为 enabled/active；Go 仅监听回环 8080。安全组表单误选的 23 端口规则已立即撤销并核验最终规则；保留原有 SSH/RDP/ICMP 规则。
 - 分享地址已单独交付给用户；访问密码不写入源码、文档或 Git。当前多人共享同一家庭空间。
 - 文件：deploy/ubuntu/english-adventure.service、english-adventure-proxy.service、Caddyfile.example、docs/deployment.md。
+
+## 016 2026-10-23 全册动漫插图
+
+- 用户要求：所有 Lesson 均按原 PDF 插图改绘，统一第一课的动漫画风。
+- 新增 Lesson 002–144 独立插图、143 份最终生成提示词和全册来源/摘要清单；保留原始教材入口。三张初稿经内容核对后返修。
+- 导入器按逐课资源生成 scene 映射；全册 144 课接入，包含 72 个故事课和 72 个练习课。
+- 页面改为完整展示插图，对话框置于图下，新增放大插画，修正家长指南中的旧说明。
+- 验证与发布记录见 `lesson-art-upgrade.md`。
