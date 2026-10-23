@@ -43,18 +43,39 @@ def make_server(cert, key, address=('0.0.0.0', 443)):
     return server
 
 
-def request_json(base, path, method='GET', payload=None, token=None):
+def request_bytes(request, timeout=10, limit=65537):
+    try:
+        response = build_opener(ProxyHandler({})).open(request, timeout=timeout)
+    except HTTPError as error:
+        response = error
+    with response:
+        return response.status, response.read(limit)
+
+
+def request_json(base, path, method='GET', payload=None, token=None, timeout=10):
     headers = {'Content-Type': 'application/json'}
     if token is not None:
         headers['Authorization'] = 'Bearer ' + token
     request = Request(base + path, data=json.dumps(payload).encode() if payload is not None else None,
                       headers=headers, method=method)
-    try:
-        response = build_opener(ProxyHandler({})).open(request, timeout=10)
-    except HTTPError as error:
-        response = error
-    with response:
-        return response.status, json.loads(response.read(65537))
+    status, body = request_bytes(request, timeout=timeout)
+    return status, json.loads(body)
+
+
+def verify_ready(base, release_id):
+    status, body = request_json(base, '/healthz', timeout=2)
+    if status != 200 or not isinstance(body, dict) or body.get('status') != 'ok' or body.get('releaseId') != release_id:
+        raise RuntimeError('Health and release marker check failed')
+
+
+def verify_checks(base, release_id):
+    verify_ready(base, release_id)
+    status, _ = request_json(base, '/api/players')
+    if status != 401:
+        raise RuntimeError('Anonymous players check failed')
+    status, audio = request_bytes(Request(base + '/media/audio/1', headers={'Range': 'bytes=0-3'}), limit=5)
+    if status != 206 or len(audio) != 4:
+        raise RuntimeError('Partial audio check failed')
 
 
 def verify_session(base, trusted, request=request_json):
@@ -79,11 +100,22 @@ def main():
     session = commands.add_parser('session')
     session.add_argument('base')
     session.add_argument('trust', choices=('trusted', 'untrusted'))
+    for command in ('ready', 'checks'):
+        probe = commands.add_parser(command)
+        probe.add_argument('base')
+        probe.add_argument('release_id')
     args = parser.parse_args()
     try:
         if args.command == 'serve':
             with make_server(args.cert, args.key) as server:
                 server.serve_forever()
+        elif args.command in ('ready', 'checks'):
+            if args.command == 'ready':
+                verify_ready(args.base, args.release_id)
+                print('Production image is ready for this release.')
+            else:
+                verify_checks(args.base, args.release_id)
+                print('Health, release marker, anonymous protection and partial audio passed.')
         else:
             verify_session(args.base, args.trust == 'trusted')
             print('Trusted CA login and authenticated players passed.' if args.trust == 'trusted' else 'Untrusted CA control rejected login without a token.')

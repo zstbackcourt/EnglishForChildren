@@ -5,6 +5,7 @@ umask 077
 image=${1:?Usage: test_wechat_image.sh IMAGE}
 script_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 fixture="$script_dir/fixtures/wechat_https.py"
+release_id=$(cat "$script_dir/../deploy/wechat/release-id.txt")
 suffix="${GITHUB_RUN_ID:-$$}-${GITHUB_RUN_ATTEMPT:-1}"
 network="wechat-ci-$suffix"
 database="wechat-db-$suffix"
@@ -55,31 +56,26 @@ if [[ "$ready" != true ]]; then docker logs "$database"; exit 1; fi
 start_server() {
   local name=$1
   shift
-  docker run -d --name "$name" --network "$network" -p 127.0.0.1::8080 \
+  docker run -d --name "$name" --network "$network" \
     -v "$scratch/ca:/app/cert:ro" \
     -e WECHAT_APP_ID=wx0000000000000000 -e WECHAT_APP_SECRET=ci-test-secret \
     -e WECHAT_SESSION_KEY=ci-only-signing-key-at-least-thirty-two-characters \
     -e MYSQL_ADDRESS="$database:3306" -e MYSQL_USERNAME=english_ci \
     -e MYSQL_PASSWORD=disposable-ci-only -e MYSQL_DATABASE=english_ci "$@" "$image" >/dev/null
-  local port
-  port=$(docker port "$name" 8080/tcp | sed 's/.*://')
-  base="http://127.0.0.1:$port"
+  base="http://$name:8080"
   ready=false
   for ((i=0; i<30; i++)); do
-    if curl --fail --silent --max-time 2 "$base/healthz" -o "$scratch/health.json"; then ready=true; break; fi
+    if docker exec "$mock" python /fixture.py ready "$base" "$release_id" >/dev/null 2>&1; then ready=true; break; fi
     sleep 1
   done
   if [[ "$ready" != true ]]; then docker logs "$name"; exit 1; fi
 }
 # A separate process avoids Go's cached root pool; the same CA is mounted but excluded.
 start_server "$control" -e SSL_CERT_DIR=/etc/ssl/certs
-python3 "$fixture" session "$base" untrusted
+docker exec "$mock" python /fixture.py session "$base" untrusted
 docker rm -f "$control" >/dev/null
 # Do not override SSL_CERT_DIR: this must exercise the production Dockerfile default.
 start_server "$server"
-node -e 'const fs=require("fs"),state=JSON.parse(fs.readFileSync(process.argv[1])); if(state.status!=="ok"||state.releaseId!==fs.readFileSync(process.argv[2],"utf8").trim())process.exit(1)' "$scratch/health.json" deploy/wechat/release-id.txt
-[[ "$(curl --silent --max-time 10 -o /dev/null -w '%{http_code}' "$base/api/players")" == 401 ]]
-python3 "$fixture" session "$base" trusted
-[[ "$(curl --silent --max-time 10 -r 0-3 -o "$scratch/audio" -w '%{http_code}' "$base/media/audio/1")" == 206 ]]
-[[ "$(wc -c < "$scratch/audio" | tr -d ' ')" == 4 ]]
+docker exec "$mock" python /fixture.py checks "$base" "$release_id"
+docker exec "$mock" python /fixture.py session "$base" trusted
 printf 'Production image with MySQL passed health, CA controls, login, authentication and audio Range.\n'

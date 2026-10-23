@@ -1,5 +1,6 @@
 import contextlib
 import http.client
+from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 import importlib.util
 import io
 import json
@@ -71,6 +72,50 @@ class WeChatHTTPSFixtureTests(unittest.TestCase):
                 server.server_close()
                 thread.join(timeout=3)
         self.assertEqual(output.getvalue(), '')
+
+    def test_network_probe_commands_check_health_authentication_and_partial_audio(self):
+        state = {'releaseId': 'test-release', 'players': 401, 'audio': 206, 'bytes': b'ID3x'}
+        ranges = []
+        class Handler(BaseHTTPRequestHandler):
+            def log_message(self, *args):
+                pass
+            def do_GET(self):
+                if self.path == '/healthz':
+                    status, body = 200, json.dumps({'status': 'ok', 'releaseId': state['releaseId']}).encode()
+                elif self.path == '/api/players':
+                    status, body = state['players'], b'{}'
+                elif self.path == '/media/audio/1':
+                    ranges.append(self.headers.get('Range'))
+                    status, body = state['audio'], state['bytes']
+                else:
+                    status, body = 404, b'{}'
+                self.send_response(status)
+                self.send_header('Content-Length', str(len(body)))
+                self.end_headers()
+                self.wfile.write(body)
+        server = ThreadingHTTPServer(('127.0.0.1', 0), Handler)
+        thread = threading.Thread(target=server.serve_forever, daemon=True)
+        thread.start()
+        fixture = Path(__file__).parent / 'fixtures' / 'wechat_https.py'
+        base = 'http://127.0.0.1:' + str(server.server_port)
+        def run(command):
+            return subprocess.run(['python3', str(fixture), command, base, 'test-release'], capture_output=True, text=True, timeout=5)
+        try:
+            for command in ['ready', 'checks']:
+                result = run(command)
+                self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertEqual(ranges, ['bytes=0-3'])
+            for key, bad in [('releaseId', 'old-release'), ('players', 200), ('audio', 200), ('bytes', b'bad'), ('bytes', b'too-long')]:
+                previous = state[key]
+                state[key] = bad
+                result = run('checks')
+                self.assertNotEqual(result.returncode, 0)
+                self.assertEqual(result.stderr, 'WeChat HTTPS fixture check failed.\n')
+                state[key] = previous
+        finally:
+            server.shutdown()
+            server.server_close()
+            thread.join(timeout=3)
 
     def test_session_probe_uses_token_only_for_authenticated_players_request(self):
         calls = []
