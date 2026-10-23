@@ -163,14 +163,20 @@ func (g *wechatGateway) session(w http.ResponseWriter, r *http.Request) {
 		openid, err = g.config.Exchanger.Exchange(r.Context(), body.Code)
 	}
 	if err != nil || openid == "" || len(openid) > 256 {
-		reason := "unavailable"
+		response := map[string]string{"error": "登录已失效，请重新登录", "reason": "unavailable"}
 		var failure *wechatExchangeError
 		if errors.As(err, &failure) {
-			log.Printf("wechat login exchange failed stage=%s errcode=%d", failure.Stage(), failure.ErrCode())
-			reason = failure.reason()
+			response["reason"] = failure.reason()
+			if failure != nil && failure.stage == wechatExchangeTransport {
+				kind := failure.TransportKind()
+				response["diagnostic"] = "transport_" + kind
+				log.Printf("wechat login exchange failed stage=%s errcode=%d transport=%s", failure.Stage(), failure.ErrCode(), kind)
+			} else {
+				log.Printf("wechat login exchange failed stage=%s errcode=%d", failure.Stage(), failure.ErrCode())
+			}
 		}
 		w.Header().Set("WWW-Authenticate", "Bearer")
-		reply(w, http.StatusUnauthorized, map[string]string{"error": "登录已失效，请重新登录", "reason": reason})
+		reply(w, http.StatusUnauthorized, response)
 		return
 	}
 	digest := sha256.Sum256([]byte(openid))

@@ -128,3 +128,10 @@ python3 scripts/package_wechat_cloudrun.py
 在服务版本管理中将流量恢复到上一个已知正常版本；保留数据库表和 `WECHAT_SESSION_KEY`。如果回到原计数器示例，小程序 API 会暂时不可用，但已存的学习数据仍在独立表中。
 
 参考： [微信官方 Go 示例](https://github.com/WeixinCloud/wxcloudrun-golang)、[云托管无状态迁移要求](https://docs.cloudbase.net/run/best-practice/migration)、[默认域名限制](https://docs.cloudbase.net/service/alias)。
+
+
+## 云端登录返回 transport 诊断
+
+`stage=transport errcode=0` 表示请求微信code2Session时未成功得到HTTP响应，不能据此判断AppSecret错误。新版本仅在这类登录失败时返回固定的 `diagnostic: transport_<类别>`，例如 `transport_tls_unknown_authority`、`transport_dns`、`transport_context_timeout`。这些类别由Go错误类型映射，不含上游错误文本、地址或凭证；reason仍为unavailable且不签发登录令牌。
+
+通过官方开发者工具的正常wx.login→云服务登录即可复核此字段。不要打印或上传请求code、响应token或openid；不要为了排查关闭TLS证书校验、改成HTTP或凭猜测更改云端密钥。类别确认后再针对证书信任、DNS或网络出口排查。

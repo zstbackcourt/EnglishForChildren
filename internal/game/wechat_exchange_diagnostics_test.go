@@ -127,10 +127,10 @@ func TestWeChatSessionTransportFailureIsUnavailableWithoutSecrets(t *testing.T) 
 	})}}
 	w := wechatRequest(g, http.MethodPost, "/api/session", "", `{"code":"private-code"}`)
 	var body map[string]string
-	if w.Code != http.StatusUnauthorized || json.Unmarshal(w.Body.Bytes(), &body) != nil || body["reason"] != "unavailable" || len(body) != 2 {
+	if w.Code != http.StatusUnauthorized || json.Unmarshal(w.Body.Bytes(), &body) != nil || body["reason"] != "unavailable" || body["diagnostic"] != "transport_unknown" || len(body) != 3 {
 		t.Fatalf("transport failure: status=%d body=%s", w.Code, w.Body)
 	}
-	if logs.String() != "wechat login exchange failed stage=transport errcode=0\n" || strings.Contains(w.Body.String(), "private-") {
+	if logs.String() != "wechat login exchange failed stage=transport errcode=0 transport=unknown\n" || strings.Contains(w.Body.String(), "private-") {
 		t.Fatal("transport credentials escaped into response or log")
 	}
 }

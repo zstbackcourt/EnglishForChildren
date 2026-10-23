@@ -2,12 +2,17 @@ package game
 
 import (
 	"context"
+	"crypto/tls"
+	"crypto/x509"
 	"encoding/json"
+	"errors"
 	"io"
+	"net"
 	"net/http"
 	"net/url"
 	"strconv"
 	"strings"
+	"syscall"
 	"time"
 )
 
@@ -23,11 +28,31 @@ const (
 	wechatExchangeAPI
 )
 
+type wechatTransportKind uint8
+
+const (
+	wechatTransportUnknown wechatTransportKind = iota
+	wechatTransportUnknownAuthority
+	wechatTransportHostname
+	wechatTransportInvalidCertificate
+	wechatTransportSystemRoots
+	wechatTransportRecordHeader
+	wechatTransportDNS
+	wechatTransportContextTimeout
+	wechatTransportContextCanceled
+	wechatTransportNetworkTimeout
+	wechatTransportConnectionRefused
+	wechatTransportConnectionReset
+	wechatTransportNetworkUnreachable
+	wechatTransportEOF
+)
+
 // No upstream error, URL, response text or credentials may be retained here.
 // Numeric API codes are diagnostic data; all printable stages are fixed below.
 type wechatExchangeError struct {
-	stage   wechatExchangeStage
-	errCode int
+	stage         wechatExchangeStage
+	errCode       int
+	transportKind wechatTransportKind
 }
 
 func (e *wechatExchangeError) Stage() string {
@@ -60,8 +85,112 @@ func (e *wechatExchangeError) ErrCode() int {
 	return 0
 }
 
+// Only enum values can cross the logging and client-response boundary.
+func (e *wechatExchangeError) TransportKind() string {
+	if e != nil && e.stage == wechatExchangeTransport {
+		switch e.transportKind {
+		case wechatTransportUnknownAuthority:
+			return "tls_unknown_authority"
+		case wechatTransportHostname:
+			return "tls_hostname"
+		case wechatTransportInvalidCertificate:
+			return "tls_invalid_certificate"
+		case wechatTransportSystemRoots:
+			return "tls_system_roots"
+		case wechatTransportRecordHeader:
+			return "tls_record_header"
+		case wechatTransportDNS:
+			return "dns"
+		case wechatTransportContextTimeout:
+			return "context_timeout"
+		case wechatTransportContextCanceled:
+			return "context_canceled"
+		case wechatTransportNetworkTimeout:
+			return "network_timeout"
+		case wechatTransportConnectionRefused:
+			return "connection_refused"
+		case wechatTransportConnectionReset:
+			return "connection_reset"
+		case wechatTransportNetworkUnreachable:
+			return "network_unreachable"
+		case wechatTransportEOF:
+			return "eof"
+		}
+	}
+	return "unknown"
+}
+
 func (e *wechatExchangeError) Error() string {
-	return "WeChat login exchange failed (stage=" + e.Stage() + ", errcode=" + strconv.Itoa(e.ErrCode()) + ")"
+	message := "WeChat login exchange failed (stage=" + e.Stage() + ", errcode=" + strconv.Itoa(e.ErrCode())
+	if e != nil && e.stage == wechatExchangeTransport {
+		message += ", transport=" + e.TransportKind()
+	}
+	return message + ")"
+}
+
+// Inspect typed causes without formatting or retaining the original error.
+func classifyWeChatTransport(err error) wechatTransportKind {
+	var roots x509.SystemRootsError
+	var rootsPointer *x509.SystemRootsError
+	var authority x509.UnknownAuthorityError
+	var authorityPointer *x509.UnknownAuthorityError
+	var hostname x509.HostnameError
+	var hostnamePointer *x509.HostnameError
+	var certificate x509.CertificateInvalidError
+	var certificatePointer *x509.CertificateInvalidError
+	var record tls.RecordHeaderError
+	var recordPointer *tls.RecordHeaderError
+	var dns *net.DNSError
+	switch {
+	case errors.As(err, &roots) || errors.As(err, &rootsPointer):
+		return wechatTransportSystemRoots
+	case errors.As(err, &authority) || errors.As(err, &authorityPointer):
+		return wechatTransportUnknownAuthority
+	case errors.As(err, &hostname) || errors.As(err, &hostnamePointer):
+		return wechatTransportHostname
+	case errors.As(err, &certificate) || errors.As(err, &certificatePointer):
+		return wechatTransportInvalidCertificate
+	case errors.As(err, &record) || errors.As(err, &recordPointer):
+		return wechatTransportRecordHeader
+	case errors.As(err, &dns):
+		return wechatTransportDNS
+	case errors.Is(err, context.DeadlineExceeded):
+		return wechatTransportContextTimeout
+	case errors.Is(err, context.Canceled):
+		return wechatTransportContextCanceled
+	case errors.Is(err, syscall.ECONNREFUSED):
+		return wechatTransportConnectionRefused
+	case errors.Is(err, syscall.ECONNRESET):
+		return wechatTransportConnectionReset
+	case errors.Is(err, syscall.ENETUNREACH):
+		return wechatTransportNetworkUnreachable
+	case errors.Is(err, io.EOF) || errors.Is(err, io.ErrUnexpectedEOF):
+		return wechatTransportEOF
+	case wechatTransportTimeout(err):
+		return wechatTransportNetworkTimeout
+	default:
+		return wechatTransportUnknown
+	}
+}
+
+// url.Error.Timeout only checks its immediate cause, so inspect wrapped causes
+// as well when another wrapper sits between it and the timeout error.
+func wechatTransportTimeout(err error) bool {
+	if network, ok := err.(net.Error); ok && network.Timeout() {
+		return true
+	}
+	if joined, ok := err.(interface{ Unwrap() []error }); ok {
+		for _, cause := range joined.Unwrap() {
+			if wechatTransportTimeout(cause) {
+				return true
+			}
+		}
+		return false
+	}
+	if cause := errors.Unwrap(err); cause != nil {
+		return wechatTransportTimeout(cause)
+	}
+	return false
 }
 
 func (e *wechatExchangeError) reason() string {
@@ -106,7 +235,7 @@ func (e WeChatAPIExchanger) Exchange(ctx context.Context, code string) (string, 
 	response, err := client.Do(r)
 	if err != nil {
 		// net/http errors can include the URL, AppSecret and login code.
-		return "", &wechatExchangeError{stage: wechatExchangeTransport}
+		return "", &wechatExchangeError{stage: wechatExchangeTransport, transportKind: classifyWeChatTransport(err)}
 	}
 	defer response.Body.Close()
 	if response.StatusCode != http.StatusOK {
