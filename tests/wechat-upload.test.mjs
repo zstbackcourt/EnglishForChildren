@@ -14,6 +14,7 @@ function fixture(t) {
  const write=(file,value)=>fs.writeFileSync(path.join(root,file),typeof value==='string'?value:JSON.stringify(value));
  write('project.config.json',{appid:'wx1f23b102bcb34ed7',miniprogramRoot:'miniprogram/',setting:{urlCheck:true}});
  write('miniprogram/config.json',{apiBase:'https://learning.example.net',devLogin:false});
+ write('miniprogram/config.js',`module.exports = ${JSON.stringify({apiBase:'https://learning.example.net',devLogin:false},null,2)};\n`);
  write('miniprogram/app.json',{pages:['pages/home/home']});write('miniprogram/app.js','App({})');write('miniprogram/app.wxss','');
  for(const ext of ['js','json','wxml','wxss'])write(`miniprogram/pages/home/home.${ext}`,ext==='json'?'{}':'');
  write('server.env','APP_SECRET=should-never-be-uploaded');

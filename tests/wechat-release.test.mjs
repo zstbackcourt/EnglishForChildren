@@ -11,6 +11,7 @@ function fixture(t, config={apiBase:'https://learning.example.net',devLogin:fals
  mkdirSync(join(root,'miniprogram/pages/index'),{recursive:true});
  writeFileSync(join(root,'project.config.json'),JSON.stringify({appid:'wx1f23b102bcb34ed7',miniprogramRoot:'miniprogram/',setting:{urlCheck:true}}));
  writeFileSync(join(root,'miniprogram/config.json'),JSON.stringify(config));
+ writeFileSync(join(root,'miniprogram/config.js'),`module.exports = ${JSON.stringify(config,null,2)};\n`);
  writeFileSync(join(root,'miniprogram/app.json'),JSON.stringify({pages:['pages/index/index']}));
  for(const ext of ['js','json','wxml','wxss'])writeFileSync(join(root,`miniprogram/pages/index/index.${ext}`),ext==='json'?'{}':'');
  writeFileSync(join(root,'miniprogram/app.js'),'App({})');
@@ -43,6 +44,12 @@ test('detect broken image reference and oversized package',t=>{
 test('valid project returns files and byte size without claiming platform publication',t=>{
  const r=checkProject(fixture(t),{release:true});assert.equal(r.ok,true,JSON.stringify(r.errors));
  assert.ok(r.bytes>0);assert.ok(r.files.includes('pages/index/index.wxml'));assert.equal(r.published,undefined);
+});
+test('rejects runtime configuration that differs from checked JSON',t=>{
+ const root=fixture(t);
+ writeFileSync(join(root,'miniprogram/config.js'),"module.exports = {apiBase:'https://other.example.net',devLogin:false};\n");
+ const r=checkProject(root,{release:true});
+ assert.equal(r.ok,false);assert.ok(r.errors.some(x=>x.includes('config.js')));
 });
 test('rejects environment files and test code copied into mini-program package',t=>{
  const root=fixture(t);mkdirSync(join(root,'miniprogram/tests'));

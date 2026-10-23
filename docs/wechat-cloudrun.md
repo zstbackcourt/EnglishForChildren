@@ -71,6 +71,7 @@ curl --fail -r 0-3 https://golang-8467-333734-12-1514891213.sh.run.tcloudbase.co
 
 ```sh
 cp deploy/wechat/miniprogram.config.cloudrun.json miniprogram/config.json
+node scripts/sync_wechat_config.cjs
 node scripts/check_wechat.mjs --release
 node scripts/compile_wechat.cjs
 ```

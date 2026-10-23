@@ -15,6 +15,8 @@ export function checkProject(projectRoot,{release=false}={}) {
  }
  const config=readJSON(path.join(mini,'config.json'));
  const app=readJSON(path.join(mini,'app.json'));
+ const runtimeConfig=`module.exports = ${JSON.stringify(config,null,2)};\n`;
+ if(!fs.existsSync(path.join(mini,'config.js'))||fs.readFileSync(path.join(mini,'config.js'),'utf8')!==runtimeConfig)errors.push('config.js 必须与 config.json 保持一致');
  function visit(dir) {
   if(!fs.existsSync(dir)){errors.push(`目录不存在：${path.relative(root,dir)}`);return}
   for(const e of fs.readdirSync(dir,{withFileTypes:true})) {
@@ -22,7 +24,7 @@ export function checkProject(projectRoot,{release=false}={}) {
    if(e.isSymbolicLink()){errors.push(`代码包不能含符号链接：${rel}`);continue}
    if(e.isDirectory()){visit(p);continue}
    const b=fs.readFileSync(p);bytes+=b.length;
-   const rootFiles=new Set(['app.js','app.json','app.wxss','config.json','sitemap.json','package.json']);
+   const rootFiles=new Set(['app.js','app.json','app.wxss','config.js','config.json','sitemap.json','package.json']);
    const allowed=rootFiles.has(rel)||(/^(pages|lib|components|assets|utils|services)[/\\]/.test(rel)&&/\.(js|json|wxml|wxss|wxs|png|jpe?g|webp|gif|svg)$/i.test(rel));
    const testCode=/(^|[/\\])(?:tests?|__tests__|__mocks__|node_modules)(?:[/\\]|$)|\.(?:test|spec)\.[cm]?js$/.test(rel);
    if(!allowed||testCode)errors.push(`代码包包含非发布文件：${rel}`);else files.push(rel);

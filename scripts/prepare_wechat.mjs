@@ -14,9 +14,8 @@ export function prepareProject(root,output,{configPath,release=false}={}) {
  const project=JSON.parse(fs.readFileSync(path.join(root,'project.config.json'),'utf8'));
  const config=configPath?JSON.parse(fs.readFileSync(configPath,'utf8')):null;
  fs.mkdirSync(path.dirname(output),{recursive:true});
- stageProject({root,project,files:check.files},output);
+ stageProject({root,project,files:check.files,config},output);
  try {
-  if(config)fs.writeFileSync(path.join(output,'miniprogram/config.json'),JSON.stringify(config,null,2)+'\n');
   const result=checkProject(output,{release});
   if(!result.ok)throw new Error(result.errors.join('\n'));
   return {...result,directory:output,published:false};

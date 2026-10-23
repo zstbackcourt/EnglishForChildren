@@ -21,6 +21,8 @@ async function prepareUpload(root,env=process.env) {
  return {root,appid:result.appid,privateKeyPath:key,version:env.WECHAT_VERSION,desc:env.WECHAT_DESCRIPTION||'英语冒险岛体验版',project,files:result.files,bytes:result.bytes};
 }
 
+function runtimeConfigSource(config) { return `module.exports = ${JSON.stringify(config,null,2)};\n`; }
+
 function stageProject(options,destination) {
  const dir=destination?path.resolve(destination):fs.mkdtempSync(path.join(os.tmpdir(),'english-wechat-upload-'));
  if(destination)fs.mkdirSync(dir);
@@ -36,6 +38,9 @@ function stageProject(options,destination) {
    if(!fs.lstatSync(from).isFile())throw new Error('待上传文件发生变化，请重新检查');
    fs.mkdirSync(path.dirname(to),{recursive:true});fs.copyFileSync(from,to);
   }
+  const config=options.config||JSON.parse(fs.readFileSync(path.join(dir,'miniprogram/config.json'),'utf8'));
+  if(options.config)fs.writeFileSync(path.join(dir,'miniprogram/config.json'),JSON.stringify(config,null,2)+'\n');
+  fs.writeFileSync(path.join(dir,'miniprogram/config.js'),runtimeConfigSource(config));
   fs.writeFileSync(path.join(dir,'project.config.json'),JSON.stringify({...options.project,miniprogramRoot:'miniprogram/'},null,2));
   return dir;
  } catch(error) {fs.rmSync(dir,{recursive:true,force:true});throw error;}
@@ -81,6 +86,6 @@ async function main() {
  console.log(JSON.stringify(receipt));
  console.log('开发版本上传成功；仍需在微信后台设为体验版、添加体验成员并用真机验收。');
 }
-module.exports={prepareUpload,stageProject,performUpload};
+module.exports={prepareUpload,stageProject,performUpload,runtimeConfigSource};
 // The SDK can retain compiler workers after a failed upload. This CLI owns them.
 if(require.main===module)main().then(()=>process.exit(0)).catch(error=>{console.error(error.message);process.exit(1);});

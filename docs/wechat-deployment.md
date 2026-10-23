@@ -31,7 +31,7 @@ node scripts/compile_wechat.cjs
 
 需要不含其他源码和工具的独立导入目录时，运行 `node scripts/prepare_wechat.mjs`。脚本会输出 `tmp/wechat-import-时间戳/`，开发者工具可直接导入该目录。服务器验收后，可用 `node scripts/prepare_wechat.mjs --cloudrun --release` 生成带体验域名、关闭开发登录的导入目录；此命令不上传、不需要私钥，不覆盖已有目录。
 
-本地 `config.json` 使用 `http://127.0.0.1:8093` 和 `devLogin: true`。该模式只接受回环请求及固定开发身份，不能对公网部署。开发者工具导入项目根目录，读取 `project.config.json`；本地调试时可在工具的本地设置中临时关闭域名校验。该私有设置不提交；发布必须启用校验并关闭开发登录。手机的 `127.0.0.1` 指手机自身，不能据此进行真机验收。
+本地 `config.json` 使用 `http://127.0.0.1:8093` 和 `devLogin: true`。该模式只接受回环请求及固定开发身份，不能对公网部署。开发者工具导入项目根目录，读取 `project.config.json`；本地调试时可在工具的本地设置中临时关闭域名校验。该私有设置不提交；发布必须启用校验并关闭开发登录。手机的 `127.0.0.1` 指手机自身，不能据此进行真机验收。微信运行时读取 `config.js`；修改根工程的 `config.json` 后运行 `node scripts/sync_wechat_config.cjs`，预检会阻止两者不一致。使用 `prepare_wechat.mjs` 生成导入包时，脚本会自动从最终 JSON 配置生成 JS 模块。
 
 ## 2. Ubuntu 独立部署
 
@@ -68,7 +68,7 @@ sudo systemctl status english-adventure-wechat --no-pager
 
 将 `deploy/wechat/Caddyfile.example` 中的域名替换为自己的域名，作为独立站点块追加到当前 Caddy 配置，验证后 reload 原代理服务。不要覆盖当前 IP 网站配置。阿里云 DNS 的 A 记录需指向 `47.111.138.33`；只复用现有 80/443，8093 继续只监听本机。
 
-微信后台为该域名配置 request、downloadFile 等所需合法域名。素材服务无网页 BasicAuth，图片/音频可公开读取；角色、答题和存档始终需要 Bearer 登录。修改 `miniprogram/config.json` 为实际 `https://你的域名`，`devLogin: false`。用微信开发者工具保持域名检查开启测试，确认当前账号实际后台要求。
+微信后台为该域名配置 request、downloadFile 等所需合法域名。素材服务无网页 BasicAuth，图片/音频可公开读取；角色、答题和存档始终需要 Bearer 登录。修改 `miniprogram/config.json` 为实际 `https://你的域名`，`devLogin: false`，再运行 `node scripts/sync_wechat_config.cjs`。用微信开发者工具保持域名检查开启测试，确认当前账号实际后台要求。
 
 ## 3. 真机验收
 

@@ -1,0 +1,5 @@
+module.exports = {
+  "apiBase": "http://127.0.0.1:8093",
+  "devLogin": true,
+  "devCode": "dev:local-family"
+};
