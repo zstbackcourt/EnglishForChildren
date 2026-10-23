@@ -27,6 +27,8 @@ npm ci --prefix tools/wechat-ci
 node scripts/compile_wechat.cjs
 ```
 
+真实 MySQL 集成测试是显式选择项：在本机一次性测试库 `english_adventure_test` 中，以 root 空密码和 Unix socket 运行 `WECHAT_TEST_MYSQL_SOCKET=/测试实例/mysql.sock go test ./internal/game -run TestMySQLActualIntegration -v`。只用于隔离的临时测试实例，不要指向生产数据库；测试会创建应用表并清理固定测试账号。未提供此变量时该项明确跳过。
+
 需要不含其他源码和工具的独立导入目录时，运行 `node scripts/prepare_wechat.mjs`。脚本会输出 `tmp/wechat-import-时间戳/`，开发者工具可直接导入该目录。服务器验收后，可用 `node scripts/prepare_wechat.mjs --cloudrun --release` 生成带体验域名、关闭开发登录的导入目录；此命令不上传、不需要私钥，不覆盖已有目录。
 
 本地 `config.json` 使用 `http://127.0.0.1:8093` 和 `devLogin: true`。该模式只接受回环请求及固定开发身份，不能对公网部署。开发者工具导入项目根目录，读取 `project.config.json`；本地调试时可在工具的本地设置中临时关闭域名校验。该私有设置不提交；发布必须启用校验并关闭开发登录。手机的 `127.0.0.1` 指手机自身，不能据此进行真机验收。
