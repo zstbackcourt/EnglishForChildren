@@ -75,3 +75,5 @@
 第二次运行 `39915544889` 的 Go、Node、Python 测试通过，失败点是 Linux 上的官方 WXML/WXSS 编译模块：锁定的 `miniprogram-ci@2.1.31` 只含 Darwin/Windows 原生模块，返回 `id argument ... undefined`。将编译移至 GitHub 官方 `macos-15-intel` runner，Linux runner 继续负责源码测试、镜像和临时数据库冒烟。再次更新发布标记；新 workflow 的真实结果尚待运行，不将仅本机 macOS 编译结果当成 CI 成功。
 
 第三次运行 `39916253277` 的源码验证、生产镜像配临时 MySQL 启动冒烟、macOS 官方模板编译均通过。客户端上传门禁仍因缺少固定出口自托管 runner 和 `WECHAT_UPLOAD_EGRESS_IP` 失败，线上就绪门禁因公开域名仍返回官方示例 HTML 而失败；未上传客户端。用户随后确认已在云托管保存环境变量。再次检查公开 `/healthz` 仍为示例 HTML，因此更新唯一发布标记并推送 `wechat` 触发新版本；部署结果须以新运行和公开健康检查确认。GitHub 仓库目前没有自托管 runner 或相关 Actions 变量，故客户端发布仍不能判定完成。
+
+第四次运行 `39918282773` 对提交 `b112a7d` 的源码、生产镜像临时 MySQL 冒烟和官方模板编译均通过，但公开 `/healthz` 在等待期内始终返回云托管官方示例 HTML，线上门禁失败，客户端上传被跳过。用户提供的 `golang-8467-007` 启动日志明确显示入口因缺少 `MYSQL_DATABASE` 退出；随后 `/app/cert/initenv.sh cannot exec in a stopped state` 是容器已停止的连带错误。服务端口已确认是 `8080`。用户随后确认已在云托管配置 `MYSQL_DATABASE`，公开地址仍为示例页面；更新发布标记并推送 `wechat` 触发新版本，部署结果待云端健康检查确认。
