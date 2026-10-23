@@ -17,3 +17,13 @@
 ## 完成标准
 
 诊断部署成功不等于登录修复。必须真实登录成功后，才验收云端角色、进度、奖励、再次进入后的持久化。客户端已上传的开发版本也不等于体验版发布；真机和体验版须有各自实际证据。
+
+## 真实分类与单项修复
+
+bf2f1ec上线后，官方模拟器以新wx.login调用，版本标记ab1884f3391ed484710c5fd95146e67a匹配；146ms返回401、transport_tls_unknown_authority、无token。由此确认TLS证书信任失败，尚未到微信业务校验阶段。
+
+采用Go官方支持的SSL_CERT_DIR配置：Docker仅增加 `/etc/ssl/certs:/app/cert`，保留Alpine系统目录及系统bundle，额外读取平台lifecycle使用的/app/cert目录。无需猜单个证书文件名，不修改USER game、不忽略TLS错误、不改HTTP、不更换凭证。该目录只能由平台管理，业务接口没有写入能力。额外证书作用于该进程默认TLS客户端，首次TLS前须就位；缺失/权限或时序问题仍须通过云端真实登录确认，不能仅凭环境变量断言修复。
+
+验证新增两层：独立Go子进程验证额外CA目录（对照组失败、信任正确证书后成功、错误hostname仍拒绝）；生产Docker+MySQL在隔离网络中访问HTTPS模拟微信，验证不信任CA时失败、读取平台目录后真实登录链路可用。仅使用临时证书和假凭证。CI镜像验证通过后继续真实云服务验收。
+
+依据：[Go SystemCertPool](https://pkg.go.dev/crypto/x509#SystemCertPool)、[Linux根证书路径](https://go.dev/src/crypto/x509/root_linux.go)、[微信官方Go镜像](https://github.com/WeixinCloud/wxcloudrun-golang/blob/main/Dockerfile)。

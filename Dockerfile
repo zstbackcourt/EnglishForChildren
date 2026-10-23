@@ -32,6 +32,8 @@ COPY content ./content
 COPY deploy/wechat/release-id.txt ./deploy/wechat/release-id.txt
 COPY --chmod=755 deploy/wechat/cloudrun-entrypoint.sh /usr/local/bin/cloudrun-entrypoint
 USER game
-ENV PORT=8080 WECHAT_STORAGE=mysql
+# Go reads the platform-managed CloudRun CA directory as well as Alpine's roots.
+# Keep HTTPS verification and the non-root application user.
+ENV PORT=8080 WECHAT_STORAGE=mysql SSL_CERT_DIR=/etc/ssl/certs:/app/cert
 EXPOSE 8080
 ENTRYPOINT ["cloudrun-entrypoint"]

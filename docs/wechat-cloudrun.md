@@ -135,3 +135,10 @@ python3 scripts/package_wechat_cloudrun.py
 `stage=transport errcode=0` 表示请求微信code2Session时未成功得到HTTP响应，不能据此判断AppSecret错误。新版本仅在这类登录失败时返回固定的 `diagnostic: transport_<类别>`，例如 `transport_tls_unknown_authority`、`transport_dns`、`transport_context_timeout`。这些类别由Go错误类型映射，不含上游错误文本、地址或凭证；reason仍为unavailable且不签发登录令牌。
 
 通过官方开发者工具的正常wx.login→云服务登录即可复核此字段。不要打印或上传请求code、响应token或openid；不要为了排查关闭TLS证书校验、改成HTTP或凭猜测更改云端密钥。类别确认后再针对证书信任、DNS或网络出口排查。
+
+
+### TLS 未知 CA 的处理
+
+bf2f1ec的真实云端登录确认了 `transport_tls_unknown_authority`。后续镜像为Go设置 `SSL_CERT_DIR=/etc/ssl/certs:/app/cert`，读取系统目录和平台注入的证书，保留默认系统CA bundle。此项在Docker运行环境提供，不需要重新填写微信凭证或服务域名。平台目录需允许game用户读取，并在首次TLS请求前准备完成；Go会缓存系统根证书，因此用新实例验证。该目录不可存放用户上传文件或由业务接口写入。
+
+只接受新的真实wx.login兑换成功作为修复证据；健康检查通过不能证明TLS登录已经恢复。不要使用InsecureSkipVerify、明文HTTP或忽略证书错误来代替可信证书配置。
