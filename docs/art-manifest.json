@@ -1,0 +1,1298 @@
+[
+  {
+    "lesson": 1,
+    "sourcePdfPage": 5,
+    "sourcePage": "/assets/pages/page-005.jpg",
+    "scene": "/assets/scenes/lesson-001.png",
+    "prompt": "docs/art-direction.md",
+    "sha256": "58be4668502e4503088e753bd413021c09d9109e7645a30d559d4d04a57dabb9",
+    "bytes": 2214331
+  },
+  {
+    "lesson": 2,
+    "sourcePdfPage": 7,
+    "sourcePage": "/assets/pages/page-007.jpg",
+    "scene": "/assets/scenes/lesson-002.png",
+    "prompt": "docs/art-prompts/lesson-002.txt",
+    "sha256": "dff07b92382d11a79cbed9e70fdd8b91014c36b3f2a89610fb42fc0d2c940f27",
+    "bytes": 2614791
+  },
+  {
+    "lesson": 3,
+    "sourcePdfPage": 9,
+    "sourcePage": "/assets/pages/page-009.jpg",
+    "scene": "/assets/scenes/lesson-003.png",
+    "prompt": "docs/art-prompts/lesson-003.txt",
+    "sha256": "25dcfa84f860b839fbada8011ce9dfb308af80d0b39b5c4ea9436fba7da4f312",
+    "bytes": 2021630
+  },
+  {
+    "lesson": 4,
+    "sourcePdfPage": 11,
+    "sourcePage": "/assets/pages/page-011.jpg",
+    "scene": "/assets/scenes/lesson-004.png",
+    "prompt": "docs/art-prompts/lesson-004.txt",
+    "sha256": "ac81c5c3f0d4f5ff33b0f0de79c9da30952b3b236b6bcff84a665dc0e4f62913",
+    "bytes": 3025306
+  },
+  {
+    "lesson": 5,
+    "sourcePdfPage": 13,
+    "sourcePage": "/assets/pages/page-013.jpg",
+    "scene": "/assets/scenes/lesson-005.png",
+    "prompt": "docs/art-prompts/lesson-005.txt",
+    "sha256": "12db60203be26253922ac83518d227e508fc5c2d516876aad093468ddea4edd4",
+    "bytes": 2038062
+  },
+  {
+    "lesson": 6,
+    "sourcePdfPage": 15,
+    "sourcePage": "/assets/pages/page-015.jpg",
+    "scene": "/assets/scenes/lesson-006.png",
+    "prompt": "docs/art-prompts/lesson-006.txt",
+    "sha256": "21a0357b9be7c56d9c5d17e688d5901093cd28337c6d81afe26447ba75ab6376",
+    "bytes": 2573347
+  },
+  {
+    "lesson": 7,
+    "sourcePdfPage": 17,
+    "sourcePage": "/assets/pages/page-017.jpg",
+    "scene": "/assets/scenes/lesson-007.png",
+    "prompt": "docs/art-prompts/lesson-007.txt",
+    "sha256": "8799ba46db3d34d904f7d9a40b6988fb70a8d0d6fb8fcb861903a18404c3e5f6",
+    "bytes": 2031612
+  },
+  {
+    "lesson": 8,
+    "sourcePdfPage": 19,
+    "sourcePage": "/assets/pages/page-019.jpg",
+    "scene": "/assets/scenes/lesson-008.png",
+    "prompt": "docs/art-prompts/lesson-008.txt",
+    "sha256": "1935e45df87e68e8849777f193c5fe1a807ecdd52113afc0af3ca1d216e63126",
+    "bytes": 2645089
+  },
+  {
+    "lesson": 9,
+    "sourcePdfPage": 21,
+    "sourcePage": "/assets/pages/page-021.jpg",
+    "scene": "/assets/scenes/lesson-009.png",
+    "prompt": "docs/art-prompts/lesson-009.txt",
+    "sha256": "d50146c2248a4bb2438b9460c1fc51794d07eaaad5e878c9fa79b19a99000cef",
+    "bytes": 2562615
+  },
+  {
+    "lesson": 10,
+    "sourcePdfPage": 23,
+    "sourcePage": "/assets/pages/page-023.jpg",
+    "scene": "/assets/scenes/lesson-010.png",
+    "prompt": "docs/art-prompts/lesson-010.txt",
+    "sha256": "cf942e1432a2086e738ea58ed86f78a1eb51c4d8dd86b89678d91662a1b29ead",
+    "bytes": 2778250
+  },
+  {
+    "lesson": 11,
+    "sourcePdfPage": 25,
+    "sourcePage": "/assets/pages/page-025.jpg",
+    "scene": "/assets/scenes/lesson-011.png",
+    "prompt": "docs/art-prompts/lesson-011.txt",
+    "sha256": "28099a1e53485a86893e3bf990562208dd3499d2be92c32f979ff6171b4391aa",
+    "bytes": 1987187
+  },
+  {
+    "lesson": 12,
+    "sourcePdfPage": 27,
+    "sourcePage": "/assets/pages/page-027.jpg",
+    "scene": "/assets/scenes/lesson-012.png",
+    "prompt": "docs/art-prompts/lesson-012.txt",
+    "sha256": "24e18bb5190ba1bc943190718ae5ac352dc4ab2d1b7588492d8d6cb4d41f593c",
+    "bytes": 2424716
+  },
+  {
+    "lesson": 13,
+    "sourcePdfPage": 29,
+    "sourcePage": "/assets/pages/page-029.jpg",
+    "scene": "/assets/scenes/lesson-013.png",
+    "prompt": "docs/art-prompts/lesson-013.txt",
+    "sha256": "476733e0d17bb0d3d4be2479bcabb745a00ead2a5684cbf4192e8fe798003e62",
+    "bytes": 2136202
+  },
+  {
+    "lesson": 14,
+    "sourcePdfPage": 31,
+    "sourcePage": "/assets/pages/page-031.jpg",
+    "scene": "/assets/scenes/lesson-014.png",
+    "prompt": "docs/art-prompts/lesson-014.txt",
+    "sha256": "f4b10a5fc8495c22a2604c28c4fd826501969acd94d17c2ecdd7e72e03a9158a",
+    "bytes": 2716450
+  },
+  {
+    "lesson": 15,
+    "sourcePdfPage": 33,
+    "sourcePage": "/assets/pages/page-033.jpg",
+    "scene": "/assets/scenes/lesson-015.png",
+    "prompt": "docs/art-prompts/lesson-015.txt",
+    "sha256": "b3703841191eedd2463191c489e7754e0912b7ed0e1e9fd3402dfe0e8568d653",
+    "bytes": 2004295
+  },
+  {
+    "lesson": 16,
+    "sourcePdfPage": 35,
+    "sourcePage": "/assets/pages/page-035.jpg",
+    "scene": "/assets/scenes/lesson-016.png",
+    "prompt": "docs/art-prompts/lesson-016.txt",
+    "sha256": "aa8a0ae44c7b0f89bffc00144048ebf95d76c48aefb34f6c838832430f087519",
+    "bytes": 2658842
+  },
+  {
+    "lesson": 17,
+    "sourcePdfPage": 37,
+    "sourcePage": "/assets/pages/page-037.jpg",
+    "scene": "/assets/scenes/lesson-017.png",
+    "prompt": "docs/art-prompts/lesson-017.txt",
+    "sha256": "f79fe64272cf4aabcd759c5df04fe390c9356579549a92716edf3ba21a010d62",
+    "bytes": 2062778
+  },
+  {
+    "lesson": 18,
+    "sourcePdfPage": 39,
+    "sourcePage": "/assets/pages/page-039.jpg",
+    "scene": "/assets/scenes/lesson-018.png",
+    "prompt": "docs/art-prompts/lesson-018.txt",
+    "sha256": "075da33255d04491fe35568b44f6418791cc32ccffff9b50efda38f79427c692",
+    "bytes": 2915987
+  },
+  {
+    "lesson": 19,
+    "sourcePdfPage": 41,
+    "sourcePage": "/assets/pages/page-041.jpg",
+    "scene": "/assets/scenes/lesson-019.png",
+    "prompt": "docs/art-prompts/lesson-019.txt",
+    "sha256": "23bf591a9ec5800d7bf1134aa78ae7484d01ce062dfbb8e94c7c91a14b11032d",
+    "bytes": 2381186
+  },
+  {
+    "lesson": 20,
+    "sourcePdfPage": 43,
+    "sourcePage": "/assets/pages/page-043.jpg",
+    "scene": "/assets/scenes/lesson-020.png",
+    "prompt": "docs/art-prompts/lesson-020.txt",
+    "sha256": "1927b3e07fcad21732f7426392f5f245e648a6c080e5f0cdc268ce4d06741cf4",
+    "bytes": 3155775
+  },
+  {
+    "lesson": 21,
+    "sourcePdfPage": 45,
+    "sourcePage": "/assets/pages/page-045.jpg",
+    "scene": "/assets/scenes/lesson-021.png",
+    "prompt": "docs/art-prompts/lesson-021.txt",
+    "sha256": "8935ce12f8e478457f78e0e5c4e54d75add98e83d80f3fc4f61059045ac88b55",
+    "bytes": 1998873
+  },
+  {
+    "lesson": 22,
+    "sourcePdfPage": 47,
+    "sourcePage": "/assets/pages/page-047.jpg",
+    "scene": "/assets/scenes/lesson-022.png",
+    "prompt": "docs/art-prompts/lesson-022.txt",
+    "sha256": "6b41482cb967c3a4a91004417533687f1a6a42751464ce133967794fa1d2677c",
+    "bytes": 2490557
+  },
+  {
+    "lesson": 23,
+    "sourcePdfPage": 49,
+    "sourcePage": "/assets/pages/page-049.jpg",
+    "scene": "/assets/scenes/lesson-023.png",
+    "prompt": "docs/art-prompts/lesson-023.txt",
+    "sha256": "915275a9d4a992fce050ee2ca77ec9197cdffc5250840755947ba2644f6656a1",
+    "bytes": 2089802
+  },
+  {
+    "lesson": 24,
+    "sourcePdfPage": 51,
+    "sourcePage": "/assets/pages/page-051.jpg",
+    "scene": "/assets/scenes/lesson-024.png",
+    "prompt": "docs/art-prompts/lesson-024.txt",
+    "sha256": "06f2802d342c75674039f380f6403b42d6f9931dbb4eaa7b1314cdd9e9be1ded",
+    "bytes": 2618479
+  },
+  {
+    "lesson": 25,
+    "sourcePdfPage": 53,
+    "sourcePage": "/assets/pages/page-053.jpg",
+    "scene": "/assets/scenes/lesson-025.png",
+    "prompt": "docs/art-prompts/lesson-025.txt",
+    "sha256": "50942c2bcda979b0b6377155335ab711fa94cb278d5905a108014412fba6e8e7",
+    "bytes": 2019979
+  },
+  {
+    "lesson": 26,
+    "sourcePdfPage": 55,
+    "sourcePage": "/assets/pages/page-055.jpg",
+    "scene": "/assets/scenes/lesson-026.png",
+    "prompt": "docs/art-prompts/lesson-026.txt",
+    "sha256": "f814181e4e0a16ead95ce7722de6e7f1290b815bd1b79e34a71ba204ef8c5994",
+    "bytes": 2251921
+  },
+  {
+    "lesson": 27,
+    "sourcePdfPage": 57,
+    "sourcePage": "/assets/pages/page-057.jpg",
+    "scene": "/assets/scenes/lesson-027.png",
+    "prompt": "docs/art-prompts/lesson-027.txt",
+    "sha256": "c351197b023ec82c92f6441b964160ad668de918de325e859cced6f4dd5d3452",
+    "bytes": 2247982
+  },
+  {
+    "lesson": 28,
+    "sourcePdfPage": 59,
+    "sourcePage": "/assets/pages/page-059.jpg",
+    "scene": "/assets/scenes/lesson-028.png",
+    "prompt": "docs/art-prompts/lesson-028.txt",
+    "sha256": "be1722e94c7b4776fbbaf1710fcb41e1eadc84c563d3665bc7d8b6afa7ce2a79",
+    "bytes": 2414362
+  },
+  {
+    "lesson": 29,
+    "sourcePdfPage": 61,
+    "sourcePage": "/assets/pages/page-061.jpg",
+    "scene": "/assets/scenes/lesson-029.png",
+    "prompt": "docs/art-prompts/lesson-029.txt",
+    "sha256": "515fd2dee06cbcef92cd32d26a2df99f2f087f71bb3c1b26e73c87682e0c2f5f",
+    "bytes": 2235425
+  },
+  {
+    "lesson": 30,
+    "sourcePdfPage": 63,
+    "sourcePage": "/assets/pages/page-063.jpg",
+    "scene": "/assets/scenes/lesson-030.png",
+    "prompt": "docs/art-prompts/lesson-030.txt",
+    "sha256": "680399af1076fdc83d9c5d055fc069958146fda99ebd2b62d3d944fac6567ecc",
+    "bytes": 2468037
+  },
+  {
+    "lesson": 31,
+    "sourcePdfPage": 65,
+    "sourcePage": "/assets/pages/page-065.jpg",
+    "scene": "/assets/scenes/lesson-031.png",
+    "prompt": "docs/art-prompts/lesson-031.txt",
+    "sha256": "c5f8fbf93fe67770b35c1795eb99298862d19b88b71257bd432cf1170f0b67af",
+    "bytes": 2765113
+  },
+  {
+    "lesson": 32,
+    "sourcePdfPage": 67,
+    "sourcePage": "/assets/pages/page-067.jpg",
+    "scene": "/assets/scenes/lesson-032.png",
+    "prompt": "docs/art-prompts/lesson-032.txt",
+    "sha256": "35f547702cfd9e86fb4525065e7203a43a78abbdafb5ee6f776917a0db7e4f27",
+    "bytes": 2754179
+  },
+  {
+    "lesson": 33,
+    "sourcePdfPage": 69,
+    "sourcePage": "/assets/pages/page-069.jpg",
+    "scene": "/assets/scenes/lesson-033.png",
+    "prompt": "docs/art-prompts/lesson-033.txt",
+    "sha256": "0d73d95ecc758c3c6e12d69ac2c2c898e16966b667e0eb2be35856c319bdef85",
+    "bytes": 2588927
+  },
+  {
+    "lesson": 34,
+    "sourcePdfPage": 71,
+    "sourcePage": "/assets/pages/page-071.jpg",
+    "scene": "/assets/scenes/lesson-034.png",
+    "prompt": "docs/art-prompts/lesson-034.txt",
+    "sha256": "4966b34109a41b5af86b6c1ab813da9a53bcd73f1bf5ab23c5c460a3895f4e94",
+    "bytes": 3050933
+  },
+  {
+    "lesson": 35,
+    "sourcePdfPage": 73,
+    "sourcePage": "/assets/pages/page-073.jpg",
+    "scene": "/assets/scenes/lesson-035.png",
+    "prompt": "docs/art-prompts/lesson-035.txt",
+    "sha256": "7a71195ab9023b7fd00ee8ceec70d1bd6ff091c581d57ac8a8e6abf50462f6de",
+    "bytes": 3338161
+  },
+  {
+    "lesson": 36,
+    "sourcePdfPage": 75,
+    "sourcePage": "/assets/pages/page-075.jpg",
+    "scene": "/assets/scenes/lesson-036.png",
+    "prompt": "docs/art-prompts/lesson-036.txt",
+    "sha256": "a874d553c3ed2399cbffaf20e721d17e5cb7e3004934ec2f87125e5c47c707d3",
+    "bytes": 3225756
+  },
+  {
+    "lesson": 37,
+    "sourcePdfPage": 77,
+    "sourcePage": "/assets/pages/page-077.jpg",
+    "scene": "/assets/scenes/lesson-037.png",
+    "prompt": "docs/art-prompts/lesson-037.txt",
+    "sha256": "db20f4246743c6dd20595358e25303753def52769fceaa45b60266fae301dfe7",
+    "bytes": 2115243
+  },
+  {
+    "lesson": 38,
+    "sourcePdfPage": 79,
+    "sourcePage": "/assets/pages/page-079.jpg",
+    "scene": "/assets/scenes/lesson-038.png",
+    "prompt": "docs/art-prompts/lesson-038.txt",
+    "sha256": "1637dd0c7ae6789707424686bde2324a0e04489bdcf32ce95acd2f86d1fe6fb9",
+    "bytes": 2625465
+  },
+  {
+    "lesson": 39,
+    "sourcePdfPage": 81,
+    "sourcePage": "/assets/pages/page-081.jpg",
+    "scene": "/assets/scenes/lesson-039.png",
+    "prompt": "docs/art-prompts/lesson-039.txt",
+    "sha256": "68e0b38df0adb71af8da38ed09ee68d78dcea7cd4e9b0b4d092dcf49951bd5a8",
+    "bytes": 2540211
+  },
+  {
+    "lesson": 40,
+    "sourcePdfPage": 83,
+    "sourcePage": "/assets/pages/page-083.jpg",
+    "scene": "/assets/scenes/lesson-040.png",
+    "prompt": "docs/art-prompts/lesson-040.txt",
+    "sha256": "6254546c158c24dc1313781ceeb7dcfd5e19c2db4256e740628a3d65bc0234b4",
+    "bytes": 2764033
+  },
+  {
+    "lesson": 41,
+    "sourcePdfPage": 85,
+    "sourcePage": "/assets/pages/page-085.jpg",
+    "scene": "/assets/scenes/lesson-041.png",
+    "prompt": "docs/art-prompts/lesson-041.txt",
+    "sha256": "e968d221faafabc8a221c29a0872a59b953cb30fa5645a0d718611ee429ed63e",
+    "bytes": 2306153
+  },
+  {
+    "lesson": 42,
+    "sourcePdfPage": 87,
+    "sourcePage": "/assets/pages/page-087.jpg",
+    "scene": "/assets/scenes/lesson-042.png",
+    "prompt": "docs/art-prompts/lesson-042.txt",
+    "sha256": "982f894a8f190d17640e718a0d7003057574c3a97e0d8f80acfa382e8d2fcf4b",
+    "bytes": 2639146
+  },
+  {
+    "lesson": 43,
+    "sourcePdfPage": 89,
+    "sourcePage": "/assets/pages/page-089.jpg",
+    "scene": "/assets/scenes/lesson-043.png",
+    "prompt": "docs/art-prompts/lesson-043.txt",
+    "sha256": "92c5045c9a53d20fa677fa996e7817859b14d01ca7070aea631a0f3c6eab785c",
+    "bytes": 2170971
+  },
+  {
+    "lesson": 44,
+    "sourcePdfPage": 91,
+    "sourcePage": "/assets/pages/page-091.jpg",
+    "scene": "/assets/scenes/lesson-044.png",
+    "prompt": "docs/art-prompts/lesson-044.txt",
+    "sha256": "ad0e512d6044c3cecb30a426b7b38d8dbd526061f3342f39f35de6726b30125e",
+    "bytes": 2752637
+  },
+  {
+    "lesson": 45,
+    "sourcePdfPage": 93,
+    "sourcePage": "/assets/pages/page-093.jpg",
+    "scene": "/assets/scenes/lesson-045.png",
+    "prompt": "docs/art-prompts/lesson-045.txt",
+    "sha256": "e389ecd30fbef04a831869fac288640802961ae45bb12ec21e5ffbca1cab33ef",
+    "bytes": 2111422
+  },
+  {
+    "lesson": 46,
+    "sourcePdfPage": 95,
+    "sourcePage": "/assets/pages/page-095.jpg",
+    "scene": "/assets/scenes/lesson-046.png",
+    "prompt": "docs/art-prompts/lesson-046.txt",
+    "sha256": "0b3df01b9790352cd7b3b2572b0bb99ff9f530376d019bfbb43ce5ec5329a514",
+    "bytes": 2734860
+  },
+  {
+    "lesson": 47,
+    "sourcePdfPage": 97,
+    "sourcePage": "/assets/pages/page-097.jpg",
+    "scene": "/assets/scenes/lesson-047.png",
+    "prompt": "docs/art-prompts/lesson-047.txt",
+    "sha256": "d09811be2fc4d4354ae63dca436c4ec2c4e387a098de621967df6bd279468622",
+    "bytes": 2280506
+  },
+  {
+    "lesson": 48,
+    "sourcePdfPage": 99,
+    "sourcePage": "/assets/pages/page-099.jpg",
+    "scene": "/assets/scenes/lesson-048.png",
+    "prompt": "docs/art-prompts/lesson-048.txt",
+    "sha256": "b26f858822b39625b6851c568a377b0b5a83a251180e3047f6d0e08e6ab4552f",
+    "bytes": 2663993
+  },
+  {
+    "lesson": 49,
+    "sourcePdfPage": 101,
+    "sourcePage": "/assets/pages/page-101.jpg",
+    "scene": "/assets/scenes/lesson-049.png",
+    "prompt": "docs/art-prompts/lesson-049.txt",
+    "sha256": "e7b5e3fb22e664132e96371e858176e93cdea7579395e383dfae9b5ad680a7a0",
+    "bytes": 2383895
+  },
+  {
+    "lesson": 50,
+    "sourcePdfPage": 103,
+    "sourcePage": "/assets/pages/page-103.jpg",
+    "scene": "/assets/scenes/lesson-050.png",
+    "prompt": "docs/art-prompts/lesson-050.txt",
+    "sha256": "c0c220ab48d316cfd7e4bc5335f0e035aeee1d1a5df622fa97b89ec3efc6014c",
+    "bytes": 2974196
+  },
+  {
+    "lesson": 51,
+    "sourcePdfPage": 105,
+    "sourcePage": "/assets/pages/page-105.jpg",
+    "scene": "/assets/scenes/lesson-051.png",
+    "prompt": "docs/art-prompts/lesson-051.txt",
+    "sha256": "130e5cbc50f14b30dc3513767de7729553c52306ce5b678d2719a60f87552049",
+    "bytes": 2923924
+  },
+  {
+    "lesson": 52,
+    "sourcePdfPage": 107,
+    "sourcePage": "/assets/pages/page-107.jpg",
+    "scene": "/assets/scenes/lesson-052.png",
+    "prompt": "docs/art-prompts/lesson-052.txt",
+    "sha256": "b7bae0c2e302c26370814598f916e861d495e406e2a2e040c21745e528cf22e5",
+    "bytes": 3244365
+  },
+  {
+    "lesson": 53,
+    "sourcePdfPage": 109,
+    "sourcePage": "/assets/pages/page-109.jpg",
+    "scene": "/assets/scenes/lesson-053.png",
+    "prompt": "docs/art-prompts/lesson-053.txt",
+    "sha256": "5e6c8a0b1f1bbe7d0b26db5d2c9ed3a8598a827f9fa1e7e02aed8dc8c4271c26",
+    "bytes": 2870316
+  },
+  {
+    "lesson": 54,
+    "sourcePdfPage": 111,
+    "sourcePage": "/assets/pages/page-111.jpg",
+    "scene": "/assets/scenes/lesson-054.png",
+    "prompt": "docs/art-prompts/lesson-054.txt",
+    "sha256": "02a314ef4e4487f1e24e6bc949169fe57c3dbce95cde8609f21ad1b3d2bc1926",
+    "bytes": 3063583
+  },
+  {
+    "lesson": 55,
+    "sourcePdfPage": 113,
+    "sourcePage": "/assets/pages/page-113.jpg",
+    "scene": "/assets/scenes/lesson-055.png",
+    "prompt": "docs/art-prompts/lesson-055.txt",
+    "sha256": "ad214920c265a0d1b8942432631bdbf81c0edf2604a6cd4963b568dee0a903e5",
+    "bytes": 2890812
+  },
+  {
+    "lesson": 56,
+    "sourcePdfPage": 115,
+    "sourcePage": "/assets/pages/page-115.jpg",
+    "scene": "/assets/scenes/lesson-056.png",
+    "prompt": "docs/art-prompts/lesson-056.txt",
+    "sha256": "21a8494f2f9e07083a7264c3a896fe5ad999e79cfcfd88bf8d215bfac6c23af8",
+    "bytes": 2608255
+  },
+  {
+    "lesson": 57,
+    "sourcePdfPage": 117,
+    "sourcePage": "/assets/pages/page-117.jpg",
+    "scene": "/assets/scenes/lesson-057.png",
+    "prompt": "docs/art-prompts/lesson-057.txt",
+    "sha256": "f08b1e7def7feb0acca03999bbd710363da4e0357406d6e087cf879776a1aab0",
+    "bytes": 2977098
+  },
+  {
+    "lesson": 58,
+    "sourcePdfPage": 119,
+    "sourcePage": "/assets/pages/page-119.jpg",
+    "scene": "/assets/scenes/lesson-058.png",
+    "prompt": "docs/art-prompts/lesson-058.txt",
+    "sha256": "7dc6a8259eabdc5aebbe5f866c360115734bf54a49a34bf048ca2bb53a0df652",
+    "bytes": 2927300
+  },
+  {
+    "lesson": 59,
+    "sourcePdfPage": 121,
+    "sourcePage": "/assets/pages/page-121.jpg",
+    "scene": "/assets/scenes/lesson-059.png",
+    "prompt": "docs/art-prompts/lesson-059.txt",
+    "sha256": "61faa4b1ab4d8aee3810acd068368155c4a5a596304a8d9869bde3e20c19a7ae",
+    "bytes": 2213769
+  },
+  {
+    "lesson": 60,
+    "sourcePdfPage": 123,
+    "sourcePage": "/assets/pages/page-123.jpg",
+    "scene": "/assets/scenes/lesson-060.png",
+    "prompt": "docs/art-prompts/lesson-060.txt",
+    "sha256": "03e05498599893d280961c84126e6a7a8acb4457cceb0781fdacae512c08c920",
+    "bytes": 2890974
+  },
+  {
+    "lesson": 61,
+    "sourcePdfPage": 125,
+    "sourcePage": "/assets/pages/page-125.jpg",
+    "scene": "/assets/scenes/lesson-061.png",
+    "prompt": "docs/art-prompts/lesson-061.txt",
+    "sha256": "d6c1e6617e8862a7e46a8b95943a3f6366727fa7e01989cfbcbf91a8c0bb1b35",
+    "bytes": 2199027
+  },
+  {
+    "lesson": 62,
+    "sourcePdfPage": 127,
+    "sourcePage": "/assets/pages/page-127.jpg",
+    "scene": "/assets/scenes/lesson-062.png",
+    "prompt": "docs/art-prompts/lesson-062.txt",
+    "sha256": "46de9595c583844016315097cc58e21ac3af5c941fd475474fc216472a64dd41",
+    "bytes": 2628537
+  },
+  {
+    "lesson": 63,
+    "sourcePdfPage": 129,
+    "sourcePage": "/assets/pages/page-129.jpg",
+    "scene": "/assets/scenes/lesson-063.png",
+    "prompt": "docs/art-prompts/lesson-063.txt",
+    "sha256": "967963a144afc46f5845cbf57678d84666441b0bc796be2332c5d2a89ce42ff4",
+    "bytes": 2496627
+  },
+  {
+    "lesson": 64,
+    "sourcePdfPage": 131,
+    "sourcePage": "/assets/pages/page-131.jpg",
+    "scene": "/assets/scenes/lesson-064.png",
+    "prompt": "docs/art-prompts/lesson-064.txt",
+    "sha256": "06e7439e10ad56a79edf58b3a8711f68186f71fdb6f3726c920090938f816395",
+    "bytes": 2658756
+  },
+  {
+    "lesson": 65,
+    "sourcePdfPage": 133,
+    "sourcePage": "/assets/pages/page-133.jpg",
+    "scene": "/assets/scenes/lesson-065.png",
+    "prompt": "docs/art-prompts/lesson-065.txt",
+    "sha256": "c273a51a3afd2967f22b3da8e62afab530d6f2f0a1ed4f33722ed29dc587cee5",
+    "bytes": 2049581
+  },
+  {
+    "lesson": 66,
+    "sourcePdfPage": 135,
+    "sourcePage": "/assets/pages/page-135.jpg",
+    "scene": "/assets/scenes/lesson-066.png",
+    "prompt": "docs/art-prompts/lesson-066.txt",
+    "sha256": "9d966fb178c23e6d6f1867437935e99715b4b651459de4cb9a2327a2af5623fc",
+    "bytes": 2580807
+  },
+  {
+    "lesson": 67,
+    "sourcePdfPage": 137,
+    "sourcePage": "/assets/pages/page-137.jpg",
+    "scene": "/assets/scenes/lesson-067.png",
+    "prompt": "docs/art-prompts/lesson-067.txt",
+    "sha256": "9d1ee6dd9bf75b5add4770e68c054db35e066d640c6534eba147b4d503e50648",
+    "bytes": 2657019
+  },
+  {
+    "lesson": 68,
+    "sourcePdfPage": 139,
+    "sourcePage": "/assets/pages/page-139.jpg",
+    "scene": "/assets/scenes/lesson-068.png",
+    "prompt": "docs/art-prompts/lesson-068.txt",
+    "sha256": "7c36448c5f52dcc51b38562319443a995b5d4bdb8de8c2128b84a52f2c24aeac",
+    "bytes": 2937350
+  },
+  {
+    "lesson": 69,
+    "sourcePdfPage": 141,
+    "sourcePage": "/assets/pages/page-141.jpg",
+    "scene": "/assets/scenes/lesson-069.png",
+    "prompt": "docs/art-prompts/lesson-069.txt",
+    "sha256": "e7a539bd6183680c11c39dbc61e4e14f5c74428b8f8fa310c4a81dd84bb36e76",
+    "bytes": 2559111
+  },
+  {
+    "lesson": 70,
+    "sourcePdfPage": 143,
+    "sourcePage": "/assets/pages/page-143.jpg",
+    "scene": "/assets/scenes/lesson-070.png",
+    "prompt": "docs/art-prompts/lesson-070.txt",
+    "sha256": "ea91a5d1132e85eccf081108e4c658a42a5423b96f837c9f18b7779115ea3a59",
+    "bytes": 3098253
+  },
+  {
+    "lesson": 71,
+    "sourcePdfPage": 145,
+    "sourcePage": "/assets/pages/page-145.jpg",
+    "scene": "/assets/scenes/lesson-071.png",
+    "prompt": "docs/art-prompts/lesson-071.txt",
+    "sha256": "5de2d4e06b82a284b35c2840b873c76099dbb22e2e8830cda9b860f32b51cbe7",
+    "bytes": 2369832
+  },
+  {
+    "lesson": 72,
+    "sourcePdfPage": 147,
+    "sourcePage": "/assets/pages/page-147.jpg",
+    "scene": "/assets/scenes/lesson-072.png",
+    "prompt": "docs/art-prompts/lesson-072.txt",
+    "sha256": "eb4794ce6530114ae3f58b3baf09fe7348d66627ce92a16240058653eb3640ed",
+    "bytes": 2769311
+  },
+  {
+    "lesson": 73,
+    "sourcePdfPage": 153,
+    "sourcePage": "/assets/pages/page-153.jpg",
+    "scene": "/assets/scenes/lesson-073.png",
+    "prompt": "docs/art-prompts/lesson-073.txt",
+    "sha256": "f1ec896f00de36a28261a2dc5f92cba4e26746604dfead73bf0995f1b922c5c5",
+    "bytes": 2524459
+  },
+  {
+    "lesson": 74,
+    "sourcePdfPage": 155,
+    "sourcePage": "/assets/pages/page-155.jpg",
+    "scene": "/assets/scenes/lesson-074.png",
+    "prompt": "docs/art-prompts/lesson-074.txt",
+    "sha256": "634b49b8931fa70b93a172518418cc919bccc01de70d0dd0a9d7849ff60d3eca",
+    "bytes": 2703710
+  },
+  {
+    "lesson": 75,
+    "sourcePdfPage": 157,
+    "sourcePage": "/assets/pages/page-157.jpg",
+    "scene": "/assets/scenes/lesson-075.png",
+    "prompt": "docs/art-prompts/lesson-075.txt",
+    "sha256": "e7bf80d3678b8854daa765c070403f026315aa2cc51ae07db96bd31db7000af8",
+    "bytes": 2203410
+  },
+  {
+    "lesson": 76,
+    "sourcePdfPage": 159,
+    "sourcePage": "/assets/pages/page-159.jpg",
+    "scene": "/assets/scenes/lesson-076.png",
+    "prompt": "docs/art-prompts/lesson-076.txt",
+    "sha256": "4d7d68e7fda0a04bf95e50c90ae0a8e4eec6bb9b05b454db3e697734adcd8b3a",
+    "bytes": 2857312
+  },
+  {
+    "lesson": 77,
+    "sourcePdfPage": 161,
+    "sourcePage": "/assets/pages/page-161.jpg",
+    "scene": "/assets/scenes/lesson-077.png",
+    "prompt": "docs/art-prompts/lesson-077.txt",
+    "sha256": "856e0eb26e4316356dc487801ec3012d08433a13d03c37386532bd62970ffb60",
+    "bytes": 2256243
+  },
+  {
+    "lesson": 78,
+    "sourcePdfPage": 163,
+    "sourcePage": "/assets/pages/page-163.jpg",
+    "scene": "/assets/scenes/lesson-078.png",
+    "prompt": "docs/art-prompts/lesson-078.txt",
+    "sha256": "6bdfd99e16504da7879e19f679ca5cf5a900830aadec41f0c59e82596016d284",
+    "bytes": 2363439
+  },
+  {
+    "lesson": 79,
+    "sourcePdfPage": 165,
+    "sourcePage": "/assets/pages/page-165.jpg",
+    "scene": "/assets/scenes/lesson-079.png",
+    "prompt": "docs/art-prompts/lesson-079.txt",
+    "sha256": "a6a1a18bb50f46fdc9e29717cd56876921e3d0fb0ac76b768c4169a5546a5768",
+    "bytes": 2189566
+  },
+  {
+    "lesson": 80,
+    "sourcePdfPage": 167,
+    "sourcePage": "/assets/pages/page-167.jpg",
+    "scene": "/assets/scenes/lesson-080.png",
+    "prompt": "docs/art-prompts/lesson-080.txt",
+    "sha256": "2745a3f64b68e13c4572da57da36f78fa56814fb22639e1dcbd7c149f544df5f",
+    "bytes": 2795387
+  },
+  {
+    "lesson": 81,
+    "sourcePdfPage": 169,
+    "sourcePage": "/assets/pages/page-169.jpg",
+    "scene": "/assets/scenes/lesson-081.png",
+    "prompt": "docs/art-prompts/lesson-081.txt",
+    "sha256": "a19afe56fd3ca8edaf5f245e695af965d65959562b834c0ea2377e22fbde8487",
+    "bytes": 2147071
+  },
+  {
+    "lesson": 82,
+    "sourcePdfPage": 171,
+    "sourcePage": "/assets/pages/page-171.jpg",
+    "scene": "/assets/scenes/lesson-082.png",
+    "prompt": "docs/art-prompts/lesson-082.txt",
+    "sha256": "8e719bfd62a8ccf22f87005bcbfe70aedf8da3a4853b3859910e9da41fb03229",
+    "bytes": 2622376
+  },
+  {
+    "lesson": 83,
+    "sourcePdfPage": 173,
+    "sourcePage": "/assets/pages/page-173.jpg",
+    "scene": "/assets/scenes/lesson-083.png",
+    "prompt": "docs/art-prompts/lesson-083.txt",
+    "sha256": "8275ec2cf7a87addb3a4bd5f68a15ababae85d0465281a7a594fdac92256ec6e",
+    "bytes": 2323379
+  },
+  {
+    "lesson": 84,
+    "sourcePdfPage": 175,
+    "sourcePage": "/assets/pages/page-175.jpg",
+    "scene": "/assets/scenes/lesson-084.png",
+    "prompt": "docs/art-prompts/lesson-084.txt",
+    "sha256": "d60077d6b84fc880d90c922042fb11404bf0b8b8751b277ad3b3fe483e359122",
+    "bytes": 2941984
+  },
+  {
+    "lesson": 85,
+    "sourcePdfPage": 177,
+    "sourcePage": "/assets/pages/page-177.jpg",
+    "scene": "/assets/scenes/lesson-085.png",
+    "prompt": "docs/art-prompts/lesson-085.txt",
+    "sha256": "0c01367cb26a2430c806709ba8d9295e38ead9b8c0397b4d4ca6b3c9073c814c",
+    "bytes": 2422747
+  },
+  {
+    "lesson": 86,
+    "sourcePdfPage": 179,
+    "sourcePage": "/assets/pages/page-179.jpg",
+    "scene": "/assets/scenes/lesson-086.png",
+    "prompt": "docs/art-prompts/lesson-086.txt",
+    "sha256": "9c501db68235b5ab43beb28352334936cbbde08f4d6d0c3ed0c710486b3ec786",
+    "bytes": 2638783
+  },
+  {
+    "lesson": 87,
+    "sourcePdfPage": 181,
+    "sourcePage": "/assets/pages/page-181.jpg",
+    "scene": "/assets/scenes/lesson-087.png",
+    "prompt": "docs/art-prompts/lesson-087.txt",
+    "sha256": "3cc3ddfa084feeafe8396afb3c85e7c8fa35c6f65c068b7c1595351f0ff47e58",
+    "bytes": 2473978
+  },
+  {
+    "lesson": 88,
+    "sourcePdfPage": 183,
+    "sourcePage": "/assets/pages/page-183.jpg",
+    "scene": "/assets/scenes/lesson-088.png",
+    "prompt": "docs/art-prompts/lesson-088.txt",
+    "sha256": "a734b138554c4a7462bd8251431df58422ae67e2f95b2fdb2e61c90d4d4ab6f7",
+    "bytes": 2464753
+  },
+  {
+    "lesson": 89,
+    "sourcePdfPage": 185,
+    "sourcePage": "/assets/pages/page-185.jpg",
+    "scene": "/assets/scenes/lesson-089.png",
+    "prompt": "docs/art-prompts/lesson-089.txt",
+    "sha256": "db28627c2ed889b6257a07777c732b3719b502741e2300a65108bd3626871389",
+    "bytes": 2429438
+  },
+  {
+    "lesson": 90,
+    "sourcePdfPage": 187,
+    "sourcePage": "/assets/pages/page-187.jpg",
+    "scene": "/assets/scenes/lesson-090.png",
+    "prompt": "docs/art-prompts/lesson-090.txt",
+    "sha256": "d379b10d18762fb7312d74cafaf4c4c0ac2c6b70b0792a0765a569e3c688e2af",
+    "bytes": 2115117
+  },
+  {
+    "lesson": 91,
+    "sourcePdfPage": 189,
+    "sourcePage": "/assets/pages/page-189.jpg",
+    "scene": "/assets/scenes/lesson-091.png",
+    "prompt": "docs/art-prompts/lesson-091.txt",
+    "sha256": "f55f07f8daed89089639670301209ca9bbdcd6f8aff36345d375a71efebbfd0d",
+    "bytes": 2577212
+  },
+  {
+    "lesson": 92,
+    "sourcePdfPage": 191,
+    "sourcePage": "/assets/pages/page-191.jpg",
+    "scene": "/assets/scenes/lesson-092.png",
+    "prompt": "docs/art-prompts/lesson-092.txt",
+    "sha256": "df49ad4b19f85c39f2fb2716ca86136d1637ccb60822b341dbc754f63c1e8334",
+    "bytes": 2979279
+  },
+  {
+    "lesson": 93,
+    "sourcePdfPage": 193,
+    "sourcePage": "/assets/pages/page-193.jpg",
+    "scene": "/assets/scenes/lesson-093.png",
+    "prompt": "docs/art-prompts/lesson-093.txt",
+    "sha256": "ed112e0747bceb5d87f6709f3d084e5982b69fefcf76f6139df110cbe25a9f15",
+    "bytes": 2690971
+  },
+  {
+    "lesson": 94,
+    "sourcePdfPage": 195,
+    "sourcePage": "/assets/pages/page-195.jpg",
+    "scene": "/assets/scenes/lesson-094.png",
+    "prompt": "docs/art-prompts/lesson-094.txt",
+    "sha256": "114f6d5a9ef5d06c107a60e8e35388b53ce23b54a994b47d8276ce5a543fa624",
+    "bytes": 3035395
+  },
+  {
+    "lesson": 95,
+    "sourcePdfPage": 197,
+    "sourcePage": "/assets/pages/page-197.jpg",
+    "scene": "/assets/scenes/lesson-095.png",
+    "prompt": "docs/art-prompts/lesson-095.txt",
+    "sha256": "daa37e34476793901497f88a2831fb49e26dcfb903f2967ed64d81296bbc32f6",
+    "bytes": 2461011
+  },
+  {
+    "lesson": 96,
+    "sourcePdfPage": 199,
+    "sourcePage": "/assets/pages/page-199.jpg",
+    "scene": "/assets/scenes/lesson-096.png",
+    "prompt": "docs/art-prompts/lesson-096.txt",
+    "sha256": "28a9e679d28b4f1533721a26e26aaf3117964e13db43dfed5c64ddac100a3624",
+    "bytes": 2711723
+  },
+  {
+    "lesson": 97,
+    "sourcePdfPage": 201,
+    "sourcePage": "/assets/pages/page-201.jpg",
+    "scene": "/assets/scenes/lesson-097.png",
+    "prompt": "docs/art-prompts/lesson-097.txt",
+    "sha256": "0ad9a49947c01882242d87e8e984da92fc3dd352b9e44157e74e73cf0f480f0d",
+    "bytes": 2312891
+  },
+  {
+    "lesson": 98,
+    "sourcePdfPage": 203,
+    "sourcePage": "/assets/pages/page-203.jpg",
+    "scene": "/assets/scenes/lesson-098.png",
+    "prompt": "docs/art-prompts/lesson-098.txt",
+    "sha256": "44c224dff7c057a304e168453b560a37725e862b145408ccdd648cca40f8f166",
+    "bytes": 2647652
+  },
+  {
+    "lesson": 99,
+    "sourcePdfPage": 205,
+    "sourcePage": "/assets/pages/page-205.jpg",
+    "scene": "/assets/scenes/lesson-099.png",
+    "prompt": "docs/art-prompts/lesson-099.txt",
+    "sha256": "e790dc94eb30e47fe3390c5d1630ea76a2b5889f32c48a347b25f91bde8b5ff9",
+    "bytes": 2239009
+  },
+  {
+    "lesson": 100,
+    "sourcePdfPage": 207,
+    "sourcePage": "/assets/pages/page-207.jpg",
+    "scene": "/assets/scenes/lesson-100.png",
+    "prompt": "docs/art-prompts/lesson-100.txt",
+    "sha256": "89ff2d92d3ba191452f5d2c6be9f17a30fab6994e82dcaddc07e96309d2f39cf",
+    "bytes": 2894906
+  },
+  {
+    "lesson": 101,
+    "sourcePdfPage": 209,
+    "sourcePage": "/assets/pages/page-209.jpg",
+    "scene": "/assets/scenes/lesson-101.png",
+    "prompt": "docs/art-prompts/lesson-101.txt",
+    "sha256": "d139eebd402d023ce1ba5510ea7de8fbbac98f0bff86af9a28c9240acab78547",
+    "bytes": 2258204
+  },
+  {
+    "lesson": 102,
+    "sourcePdfPage": 211,
+    "sourcePage": "/assets/pages/page-211.jpg",
+    "scene": "/assets/scenes/lesson-102.png",
+    "prompt": "docs/art-prompts/lesson-102.txt",
+    "sha256": "727d8d47359d1fd85527a84694fb4fba6f2d5ec5baafb1575b3fd6dac364c579",
+    "bytes": 2845491
+  },
+  {
+    "lesson": 103,
+    "sourcePdfPage": 213,
+    "sourcePage": "/assets/pages/page-213.jpg",
+    "scene": "/assets/scenes/lesson-103.png",
+    "prompt": "docs/art-prompts/lesson-103.txt",
+    "sha256": "1c491d80d390b6d1c2559038c6ec5ec6b2b174d18dc7c14d30d7722ba76075a2",
+    "bytes": 2121885
+  },
+  {
+    "lesson": 104,
+    "sourcePdfPage": 215,
+    "sourcePage": "/assets/pages/page-215.jpg",
+    "scene": "/assets/scenes/lesson-104.png",
+    "prompt": "docs/art-prompts/lesson-104.txt",
+    "sha256": "9669ff6954ed6eabafcf45fbbe5700349b0e7c9cd6e7131ffa76b8592db9c7bc",
+    "bytes": 2777356
+  },
+  {
+    "lesson": 105,
+    "sourcePdfPage": 217,
+    "sourcePage": "/assets/pages/page-217.jpg",
+    "scene": "/assets/scenes/lesson-105.png",
+    "prompt": "docs/art-prompts/lesson-105.txt",
+    "sha256": "97f1fba14c587fd4f57c83e0a1684c70dcae8da4fa7049ba7d4a85ce654c452b",
+    "bytes": 2151680
+  },
+  {
+    "lesson": 106,
+    "sourcePdfPage": 219,
+    "sourcePage": "/assets/pages/page-219.jpg",
+    "scene": "/assets/scenes/lesson-106.png",
+    "prompt": "docs/art-prompts/lesson-106.txt",
+    "sha256": "3a6ed3494ae7d238c85d99d6fad6c346c37ff83b651ab578e6593950f3277bd0",
+    "bytes": 2898562
+  },
+  {
+    "lesson": 107,
+    "sourcePdfPage": 221,
+    "sourcePage": "/assets/pages/page-221.jpg",
+    "scene": "/assets/scenes/lesson-107.png",
+    "prompt": "docs/art-prompts/lesson-107.txt",
+    "sha256": "7bb6359dee8b62eb7e8de037c489121bdc35f14d9d58388e3b8b7d8e24eadd7d",
+    "bytes": 2423700
+  },
+  {
+    "lesson": 108,
+    "sourcePdfPage": 223,
+    "sourcePage": "/assets/pages/page-223.jpg",
+    "scene": "/assets/scenes/lesson-108.png",
+    "prompt": "docs/art-prompts/lesson-108.txt",
+    "sha256": "be43183704d9273291556077bc3ad995edbc597644d5a700ae8c4edee620e572",
+    "bytes": 2930548
+  },
+  {
+    "lesson": 109,
+    "sourcePdfPage": 225,
+    "sourcePage": "/assets/pages/page-225.jpg",
+    "scene": "/assets/scenes/lesson-109.png",
+    "prompt": "docs/art-prompts/lesson-109.txt",
+    "sha256": "7f342c4d84a9d1b725b9ba8c9c787809f134973362edae4ac145098bf9e0ecca",
+    "bytes": 2303989
+  },
+  {
+    "lesson": 110,
+    "sourcePdfPage": 227,
+    "sourcePage": "/assets/pages/page-227.jpg",
+    "scene": "/assets/scenes/lesson-110.png",
+    "prompt": "docs/art-prompts/lesson-110.txt",
+    "sha256": "284b99cbbc26ae073420b2bd80aabc1c922069d25f1204b187b6224ed1bbb236",
+    "bytes": 2803888
+  },
+  {
+    "lesson": 111,
+    "sourcePdfPage": 229,
+    "sourcePage": "/assets/pages/page-229.jpg",
+    "scene": "/assets/scenes/lesson-111.png",
+    "prompt": "docs/art-prompts/lesson-111.txt",
+    "sha256": "c14b2caed8a394456b589828453b2c9fb8b987133c1073a08f8d08841ccc3fc1",
+    "bytes": 2087091
+  },
+  {
+    "lesson": 112,
+    "sourcePdfPage": 231,
+    "sourcePage": "/assets/pages/page-231.jpg",
+    "scene": "/assets/scenes/lesson-112.png",
+    "prompt": "docs/art-prompts/lesson-112.txt",
+    "sha256": "247ca51b0f0f347f03322e646449bea700849cc15985e1c02ae341c7b74a1654",
+    "bytes": 2689593
+  },
+  {
+    "lesson": 113,
+    "sourcePdfPage": 233,
+    "sourcePage": "/assets/pages/page-233.jpg",
+    "scene": "/assets/scenes/lesson-113.png",
+    "prompt": "docs/art-prompts/lesson-113.txt",
+    "sha256": "dacd6047452908bfd335a4a1914e16ed8b42fd4c88ee167197ff561ca1f185ee",
+    "bytes": 2530969
+  },
+  {
+    "lesson": 114,
+    "sourcePdfPage": 235,
+    "sourcePage": "/assets/pages/page-235.jpg",
+    "scene": "/assets/scenes/lesson-114.png",
+    "prompt": "docs/art-prompts/lesson-114.txt",
+    "sha256": "58f9d1229b0646fe3e3fc049c368f3dd16accdb9e5a8f2e5788be8c125878080",
+    "bytes": 2602301
+  },
+  {
+    "lesson": 115,
+    "sourcePdfPage": 237,
+    "sourcePage": "/assets/pages/page-237.jpg",
+    "scene": "/assets/scenes/lesson-115.png",
+    "prompt": "docs/art-prompts/lesson-115.txt",
+    "sha256": "c4790dfa68bd5658f756f7328811530824754f6867010270e80ec55ad3af3ff1",
+    "bytes": 2609687
+  },
+  {
+    "lesson": 116,
+    "sourcePdfPage": 239,
+    "sourcePage": "/assets/pages/page-239.jpg",
+    "scene": "/assets/scenes/lesson-116.png",
+    "prompt": "docs/art-prompts/lesson-116.txt",
+    "sha256": "a58bbc7aa1207660a1f2fcdce4559145807ef7290f31f2ec351a57b68bce4038",
+    "bytes": 2664177
+  },
+  {
+    "lesson": 117,
+    "sourcePdfPage": 241,
+    "sourcePage": "/assets/pages/page-241.jpg",
+    "scene": "/assets/scenes/lesson-117.png",
+    "prompt": "docs/art-prompts/lesson-117.txt",
+    "sha256": "b4f7b4395f55e2fc3d936e5dcdfacb4918b26f868540860b7420d3dd78a6ef2d",
+    "bytes": 2303438
+  },
+  {
+    "lesson": 118,
+    "sourcePdfPage": 243,
+    "sourcePage": "/assets/pages/page-243.jpg",
+    "scene": "/assets/scenes/lesson-118.png",
+    "prompt": "docs/art-prompts/lesson-118.txt",
+    "sha256": "235d06534bd0dccd6ed14d59ec4f55fb708db3ff4884d624b977029c93723ea3",
+    "bytes": 2693708
+  },
+  {
+    "lesson": 119,
+    "sourcePdfPage": 245,
+    "sourcePage": "/assets/pages/page-245.jpg",
+    "scene": "/assets/scenes/lesson-119.png",
+    "prompt": "docs/art-prompts/lesson-119.txt",
+    "sha256": "0147169e0ffd13d65a77923b52a92146e387dbe2e23c1b0195557c4af7d4baf4",
+    "bytes": 2214579
+  },
+  {
+    "lesson": 120,
+    "sourcePdfPage": 247,
+    "sourcePage": "/assets/pages/page-247.jpg",
+    "scene": "/assets/scenes/lesson-120.png",
+    "prompt": "docs/art-prompts/lesson-120.txt",
+    "sha256": "3b9aa528896c03b9a2d0a7dd90a7f8d66bcca09ab904587a78d3189236a7d690",
+    "bytes": 2654278
+  },
+  {
+    "lesson": 121,
+    "sourcePdfPage": 249,
+    "sourcePage": "/assets/pages/page-249.jpg",
+    "scene": "/assets/scenes/lesson-121.png",
+    "prompt": "docs/art-prompts/lesson-121.txt",
+    "sha256": "8a3c9ee7b85033fce82598fd42a03f5a4f9e67016efe573644638e3317ff988e",
+    "bytes": 2304003
+  },
+  {
+    "lesson": 122,
+    "sourcePdfPage": 251,
+    "sourcePage": "/assets/pages/page-251.jpg",
+    "scene": "/assets/scenes/lesson-122.png",
+    "prompt": "docs/art-prompts/lesson-122.txt",
+    "sha256": "6d570a62c9da893c765a511ced988fc6db384f490cfc92cef256cdb908b970c6",
+    "bytes": 2675023
+  },
+  {
+    "lesson": 123,
+    "sourcePdfPage": 253,
+    "sourcePage": "/assets/pages/page-253.jpg",
+    "scene": "/assets/scenes/lesson-123.png",
+    "prompt": "docs/art-prompts/lesson-123.txt",
+    "sha256": "37d102294d2e379605f0dabb18b2073578e0c68035c96af8a42da3b59b373f47",
+    "bytes": 2405096
+  },
+  {
+    "lesson": 124,
+    "sourcePdfPage": 255,
+    "sourcePage": "/assets/pages/page-255.jpg",
+    "scene": "/assets/scenes/lesson-124.png",
+    "prompt": "docs/art-prompts/lesson-124.txt",
+    "sha256": "cac6bee163bc6a93a8b8b0ed724c284efac27efd5bdb78b3799524d3f6b8c156",
+    "bytes": 2830743
+  },
+  {
+    "lesson": 125,
+    "sourcePdfPage": 257,
+    "sourcePage": "/assets/pages/page-257.jpg",
+    "scene": "/assets/scenes/lesson-125.png",
+    "prompt": "docs/art-prompts/lesson-125.txt",
+    "sha256": "b4db0a0f19f25493056e3c40544a5aa614e40baea47511fbbe54364f73624c81",
+    "bytes": 2783228
+  },
+  {
+    "lesson": 126,
+    "sourcePdfPage": 259,
+    "sourcePage": "/assets/pages/page-259.jpg",
+    "scene": "/assets/scenes/lesson-126.png",
+    "prompt": "docs/art-prompts/lesson-126.txt",
+    "sha256": "720534ab445f5f5e471064ce06844f17b89fba473404312f08c5bdc05cda18ad",
+    "bytes": 2711496
+  },
+  {
+    "lesson": 127,
+    "sourcePdfPage": 261,
+    "sourcePage": "/assets/pages/page-261.jpg",
+    "scene": "/assets/scenes/lesson-127.png",
+    "prompt": "docs/art-prompts/lesson-127.txt",
+    "sha256": "58e1bceda8d1c3eaeb0801154094af5a77709634a5f434b8e364641980d52812",
+    "bytes": 2284128
+  },
+  {
+    "lesson": 128,
+    "sourcePdfPage": 263,
+    "sourcePage": "/assets/pages/page-263.jpg",
+    "scene": "/assets/scenes/lesson-128.png",
+    "prompt": "docs/art-prompts/lesson-128.txt",
+    "sha256": "1bd213c7a003a305a5cb3877123afa25a014cd60eeaf2c6b2711e4767fb52b7d",
+    "bytes": 2576395
+  },
+  {
+    "lesson": 129,
+    "sourcePdfPage": 265,
+    "sourcePage": "/assets/pages/page-265.jpg",
+    "scene": "/assets/scenes/lesson-129.png",
+    "prompt": "docs/art-prompts/lesson-129.txt",
+    "sha256": "b50eeb590805baddac53b7afd32592257916d8076c6d7b6adb5aaa09d4775c93",
+    "bytes": 2707464
+  },
+  {
+    "lesson": 130,
+    "sourcePdfPage": 267,
+    "sourcePage": "/assets/pages/page-267.jpg",
+    "scene": "/assets/scenes/lesson-130.png",
+    "prompt": "docs/art-prompts/lesson-130.txt",
+    "sha256": "926e00da0641abe25cbf32f41b74d110f36af29fbd2c7a379c9f24d71966d80f",
+    "bytes": 2501047
+  },
+  {
+    "lesson": 131,
+    "sourcePdfPage": 269,
+    "sourcePage": "/assets/pages/page-269.jpg",
+    "scene": "/assets/scenes/lesson-131.png",
+    "prompt": "docs/art-prompts/lesson-131.txt",
+    "sha256": "4a618a0ebecd2f04b398180eb4303e60a420b782a52ddaa9a06aacf4e0e4c4cd",
+    "bytes": 2412942
+  },
+  {
+    "lesson": 132,
+    "sourcePdfPage": 271,
+    "sourcePage": "/assets/pages/page-271.jpg",
+    "scene": "/assets/scenes/lesson-132.png",
+    "prompt": "docs/art-prompts/lesson-132.txt",
+    "sha256": "89be41c8291947f6d3b6ff0cae607589175a3b2c700bb06a698494c99e1ee65f",
+    "bytes": 2603302
+  },
+  {
+    "lesson": 133,
+    "sourcePdfPage": 273,
+    "sourcePage": "/assets/pages/page-273.jpg",
+    "scene": "/assets/scenes/lesson-133.png",
+    "prompt": "docs/art-prompts/lesson-133.txt",
+    "sha256": "19640fcaafa66273689e44213d6d7e1f79d44ec354e0e851451d274eec59a25a",
+    "bytes": 2383553
+  },
+  {
+    "lesson": 134,
+    "sourcePdfPage": 275,
+    "sourcePage": "/assets/pages/page-275.jpg",
+    "scene": "/assets/scenes/lesson-134.png",
+    "prompt": "docs/art-prompts/lesson-134.txt",
+    "sha256": "9e73b4ba4a20ff3861f0b724576fa29b6b0c1c64866d506f8033a4d6b9edc3c2",
+    "bytes": 2671835
+  },
+  {
+    "lesson": 135,
+    "sourcePdfPage": 277,
+    "sourcePage": "/assets/pages/page-277.jpg",
+    "scene": "/assets/scenes/lesson-135.png",
+    "prompt": "docs/art-prompts/lesson-135.txt",
+    "sha256": "c3b55ec82f663c0d6256c527e15fe65652b1e00d0d8c96af91997306bf7199a6",
+    "bytes": 2342378
+  },
+  {
+    "lesson": 136,
+    "sourcePdfPage": 279,
+    "sourcePage": "/assets/pages/page-279.jpg",
+    "scene": "/assets/scenes/lesson-136.png",
+    "prompt": "docs/art-prompts/lesson-136.txt",
+    "sha256": "1f7001707c83f8fc6a02cdfcbd9175cf1493fc9f0cbc5929db555991f6fe018a",
+    "bytes": 2415350
+  },
+  {
+    "lesson": 137,
+    "sourcePdfPage": 281,
+    "sourcePage": "/assets/pages/page-281.jpg",
+    "scene": "/assets/scenes/lesson-137.png",
+    "prompt": "docs/art-prompts/lesson-137.txt",
+    "sha256": "801cbec769af8941bd5b4fa3995f2f2ac8700497036d88a22d20e5322c8080e2",
+    "bytes": 2299885
+  },
+  {
+    "lesson": 138,
+    "sourcePdfPage": 283,
+    "sourcePage": "/assets/pages/page-283.jpg",
+    "scene": "/assets/scenes/lesson-138.png",
+    "prompt": "docs/art-prompts/lesson-138.txt",
+    "sha256": "6ea261ebbb2234f75e29b195c68092abd29ec2aa4aabc59c6452fd40b225a744",
+    "bytes": 2644806
+  },
+  {
+    "lesson": 139,
+    "sourcePdfPage": 285,
+    "sourcePage": "/assets/pages/page-285.jpg",
+    "scene": "/assets/scenes/lesson-139.png",
+    "prompt": "docs/art-prompts/lesson-139.txt",
+    "sha256": "9546292558c09cf5e8fd03998bed95d1378e082afdae630fa10f653f8dfdbf54",
+    "bytes": 2421509
+  },
+  {
+    "lesson": 140,
+    "sourcePdfPage": 287,
+    "sourcePage": "/assets/pages/page-287.jpg",
+    "scene": "/assets/scenes/lesson-140.png",
+    "prompt": "docs/art-prompts/lesson-140.txt",
+    "sha256": "f0a41e30aab380940d8b6a7386269c820f03975e605eb76ddb1e66a3c844af58",
+    "bytes": 2350018
+  },
+  {
+    "lesson": 141,
+    "sourcePdfPage": 289,
+    "sourcePage": "/assets/pages/page-289.jpg",
+    "scene": "/assets/scenes/lesson-141.png",
+    "prompt": "docs/art-prompts/lesson-141.txt",
+    "sha256": "0f209fd85c879cac3cfb0400d3cdcaea5f2c43df4843baf01f8b8333e4c3d49e",
+    "bytes": 2244542
+  },
+  {
+    "lesson": 142,
+    "sourcePdfPage": 291,
+    "sourcePage": "/assets/pages/page-291.jpg",
+    "scene": "/assets/scenes/lesson-142.png",
+    "prompt": "docs/art-prompts/lesson-142.txt",
+    "sha256": "e552e756d0d5f1712dcfe11e8ef5b2a94572b23f4acf6216275a255ba0145833",
+    "bytes": 2613768
+  },
+  {
+    "lesson": 143,
+    "sourcePdfPage": 293,
+    "sourcePage": "/assets/pages/page-293.jpg",
+    "scene": "/assets/scenes/lesson-143.png",
+    "prompt": "docs/art-prompts/lesson-143.txt",
+    "sha256": "f027453aaf8696c837ecc3809902812a889741474cee8cb1d2f45d4ffb00df3c",
+    "bytes": 3228687
+  },
+  {
+    "lesson": 144,
+    "sourcePdfPage": 295,
+    "sourcePage": "/assets/pages/page-295.jpg",
+    "scene": "/assets/scenes/lesson-144.png",
+    "prompt": "docs/art-prompts/lesson-144.txt",
+    "sha256": "c80cc5d327713f89d2f261eeb97d1b76502d7d96252402c0a6224abc46c30925",
+    "bytes": 2678953
+  }
+]
