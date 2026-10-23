@@ -59,10 +59,12 @@ class PlayersController extends Controller {
   }
 }
 class LessonController extends Controller {
-  constructor(...args) { super(...args); this.set({lesson: null, cursor: 0, difficulty: 'easy', playing: false, audioError: '', progressError: '', showTranslation: true}); }
+  constructor(...args) { super(...args); this.set({lesson: null, cursor: 0, difficulty: 'easy', playing: false, audioLoading: false, audioError: '', progressError: '', sceneUrl: '', pageUrl: '', imageLoading: false, imageError: '', showTranslation: true}); }
   async load(options) {
     if (this.audio) this.audio.destroy();
     const g = this.begin();
+    this.images = {};
+    this.set({sceneUrl: '', pageUrl: '', imageLoading: false, imageError: '', playing: false, audioLoading: false});
     const id = Number(options.id);
     if (!Number.isInteger(id) || id < 1 || id > 144) { this.fail(g,new Error('课号无效')); return; }
     try {
@@ -71,21 +73,22 @@ class LessonController extends Controller {
       const progress = player && player.progress && player.progress[id];
       const cursor = progress ? Math.min(Math.max(progress.cursor,0),lesson.lines.length - 1) : 0;
       const difficulty = progress && difficulties[progress.lastDifficulty] ? progress.lastDifficulty : 'easy';
-      this.set({showTranslation: this.wx.getStorageSync('showTranslation') !== false, loading: false, lesson, cursor, difficulty, playing: false, audioError: '', progressError: '', sceneUrl: this.api.asset(lesson.scene), pageUrl: this.api.asset(lesson.pageImage), scrollTo: 'line-' + cursor});
+      this.set({showTranslation: this.wx.getStorageSync('showTranslation') !== false, loading: false, lesson, cursor, difficulty, playing: false, audioLoading: false, audioError: '', progressError: '', scrollTo: 'line-' + cursor});
       this.audio = new AudioPlayer(this.wx, state => {
         if (!this.live(g, player && player.id)) return;
         this.set(Object.assign({},state,state.cursor === undefined ? {} : {scrollTo: 'line-' + state.cursor}));
         if (state.cursor !== undefined && player) this.saveProgress();
-      });
+      }, path => this.api.asset(path), () => this.live(g, player && player.id));
+      this.loadImages();
     } catch (e) { this.fail(g,e); }
   }
   playLine(index, continuous = false) {
     index = Number(index);
     if (!this.active || !this.audio || !this.data.lesson || !this.data.lesson.lines[index]) return;
     if (this.data.player && this.wx.getStorageSync('playerId') !== this.data.player.id) { this.hide(); return; }
-    this.audio.play(this.api.asset(this.data.lesson.audioUrl), this.data.lesson.lines, index, continuous);
+    this.audio.play(this.data.lesson.audioUrl, this.data.lesson.lines, index, continuous);
   }
-  pause() { if (this.audio) this.audio.stop(); this.set({playing: false}); }
+  pause() { if (this.audio) this.audio.stop(); this.set({playing: false, audioLoading: false}); }
   retryAudio() { if (this.active && this.audio) this.audio.retry(); }
   setDifficulty(difficulty) { if (difficulties[difficulty]) { this.set({difficulty}); this.saveProgress(); } }
   async saveProgress() {
@@ -106,17 +109,52 @@ class LessonController extends Controller {
     return this.progressTail;
   }
 
-  preview() { const urls = [this.data.sceneUrl,this.data.pageUrl].filter(Boolean); if(this.active && urls.length) this.wx.previewImage({current: urls[0],urls}); }
+  loadImages(retryOnly = false) {
+    const {lesson, player} = this.data, g = this.generation;
+    const playerId = player && player.id;
+    if (!lesson || !this.live(g, playerId)) return;
+    for (const [field, path] of [['sceneUrl', lesson.scene], ['pageUrl', lesson.pageImage]]) {
+      if (retryOnly && (this.data[field] || (this.images[field] && this.images[field].pending))) continue;
+      const state = {pending: true, error: false};
+      this.images[field] = state;
+      const active = () => this.live(g, playerId) && this.images[field] === state;
+      this.set({[field]: ''}); this.imageState();
+      const fail = () => {
+        if (!active()) return;
+        state.pending = false; state.error = true; this.imageState();
+      };
+      const resolved = url => {
+        if (!active()) return;
+        if (typeof url !== 'string' || !url) { fail(); return; }
+        state.pending = false; state.error = false;
+        this.set({[field]: url}); this.imageState();
+      };
+      try {
+        const source = this.api.asset(path);
+        if (source && typeof source.then === 'function') Promise.resolve(source).then(resolved).catch(fail);
+        else resolved(source);
+      } catch (e) { fail(); }
+    }
+  }
+  imageState() {
+    const states = Object.values(this.images);
+    this.set({imageLoading: states.some(s => s.pending), imageError: states.some(s => s.error) ? '图片暂时无法显示，请点重试' : ''});
+  }
+  retryImages() { this.loadImages(true); }
+  preview() {
+    const urls = [this.data.sceneUrl,this.data.pageUrl].filter(url => typeof url === 'string' && url);
+    if (this.live(this.generation, this.data.player && this.data.player.id) && urls.length) this.wx.previewImage({current: urls[0],urls});
+  }
   share() { const l = this.data.lesson; return {title: l ? '第 ' + l.id + ' 课 · ' + l.title : '英语星光冒险', path: '/pages/lesson/lesson?id=' + (l ? l.id : 1)}; }
   toggleTranslation() { this.set({showTranslation: !this.data.showTranslation}); }
 }
 class ChallengeController extends Controller {
-  constructor(...args) { super(...args); this.set({attempt: null, lesson: null, question: null, index: 0, answer: '', orderSelected: [], optionItems: [], busy: false, result: null, audioError: '', playing: false}); this.answers = []; }
+  constructor(...args) { super(...args); this.set({attempt: null, lesson: null, question: null, index: 0, answer: '', orderSelected: [], optionItems: [], busy: false, result: null, audioError: '', playing: false, audioLoading: false}); this.answers = []; }
   async load(options) {
     if (this.audio) this.audio.destroy();
     const g = this.begin();
     const id = Number(options.id), difficulty = options.difficulty;
-    this.set({attempt: null, result: null, question: null, busy: false}); this.answers = [];
+    this.set({attempt: null, result: null, question: null, busy: false, playing: false, audioLoading: false, audioError: ''}); this.answers = [];
     if (!Number.isInteger(id) || id < 1 || id > 144 || !difficulties[difficulty]) { this.fail(g,new Error('课号或难度无效')); return; }
     try {
       const [lesson,player] = await Promise.all([this.api.request('/api/lessons/' + id),this.family(g)]);
@@ -126,14 +164,14 @@ class ChallengeController extends Controller {
       const attempt = await this.api.request(playerPath(player.id) + '/attempts','POST',{lessonId:id,difficulty});
       if (!this.live(g,player.id)) return;
       this.set({attempt, lesson, loading: false});
-      this.audio = new AudioPlayer(this.wx, s => { if(this.live(g,player.id)) this.set(s); });
+      this.audio = new AudioPlayer(this.wx, s => { if(this.live(g,player.id)) this.set(s); }, path => this.api.asset(path), () => this.live(g,player.id) && !this.data.busy && !this.data.result);
       this.showQuestion(0);
     } catch (e) { this.fail(g,e); }
   }
   showQuestion(index) {
     if (this.audio) this.audio.destroy();
     const question = this.data.attempt.questions[index];
-    this.set({question, index, answer: this.answers[index] || '', orderSelected: [], optionItems: (question.options || []).map((text,id)=>({id,text,selected:false})), audioError: '', playing:false});
+    this.set({question, index, answer: this.answers[index] || '', orderSelected: [], optionItems: (question.options || []).map((text,id)=>({id,text,selected:false})), audioError: '', playing:false, audioLoading:false});
   }
   answer(value) { if (this.active && !this.data.busy && !this.data.result) this.set({answer: String(value), error: ''}); }
   order(index) {
@@ -151,7 +189,7 @@ class ChallengeController extends Controller {
   hint() {
     if (!this.active || !this.audio || !this.data.question || this.data.busy || this.data.result) return;
     const q=this.data.question;
-    this.audio.play(this.api.asset(this.data.lesson.audioUrl),[{start:q.start,end:q.end}],0,false);
+    this.audio.play(this.data.lesson.audioUrl,[{start:q.start,end:q.end}],0,false);
   }
   retryAudio() { if (this.active && this.audio) this.audio.retry(); }
   async submit() {
@@ -160,7 +198,7 @@ class ChallengeController extends Controller {
     if (!attempt || !player || !this.live(g,player.id) || this.data.busy || this.data.result) return;
     this.answers[this.data.index] = this.data.answer.trim();
     if (this.answers.length !== 5 || this.answers.some(a=>!a)) { this.set({error:'请完成全部 5 道题'}); return; }
-    this.set({busy:true,error:''}); if(this.audio) this.audio.destroy();
+    this.set({busy:true,error:'',playing:false,audioLoading:false}); if(this.audio) this.audio.destroy();
     try {
       const result = await this.api.request(playerPath(player.id) + '/attempts/' + encodeURIComponent(attempt.id),'POST',{answers:this.answers.slice()});
       if(this.live(g,player.id)) this.set({result,busy:false});

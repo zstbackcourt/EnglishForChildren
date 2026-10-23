@@ -5,6 +5,7 @@ Page(nativePage(LessonController,{
   playAll() { this.controller.playLine(this.data.cursor,true); },
   pause() { this.controller.pause(); },
   retryAudio() { this.controller.retryAudio(); },
+  retryImages() { this.controller.retryImages(); },
   saveProgress() { return this.controller.saveProgress(); },
   preview() { this.controller.preview(); },
   toggleTranslation() { this.controller.toggleTranslation(); },

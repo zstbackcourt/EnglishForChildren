@@ -34,13 +34,13 @@ export async function checkBackend(apiBase,fetchImpl=fetch,expectedReleaseId) {
   if(players.status!==401)return {ok:false,error:'/api/players 未返回未登录状态；可能仍在运行示例或错误服务'};
   endpoint='/media/audio/1';
   const audio=await request(endpoint,{Range:'bytes=0-3'});
-  if(audio.status!==206||!/^bytes 0-3\/\d+$/.test(audio.headers.get('content-range')||'')||!audio.headers.get('content-type')?.startsWith('audio/')){
+  if(audio.status!==206||!/^"[\x21\x23-\x7e]{1,128}"$/.test(audio.headers.get('etag')||'')||!/^bytes 0-3\/\d+$/.test(audio.headers.get('content-range')||'')||!audio.headers.get('content-type')?.startsWith('audio/')){
    await audio.body?.cancel();
    return {ok:false,error:'/media/audio/1 音频 Range 检查失败'};
   }
   const audioBody=await boundedBody(audio,4);
   if(audioBody.length!==4)return {ok:false,error:'/media/audio/1 音频 Range 检查失败'};
-  return {ok:true,checks:['health-json','authenticated-api','audio-range'],deviceTested:false};
+  return {ok:true,checks:['health-json','login-required','audio-range-etag'],deviceTested:false};
  } catch {return {ok:false,error:`${endpoint} 检查失败（连接、证书、重定向或响应不符合要求）`};}
 }
 

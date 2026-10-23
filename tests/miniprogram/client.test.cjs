@@ -57,3 +57,11 @@ test('returning after role creation completed while hidden permits another creat
  respond(s.wx.requests.shift(),{...player,id:'p3',name:'另一位',avatar:'cat'});await next;
  assert.equal(view.data.players.length,3);
 });
+test('native lesson image retry restores failed media without reopening the story',async()=>{
+ const s=setup();await signed(s);let sceneCalls=0;
+ s.api.asset=path=>path.startsWith('/assets/scenes/')?(++sceneCalls===1?Promise.reject(new Error('offline')):Promise.resolve('/user/scene.png')):Promise.resolve('/user/page.jpg');
+ const view=page('lesson',s);view.onLoad({id:'2'});const loading=view.onShow();await tick();
+ for(const r of s.wx.requests.splice(0))respond(r,r.url.endsWith('/api/players')?[player]:lesson);await loading;await tick();
+ assert.equal(view.data.error,'');assert.match(view.data.imageError,/重试/);assert.equal(view.data.lesson.id,2);
+ view.retryImages();await tick();assert.equal(view.data.sceneUrl,'/user/scene.png');assert.equal(view.data.pageUrl,'/user/page.jpg');assert.equal(view.data.imageError,'');
+});

@@ -10,14 +10,14 @@ test('backend gate rejects the CloudRun starter HTML even when HTTP status is 20
  assert.equal(large.ok,false);assert.match(large.error,/就绪 JSON/);
 });
 
-function backend({players=401,audio=206,range='bytes 0-3/100',releaseId}={}) {
+function backend({players=401,audio=206,range='bytes 0-3/100',etag='"file-v1"',releaseId}={}) {
  return async(url,options)=>{
   const p=new URL(url).pathname;
   if(p==='/healthz')return Response.json({status:'ok',releaseId});
   if(p==='/api/players')return Response.json({}, {status:players});
   if(p==='/media/audio/1'){
    assert.equal(options.headers.Range,'bytes=0-3');
-   return new Response(new Uint8Array([73,68,51,4]),{status:audio,headers:{'content-type':'audio/mpeg','content-range':range}});
+   return new Response(new Uint8Array([73,68,51,4]),{status:audio,headers:{'content-type':'audio/mpeg','content-range':range,etag}});
   }
   throw new Error('unexpected route');
  };
@@ -51,4 +51,8 @@ test('container configuration can be validated without launching a server or con
  const env={PATH:process.env.PATH,WECHAT_APP_ID:'wx1f23b102bcb34ed7',WECHAT_APP_SECRET:'test-only',WECHAT_SESSION_KEY:'a'.repeat(32),MYSQL_ADDRESS:'localhost:3306',MYSQL_USERNAME:'test',MYSQL_PASSWORD:'private-test-value',MYSQL_DATABASE:'test'};
  const result=spawnSync('/bin/sh',['deploy/wechat/cloudrun-entrypoint.sh','--check-config'],{encoding:'utf8',env});
  assert.equal(result.status,0,result.stderr);assert.doesNotMatch(result.stdout+result.stderr,/private-test-value/);
+});
+
+test('backend gate rejects audio without a strong ETag required by private media downloads',async()=>{
+ for(const etag of ['', 'W/"weak"'])assert.equal((await checkBackend('https://learning.example.net',backend({etag}))).ok,false);
 });

@@ -65,3 +65,10 @@ test('rejects mini-program root symlink before reading external project files',t
  const r=checkProject(root);assert.equal(r.ok,false);assert.ok(r.errors.some(x=>x.includes('符号链接')));
  assert.equal(r.files.length,0);
 });
+test('public HTTP release rejects CloudRun default test domain, private cloud route requires named environment and service',t=>{
+ const defaults={apiBase:'https://golang-8467-333734-12-1514891213.sh.run.tcloudbase.com',devLogin:false};
+ assert.equal(checkProject(fixture(t,defaults),{release:true}).ok,false);
+ const cloud={...defaults,transport:'cloudrun',cloudEnv:'prod-d2g6ceg6hee15e89b',cloudService:'golang-8467'};
+ assert.equal(checkProject(fixture(t,cloud),{release:true}).ok,true);
+ for(const invalid of [{...cloud,cloudEnv:''},{...cloud,cloudService:''},{...cloud,cloudEnv:'https://example.org'},{...cloud,transport:'typo'}])assert.equal(checkProject(fixture(t,invalid),{release:true}).ok,false);
+});

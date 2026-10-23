@@ -14,7 +14,7 @@ test('prepare creates an importable project without upload key and supports clou
  assert.equal(result.ok,true);assert.equal(result.published,false);
  assert.deepEqual(fs.readdirSync(output).sort(),['miniprogram','project.config.json']);
  const config=JSON.parse(fs.readFileSync(path.join(output,'miniprogram/config.json'),'utf8'));
- assert.equal(config.devLogin,false);assert.match(config.apiBase,/run\.tcloudbase\.com$/);
+ assert.equal(config.devLogin,false);assert.equal(config.transport,'cloudrun');assert.equal(config.cloudService,'golang-8467');assert.match(config.apiBase,/run\.tcloudbase\.com$/);
  const runtimeConfig=require(path.join(output,'miniprogram/config.js'));
  assert.deepEqual(runtimeConfig,config);
  for(const file of ['app.js','pages/settings/settings.js']) {

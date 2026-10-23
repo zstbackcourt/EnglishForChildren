@@ -1,4 +1,7 @@
 {
   "apiBase": "https://golang-8467-333734-12-1514891213.sh.run.tcloudbase.com",
-  "devLogin": false
+  "devLogin": false,
+  "transport": "cloudrun",
+  "cloudEnv": "prod-d2g6ceg6hee15e89b",
+  "cloudService": "golang-8467"
 }

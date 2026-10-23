@@ -46,11 +46,17 @@ export function checkProject(projectRoot,{release=false}={}) {
  }
  if(bytes>1024*1024)errors.push('代码包超过项目设定的 1 MiB 预算；图片和音频应远程加载');
  if(!/^wx[0-9a-f]{16}$/.test(project.appid||''))errors.push('请配置真实小程序 AppID');
+ if(config.transport!==undefined&&!['http','cloudrun'].includes(config.transport))errors.push('transport 必须为 http 或 cloudrun');
+ if(config.transport==='cloudrun') {
+  if(!/^[a-zA-Z0-9][a-zA-Z0-9_-]{0,127}$/.test(config.cloudEnv||''))errors.push('cloudrun 需要有效的 cloudEnv');
+  if(!/^[a-zA-Z0-9][a-zA-Z0-9_-]{0,63}$/.test(config.cloudService||''))errors.push('cloudrun 需要有效的 cloudService');
+ }
  let base;try{base=new URL(config.apiBase)}catch{errors.push('apiBase 必须是有效 URL')}
  if(release) {
   if(config.devLogin!==false)errors.push('发布时 devLogin 必须为 false');
   if(project.setting?.urlCheck===false)errors.push('发布时必须开启域名校验 urlCheck');
   if(base) {
+   if(config.transport!=='cloudrun'&&base.hostname.endsWith('.run.tcloudbase.com'))errors.push('云托管默认测试域名不能用于 HTTP 发布，请使用 cloudrun 私有通道或自定义域名');
    if(base.protocol!=='https:')errors.push('发布接口必须使用 HTTPS');
    if(isIP(base.hostname.replace(/^\[|\]$/g,''))||base.hostname==='localhost'||base.hostname.endsWith('.localhost')||base.hostname.endsWith('.example')||!base.hostname.includes('.'))errors.push('发布接口需配置微信后台允许的真实域名，不能使用 IP/本机/占位地址');
    if(base.username||base.password||base.search||base.hash||base.port)errors.push('apiBase 不能包含认证信息、端口、查询或片段');

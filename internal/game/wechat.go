@@ -8,6 +8,7 @@ import (
 	"encoding/hex"
 	"encoding/json"
 	"errors"
+	"log"
 	"net"
 	"net/http"
 	"path"
@@ -45,6 +46,9 @@ type wechatGateway struct {
 	config   WeChatConfig
 	mu       sync.Mutex
 	accounts map[string]http.Handler
+
+	mediaMu    sync.Mutex
+	mediaETags map[string]wechatMediaETag
 }
 
 // NewWeChatHandler provides a separate authenticated API without the web family store.
@@ -159,7 +163,14 @@ func (g *wechatGateway) session(w http.ResponseWriter, r *http.Request) {
 		openid, err = g.config.Exchanger.Exchange(r.Context(), body.Code)
 	}
 	if err != nil || openid == "" || len(openid) > 256 {
-		wechatUnauthorized(w)
+		reason := "unavailable"
+		var failure *wechatExchangeError
+		if errors.As(err, &failure) {
+			log.Printf("wechat login exchange failed stage=%s errcode=%d", failure.Stage(), failure.ErrCode())
+			reason = failure.reason()
+		}
+		w.Header().Set("WWW-Authenticate", "Bearer")
+		reply(w, http.StatusUnauthorized, map[string]string{"error": "登录已失效，请重新登录", "reason": reason})
 		return
 	}
 	digest := sha256.Sum256([]byte(openid))

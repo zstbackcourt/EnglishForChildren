@@ -1,12 +1,61 @@
 package game
 
 import (
+	"crypto/sha256"
+	"encoding/hex"
+	"io"
 	"net/http"
 	"os"
 	"path/filepath"
 	"strconv"
 	"strings"
+	"time"
 )
+
+// Keep one validator per opened asset path, with a fixed cap even if the asset
+// directory changes over the process lifetime. Request URLs never become keys.
+const wechatMediaETagCacheLimit = 1024
+
+type wechatMediaETag struct {
+	size    int64
+	modTime time.Time
+	etag    string
+}
+
+func (g *wechatGateway) mediaETag(f *os.File, info os.FileInfo) (string, error) {
+	name := f.Name()
+	g.mediaMu.Lock()
+	cached, ok := g.mediaETags[name]
+	g.mediaMu.Unlock()
+	if ok && cached.size == info.Size() && cached.modTime.Equal(info.ModTime()) {
+		return cached.etag, nil
+	}
+
+	// Every request owns its file handle. Hash without holding the cache lock so
+	// an uncached MP3 cannot block unrelated media requests or account access.
+	hash := sha256.New()
+	if _, err := io.Copy(hash, f); err != nil {
+		return "", err
+	}
+	if _, err := f.Seek(0, io.SeekStart); err != nil {
+		return "", err
+	}
+	etag := `"` + hex.EncodeToString(hash.Sum(nil)) + `"`
+	g.mediaMu.Lock()
+	defer g.mediaMu.Unlock()
+	if g.mediaETags == nil {
+		g.mediaETags = make(map[string]wechatMediaETag)
+	}
+	if _, exists := g.mediaETags[name]; !exists && len(g.mediaETags) >= wechatMediaETagCacheLimit {
+		// Eviction order does not affect correctness; evicted files are rehashed.
+		for path := range g.mediaETags {
+			delete(g.mediaETags, path)
+			break
+		}
+	}
+	g.mediaETags[name] = wechatMediaETag{size: info.Size(), modTime: info.ModTime(), etag: etag}
+	return etag, nil
+}
 
 // confinedMedia opens only regular files below the resolved public media root.
 // The root may itself be a configured asset symlink; descendants cannot escape it.
@@ -79,6 +128,12 @@ func (g *wechatGateway) media(w http.ResponseWriter, r *http.Request) bool {
 		return true
 	}
 	defer f.Close()
+	etag, err := g.mediaETag(f, info)
+	if err != nil {
+		reply(w, http.StatusInternalServerError, map[string]string{"error": "素材暂时不可用"})
+		return true
+	}
+	w.Header().Set("ETag", etag)
 	if strings.HasPrefix(r.URL.Path, "/media/audio/") {
 		w.Header().Set("Content-Type", "audio/mpeg")
 	}

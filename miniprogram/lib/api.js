@@ -1,9 +1,22 @@
 /* wx is the only transport boundary. Session tokens stay in memory. */
+const {createMediaCache, validAsset} = require('./media');
 function createAPI(wx, config) {
-  const base = config.apiBase.replace(/\/$/, '');
+  const base = (config.apiBase || '').replace(/\/$/, '');
+  const cloud = config.transport === 'cloudrun';
+  let initialized = false;
+  async function cloudSend(path, options) {
+    try {
+      if (!initialized) { wx.cloud.init({env: config.cloudEnv}); initialized = true; }
+      return await wx.cloud.callContainer(Object.assign({config: {env: config.cloudEnv}, path, method: 'GET', timeout: 20000}, options, {
+        header: Object.assign({}, options.header, {'X-WX-SERVICE': config.cloudService})
+      }));
+    } catch (_) { throw new Error('网络连接失败，请重试'); }
+  }
+  const media = cloud ? createMediaCache(wx, cloudSend) : null;
   let session = null;
   let signingIn = null;
   function send(path, method, data, token) {
+    if (cloud) return cloudSend(path, {method, data, dataType: 'json', responseType: 'text', header: Object.assign({'Content-Type': 'application/json'}, token ? {Authorization: 'Bearer ' + token} : {})});
     return new Promise((resolve, reject) => wx.request({
       url: base + path, method, data, timeout: 20000,
       header: Object.assign({'Content-Type': 'application/json'}, token ? {Authorization: 'Bearer ' + token} : {}),
@@ -20,7 +33,7 @@ function createAPI(wx, config) {
         fail: () => reject(new Error('微信登录失败，请重试'))
       }));
       const r = await send('/api/session', 'POST', {code});
-      if (r.statusCode !== 200 || !valid(r.data)) throw new Error('登录失败，请重试');
+      if (r.statusCode !== 200 || !valid(r.data)) throw new Error(r.data && r.data.reason === 'credential_rejected' ? '登录服务尚未配置完成，请联系管理员' : '登录失败，请重试');
       session = r.data;
       return session;
     })().finally(() => { signingIn = null; });
@@ -43,8 +56,8 @@ function createAPI(wx, config) {
     return r.data;
   }
   function asset(path) {
-    if (!/^\/(assets\/(scenes|pages)\/[\w.-]+|media\/audio\/\d+)$/.test(path || '')) return '';
-    return base + path;
+    if (!validAsset(path)) return '';
+    return media ? media.resolve(path) : base + path;
   }
   return {request, asset, config};
 }
