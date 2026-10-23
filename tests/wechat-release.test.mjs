@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {mkdtempSync,mkdirSync,writeFileSync,rmSync} from 'node:fs';
+import {mkdtempSync,mkdirSync,writeFileSync,rmSync,renameSync,symlinkSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {checkProject} from '../scripts/check_wechat.mjs';
@@ -43,4 +43,18 @@ test('detect broken image reference and oversized package',t=>{
 test('valid project returns files and byte size without claiming platform publication',t=>{
  const r=checkProject(fixture(t),{release:true});assert.equal(r.ok,true,JSON.stringify(r.errors));
  assert.ok(r.bytes>0);assert.ok(r.files.includes('pages/index/index.wxml'));assert.equal(r.published,undefined);
+});
+test('rejects environment files and test code copied into mini-program package',t=>{
+ const root=fixture(t);mkdirSync(join(root,'miniprogram/tests'));
+ writeFileSync(join(root,'miniprogram/tests/helper.test.js'),'const testOnly=true;');
+ writeFileSync(join(root,'miniprogram/server.env'),'WECHAT_APP_SECRET=not-a-real-secret');
+ const r=checkProject(root,{release:true});assert.equal(r.ok,false);
+ assert.ok(r.errors.some(x=>x.includes('server.env')));assert.ok(r.errors.some(x=>x.includes('helper.test.js')));
+});
+test('rejects mini-program root symlink before reading external project files',t=>{
+ const root=fixture(t),outside=mkdtempSync(join(tmpdir(),'wechat-external-'));
+ t.after(()=>rmSync(outside,{recursive:true,force:true}));
+ renameSync(join(root,'miniprogram'),join(outside,'mini'));symlinkSync(join(outside,'mini'),join(root,'miniprogram'));
+ const r=checkProject(root);assert.equal(r.ok,false);assert.ok(r.errors.some(x=>x.includes('符号链接')));
+ assert.equal(r.files.length,0);
 });

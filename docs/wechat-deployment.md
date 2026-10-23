@@ -27,6 +27,8 @@ npm ci --prefix tools/wechat-ci
 node scripts/compile_wechat.cjs
 ```
 
+需要不含其他源码和工具的独立导入目录时，运行 `node scripts/prepare_wechat.mjs`。脚本会输出 `tmp/wechat-import-时间戳/`，开发者工具可直接导入该目录。服务器验收后，可用 `node scripts/prepare_wechat.mjs --cloudrun --release` 生成带体验域名、关闭开发登录的导入目录；此命令不上传、不需要私钥，不覆盖已有目录。
+
 本地 `config.json` 使用 `http://127.0.0.1:8093` 和 `devLogin: true`。该模式只接受回环请求及固定开发身份，不能对公网部署。开发者工具导入项目根目录，读取 `project.config.json`；本地调试时可在工具的本地设置中临时关闭域名校验。该私有设置不提交；发布必须启用校验并关闭开发登录。手机的 `127.0.0.1` 指手机自身，不能据此进行真机验收。
 
 ## 2. Ubuntu 独立部署
@@ -93,7 +95,7 @@ export WECHAT_VERSION=0.1.0
 node scripts/upload_wechat.cjs --upload
 ```
 
-脚本使用官方 `miniprogram-ci@2.1.31`，只暂存小程序代码和项目配置，避免上传课程归档、Go 服务或私钥。成功后在本机 `tmp/wechat-upload-receipt.json` 记录上传时间与版本；失败不产生成功记录。开发版本上传成功后，仍须在微信后台版本管理设为体验版、添加体验成员并取得体验二维码，不能把预览二维码当作体验版二维码。
+脚本使用官方 `miniprogram-ci@2.1.31`，只暂存白名单内的小程序代码和项目配置，拒绝测试文件、环境文件、目录符号链接、存档和密钥。成功后在本机 `tmp/wechat-upload-版本-时间戳.json` 记录本次上传；失败不会新增成功记录，历史凭据按版本和时间保留。开发版本上传成功后，仍须在微信后台版本管理设为体验版、添加体验成员并取得体验二维码，不能把预览二维码当作体验版二维码。
 
 用户可改用已登录的微信开发者工具“上传”。两种方式都必须记录实际成功证据。按用户最新授权，本地开发测试完成后先推送 `wechat` 供云托管构建：
 

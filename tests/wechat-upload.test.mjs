@@ -42,3 +42,7 @@ test('staged upload contains only mini-program and project config, never server 
  assert.equal(fs.existsSync(path.join(stage,'server.env')),false);
  assert.equal(options.appid,env.WECHAT_APP_ID);
 });
+test('upload refuses environment files mistakenly copied into native source',async t=>{
+ const {root,env}=fixture(t);fs.writeFileSync(path.join(root,'miniprogram/server.env'),'WECHAT_APP_SECRET=not-a-real-secret');
+ await assert.rejects(prepareUpload(root,env),/server.env/);
+});

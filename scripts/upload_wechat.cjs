@@ -21,14 +21,18 @@ async function prepareUpload(root,env=process.env) {
  return {root,appid:result.appid,privateKeyPath:key,version:env.WECHAT_VERSION,desc:env.WECHAT_DESCRIPTION||'英语冒险岛体验版',project,files:result.files,bytes:result.bytes};
 }
 
-function stageProject(options) {
- const dir=fs.mkdtempSync(path.join(os.tmpdir(),'english-wechat-upload-'));
+function stageProject(options,destination) {
+ const dir=destination?path.resolve(destination):fs.mkdtempSync(path.join(os.tmpdir(),'english-wechat-upload-'));
+ if(destination)fs.mkdirSync(dir);
  try {
   const source=path.resolve(options.root,options.project.miniprogramRoot);
+  if(source===options.root||!source.startsWith(options.root+path.sep))throw new Error('代码目录必须位于项目内');
   fs.mkdirSync(path.join(dir,'miniprogram'));
   // Copy only files inspected by preflight. No Go source, course archive or credentials.
   for(const rel of options.files) {
    const from=path.join(source,rel),to=path.join(dir,'miniprogram',rel);
+   if(!from.startsWith(source+path.sep)||!to.startsWith(path.join(dir,'miniprogram')+path.sep))throw new Error('代码文件路径无效');
+   for(let p=from;p!==options.root;p=path.dirname(p))if(fs.lstatSync(p).isSymbolicLink())throw new Error('代码路径不能包含符号链接');
    if(!fs.lstatSync(from).isFile())throw new Error('待上传文件发生变化，请重新检查');
    fs.mkdirSync(path.dirname(to),{recursive:true});fs.copyFileSync(from,to);
   }
@@ -53,7 +57,7 @@ async function main() {
   } catch {throw new Error('微信编译或上传失败。请在本机检查上传密钥、上传 IP 白名单及微信后台状态；未生成成功凭据。');}
   const receipt={appid:options.appid,version:options.version,uploadedAt:new Date().toISOString(),sourceBytes:options.bytes,status:'development-uploaded',experiencePublished:false};
   fs.mkdirSync(path.join(root,'tmp'),{recursive:true});
-  fs.writeFileSync(path.join(root,'tmp/wechat-upload-receipt.json'),JSON.stringify(receipt,null,2));
+  fs.writeFileSync(path.join(root,`tmp/wechat-upload-${options.version}-${Date.now()}.json`),JSON.stringify(receipt,null,2));
   console.log('开发版本上传成功。请在微信后台版本管理中设为体验版，添加体验成员并用真机验收；上传成功不等于体验版已发布。');
  } finally {fs.rmSync(staged,{recursive:true,force:true});}
 }

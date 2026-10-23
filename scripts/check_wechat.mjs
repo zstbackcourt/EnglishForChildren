@@ -10,6 +10,9 @@ export function checkProject(projectRoot,{release=false}={}) {
  const project=readJSON(path.join(root,'project.config.json'));
  const mini=path.resolve(root,project.miniprogramRoot||'miniprogram');
  if(mini===root||!mini.startsWith(root+path.sep))return {ok:false,errors:['miniprogramRoot 必须是项目内独立子目录'],files,bytes};
+ for(let p=mini;p!==root;p=path.dirname(p)) {
+  if(fs.existsSync(p)&&fs.lstatSync(p).isSymbolicLink())return {ok:false,errors:['miniprogramRoot 及其父目录不能是符号链接'],files,bytes};
+ }
  const config=readJSON(path.join(mini,'config.json'));
  const app=readJSON(path.join(mini,'app.json'));
  function visit(dir) {
@@ -18,8 +21,12 @@ export function checkProject(projectRoot,{release=false}={}) {
    const p=path.join(dir,e.name),rel=path.relative(mini,p);
    if(e.isSymbolicLink()){errors.push(`代码包不能含符号链接：${rel}`);continue}
    if(e.isDirectory()){visit(p);continue}
-   files.push(rel);const b=fs.readFileSync(p);bytes+=b.length;
-   if(/(^|[/\\])(?:\.env(?:\..*)?|[^/\\]+\.(?:pem|key)|save\.json)$/.test(rel)||b.includes(Buffer.from('-----BEGIN PRIVATE KEY-----'))||b.includes(Buffer.from('-----BEGIN RSA PRIVATE KEY-----')))errors.push(`代码包包含凭证或存档：${rel}`);
+   const b=fs.readFileSync(p);bytes+=b.length;
+   const rootFiles=new Set(['app.js','app.json','app.wxss','config.json','sitemap.json','package.json']);
+   const allowed=rootFiles.has(rel)||(/^(pages|lib|components|assets|utils|services)[/\\]/.test(rel)&&/\.(js|json|wxml|wxss|wxs|png|jpe?g|webp|gif|svg)$/i.test(rel));
+   const testCode=/(^|[/\\])(?:tests?|__tests__|__mocks__|node_modules)(?:[/\\]|$)|\.(?:test|spec)\.[cm]?js$/.test(rel);
+   if(!allowed||testCode)errors.push(`代码包包含非发布文件：${rel}`);else files.push(rel);
+   if(/(^|[/\\])(?:\.env(?:\..*)?|[^/\\]+\.(?:env|pem|key)|save\.json)$/.test(rel)||/-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----/.test(b.toString())||/\b(?:WECHAT_APP_SECRET|WECHAT_SESSION_KEY|MYSQL_PASSWORD|appSecret|privateKey)\s*["']?\s*[:=]/.test(b.toString()))errors.push(`代码包包含凭证或存档：${rel}`);
    if(/\.(mp3|lrc|pdf|zip|tar|gz)$/i.test(rel))errors.push(`大素材必须远程加载：${rel}`);
    if(e.name.endsWith('.wxml'))for(const match of b.toString().matchAll(/\bsrc\s*=\s*["']([^"']+)["']/g)) {
     const src=match[1];if(src.includes('{{')||/^(https?:|data:)/.test(src))continue;
