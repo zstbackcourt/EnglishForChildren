@@ -3,10 +3,10 @@
 遇见英语？</view><view class="subtitle">144 个小故事 · 12 段成长旅程</view></view>
   <view wx:if="{{loading}}" class="loading">星光地图正在展开…</view>
   <view wx:if="{{error}}" class="error">{{error}}<button bindtap="retry" class="small">再试一次</button></view>
-  <block wx:if="{{!loading &amp;&amp; !error}}">
+  <block wx:if="{{!loading && !error}}">
     <view wx:if="{{player}}" class="card"><view class="row"><view>{{avatars[player.avatar]}} {{player.name}} 的冒险</view><text class="pill">⭐ {{player.stars}}</text></view><button class="primary" bindtap="resume">继续第 {{resumeId}} 课 →</button></view>
     <view wx:else class="card"><view class="section-title">先认识一位小伙伴</view><view class="muted">每个角色都有自己的进度和星光。也可以先点开课程听故事。</view><button class="primary" bindtap="players">创建冒险角色</button></view>
-    <view class="chapter" wx:for="{{chapters}}" wx:key="id" wx:for-item="chapter"><view class="chapter-heading"><text class="chapter-number">{{chapter.id &lt; 10 ? '0' : ''}}{{chapter.id}}</text><view class="section-title">{{chapter.title}}</view></view><view class="lesson-grid"><button class="lesson-tile" wx:for="{{chapter.lessons}}" wx:key="id" data-id="{{item.id}}" bindtap="openLesson"><view class="lesson-number">LESSON {{item.id}}</view><view class="lesson-title">{{item.title}}</view><view class="lesson-foot">{{item.kind === 'story' ? '📖 听故事' : '🌱 练一练'}} <text wx:if="{{item.trophies}}">🏆 {{item.trophies}}</text></view></button></view></view>
+    <view class="chapter" wx:for="{{chapters}}" wx:key="id" wx:for-item="chapter"><view class="chapter-heading"><text class="chapter-number">{{chapter.id < 10 ? '0' : ''}}{{chapter.id}}</text><view class="section-title">{{chapter.title}}</view></view><view class="lesson-grid"><button class="lesson-tile" wx:for="{{chapter.lessons}}" wx:key="id" data-id="{{item.id}}" bindtap="openLesson"><view class="lesson-number">LESSON {{item.id}}</view><view class="lesson-title">{{item.title}}</view><view class="lesson-foot">{{item.kind === 'story' ? '📖 听故事' : '🌱 练一练'}} <text wx:if="{{item.trophies}}">🏆 {{item.trophies}}</text></view></button></view></view>
     <view class="note">慢慢来，每一次开口都是一颗新星光。</view>
   </block>
 </view>
