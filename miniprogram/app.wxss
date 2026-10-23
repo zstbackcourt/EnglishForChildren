@@ -1,0 +1,26 @@
+page { background:#fff7e8; color:#493a31; font-family:-apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif; font-size:30rpx; line-height:1.55; }
+view,scroll-view,button,input { box-sizing:border-box; }
+.screen { padding:36rpx 30rpx 60rpx; }
+.eyebrow { color:#a65d42; letter-spacing:4rpx; font-size:23rpx; font-weight:600; }
+.title { font-size:52rpx; line-height:1.2; font-weight:750; margin:14rpx 0 20rpx; }
+.subtitle,.muted { color:#8a7868; font-size:27rpx; }
+.hero { padding:34rpx; border-radius:36rpx; background:#f8e5c3; margin-bottom:30rpx; }
+.hero-icon { font-size:76rpx; float:right; }
+.card { background:#fffdf8; border:2rpx solid #efdfc8; border-radius:28rpx; padding:28rpx; margin:24rpx 0; }
+.row { display:flex; align-items:center; justify-content:space-between; gap:16rpx; }
+.actions { display:flex; flex-wrap:wrap; gap:16rpx; margin-top:24rpx; }
+.actions button { flex:1; min-width:180rpx; margin:0; }
+button { border-radius:22rpx; background:#f2e6d4; color:#604532; font-size:29rpx; line-height:1.5; padding:22rpx 28rpx; font-weight:600; margin:18rpx 0; }
+button::after { border:none; }
+button.primary { background:#a95639; color:#fffaf1; box-shadow:0 7rpx 0 #86452e; }
+button.small { padding:14rpx 22rpx; font-size:25rpx; }
+button[disabled] { background:#e8ded0; color:#9b8c7c; box-shadow:none; }
+.pill { border-radius:40rpx; padding:8rpx 18rpx; font-size:24rpx; background:#e5ecd6; color:#5d7041; display:inline-block; }
+.error { border:2rpx solid #e6aa91; color:#914628; background:#fff0e8; border-radius:24rpx; padding:22rpx; margin:20rpx 0; }
+.loading { text-align:center; padding:60rpx 20rpx; color:#9a7357; }
+.empty { text-align:center; padding:34rpx 20rpx; }
+.section-title { font-size:35rpx; font-weight:700; margin:10rpx 0 22rpx; }
+.selected { background:#f4ddbb !important; border-color:#ad6848 !important; color:#743c26 !important; }
+.field { background:#fffaf1; border:2rpx solid #dec8a8; border-radius:20rpx; padding:24rpx; height:96rpx; font-size:32rpx; }
+.note { font-size:24rpx; color:#8a7868; margin-top:20rpx; }
+.badge { font-size:54rpx; }

@@ -1,0 +1,8 @@
+{
+  "appid": "wx1f23b102bcb34ed7",
+  "projectname": "english-starlight-adventure",
+  "compileType": "miniprogram",
+  "miniprogramRoot": "miniprogram/",
+  "setting": {"urlCheck": true, "es6": true, "enhance": true, "minified": true},
+  "packOptions": {"ignore": [{"type":"file","value":"package.json"}]}
+}

@@ -1,0 +1,1 @@
+.player-card { text-align:left; background:#fffdf8; border:2rpx solid #ecdac0; padding:24rpx; }.player-card .row>text { font-size:24rpx; }.avatar-grid { display:flex; gap:12rpx; margin-top:20rpx; }.avatar { flex:1; font-size:24rpx; border:2rpx solid transparent; padding:14rpx 4rpx; background:#f9efe0; margin:0; }.avatar .badge { font-size:46rpx; }

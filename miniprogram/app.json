@@ -1,0 +1,7 @@
+{
+  "pages": ["pages/index/index","pages/players/players","pages/lesson/lesson","pages/challenge/challenge","pages/rewards/rewards","pages/settings/settings"],
+  "window": {"navigationBarTitleText":"英语星光冒险","navigationBarBackgroundColor":"#fff7e8","navigationBarTextStyle":"black","backgroundColor":"#fff7e8"},
+  "tabBar": {"color":"#877b70","selectedColor":"#b15b39","backgroundColor":"#fffdf8","borderStyle":"white","list":[{"pagePath":"pages/index/index","text":"冒险地图"},{"pagePath":"pages/players/players","text":"小小伙伴"},{"pagePath":"pages/rewards/rewards","text":"星光收藏"},{"pagePath":"pages/settings/settings","text":"小屋设置"}]},
+  "style":"v2",
+  "sitemapLocation":"sitemap.json"
+}
