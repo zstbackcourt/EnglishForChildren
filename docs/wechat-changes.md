@@ -73,3 +73,5 @@
 首次 GitHub Actions 运行 `39915173903` 暴露干净 runner 中没有教材音频：Go 目录测试因此失败，尚未进入镜像构建。修复为在 Go 测试前执行锁定教材提交的 `scripts/fetch_assets.sh`，并更新本次发布标记以防旧构建满足就绪检查；后续结果仍以实际新 run 为准。`release-config` 同时明确因尚未设置专用 runner 和出口 IP 失败，微信上传步骤未执行。
 
 第二次运行 `39915544889` 的 Go、Node、Python 测试通过，失败点是 Linux 上的官方 WXML/WXSS 编译模块：锁定的 `miniprogram-ci@2.1.31` 只含 Darwin/Windows 原生模块，返回 `id argument ... undefined`。将编译移至 GitHub 官方 `macos-15-intel` runner，Linux runner 继续负责源码测试、镜像和临时数据库冒烟。再次更新发布标记；新 workflow 的真实结果尚待运行，不将仅本机 macOS 编译结果当成 CI 成功。
+
+第三次运行 `39916253277` 的源码验证、生产镜像配临时 MySQL 启动冒烟、macOS 官方模板编译均通过。客户端上传门禁仍因缺少固定出口自托管 runner 和 `WECHAT_UPLOAD_EGRESS_IP` 失败，线上就绪门禁因公开域名仍返回官方示例 HTML 而失败；未上传客户端。用户随后确认已在云托管保存环境变量。再次检查公开 `/healthz` 仍为示例 HTML，因此更新唯一发布标记并推送 `wechat` 触发新版本；部署结果须以新运行和公开健康检查确认。GitHub 仓库目前没有自托管 runner 或相关 Actions 变量，故客户端发布仍不能判定完成。
