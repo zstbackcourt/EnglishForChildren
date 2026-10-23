@@ -1,0 +1,8 @@
+{
+  "name": "english-adventure-wechat-ci",
+  "private": true,
+  "version": "0.1.0",
+  "engines": {"node": ">=20.19.0"},
+  "description": "Only for WeChat upload; excluded from the mini-program package",
+  "dependencies": {"miniprogram-ci": "2.1.31"}
+}

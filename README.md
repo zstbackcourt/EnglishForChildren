@@ -1,5 +1,11 @@
 # 英语小小冒险家
 
+> **当前为 `wechat` 分支：原生微信小程序。** AppID `wx1f23b102bcb34ed7`。六个原生页面复用 144 课、原声音频、插图、角色和奖励；Go API 按微信账号隔离家庭。根 Dockerfile 用于微信云托管，MySQL 保存云端进度。
+>
+> 部署 `golang-8467`：先看 [云托管 GitHub 分支部署](docs/wechat-cloudrun.md)。小程序导入、编译、真机验收和上传见 [小程序部署说明](docs/wechat-deployment.md)。方案与每次变更见 [设计](docs/wechat-design.md)、[变更记录](docs/wechat-changes.md)。
+>
+> 本地启动：`go run ./cmd/wechat-server -dev-login`，微信开发者工具导入本仓库根目录；默认本地配置不能直接上传发布。`main` 继续保留既有网页，下面是可选的原网页运行说明。
+
 新概念英语第一册的家庭学习网页游戏。Go 后端，原生 JavaScript 前端，无数据库和 npm 安装步骤。角色可自定义名字、选择头像，进度与奖励保存在本机。
 
 ## 启动

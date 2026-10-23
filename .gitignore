@@ -1,5 +1,6 @@
 .DS_Store
 New-Concept-English/
+New-Concept-English
 .tools/
 tmp/
 data/
@@ -9,3 +10,11 @@ bin/
 
 __pycache__/
 *.pyc
+
+# WeChat tooling and private developer settings
+node_modules/
+project.private.config.json
+*.pem
+*.key
+.env.*
+!.env.example

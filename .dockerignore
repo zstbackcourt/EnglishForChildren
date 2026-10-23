@@ -8,3 +8,13 @@ docs
 *.log
 .env
 .DS_Store
+node_modules
+**/node_modules
+.superpowers
+.env.*
+*.key
+*.pem
+project.private.config.json
+tests
+miniprogram
+tools

@@ -1,0 +1,7 @@
+# Replace with a real domain pointing to this server, configured in WeChat.
+# Add as a separate site block to the EXISTING Caddy config; do not overwrite it.
+learning.example.com {
+    encode gzip
+    header X-Content-Type-Options nosniff
+    reverse_proxy 127.0.0.1:8093
+}

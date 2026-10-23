@@ -1,0 +1,25 @@
+[Unit]
+Description=English Adventure WeChat API
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=english-wechat
+Group=english-wechat
+WorkingDirectory=/opt/english-adventure-wechat
+EnvironmentFile=/etc/english-adventure-wechat/server.env
+ExecStart=/opt/english-adventure-wechat/bin/wechat-server -root /opt/english-adventure-wechat -addr 127.0.0.1:8093 -save-dir /var/lib/english-adventure-wechat
+Restart=on-failure
+RestartSec=5
+StateDirectory=english-adventure-wechat
+StateDirectoryMode=0700
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/english-adventure-wechat
+
+[Install]
+WantedBy=multi-user.target
