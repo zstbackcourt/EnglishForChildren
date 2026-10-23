@@ -23,9 +23,10 @@ type Save struct {
 	Results       map[string]Result `json:"results"`
 }
 type Store struct {
-	mu    sync.Mutex
-	path  string
-	state Save
+	mu     sync.Mutex
+	path   string
+	state  Save
+	memory bool
 }
 
 func newID() string {
@@ -72,6 +73,10 @@ func OpenStore(path string) (*Store, error) {
 }
 func clone[T any](v T) T { b, _ := json.Marshal(v); var out T; json.Unmarshal(b, &out); return out }
 func (s *Store) commit(next Save) error {
+	if s.memory {
+		s.state = next
+		return nil
+	}
 	if e := os.MkdirAll(filepath.Dir(s.path), 0700); e != nil {
 		return e
 	}

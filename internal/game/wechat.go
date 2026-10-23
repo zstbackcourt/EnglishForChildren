@@ -23,6 +23,7 @@ type WeChatCodeExchanger interface {
 }
 
 type WeChatConfig struct {
+	Backend    MySQLAccountBackend
 	SaveDir    string
 	SessionKey []byte
 	Exchanger  WeChatCodeExchanger
@@ -193,6 +194,16 @@ func (g *wechatGateway) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		http.NotFound(w, r)
 		return
 	}
+	if r.URL.Path == "/healthz" {
+		if g.config.Backend != nil {
+			if err := g.config.Backend.Ready(r.Context()); err != nil {
+				reply(w, 503, map[string]string{"status": "unavailable"})
+				return
+			}
+		}
+		reply(w, 200, map[string]string{"status": "ok"})
+		return
+	}
 	if r.URL.Path == "/api/session" {
 		g.session(w, r)
 		return
@@ -212,6 +223,10 @@ func (g *wechatGateway) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	subject, ok := g.identity(strings.TrimPrefix(header, "Bearer "))
 	if !ok {
 		wechatUnauthorized(w)
+		return
+	}
+	if g.config.Backend != nil {
+		g.durableAccount(w, r, subject)
 		return
 	}
 	handler, err := g.account(subject)

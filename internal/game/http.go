@@ -40,8 +40,11 @@ func decode(w http.ResponseWriter, r *http.Request, v any) bool {
 }
 func publicLesson(l Lesson) Lesson { l.AudioFile = ""; return l }
 func NewHandler(root string, c *Catalog, s *Store) http.Handler {
+	return newHandlerWithQuizzes(root, c, s, newQuizzes())
+}
+
+func newHandlerWithQuizzes(root string, c *Catalog, s *Store, q *Quizzes) http.Handler {
 	mux := http.NewServeMux()
-	q := newQuizzes()
 	mux.HandleFunc("GET /api/health", func(w http.ResponseWriter, r *http.Request) {
 		reply(w, 200, map[string]any{"status": "ok", "lessons": len(c.Lessons)})
 	})

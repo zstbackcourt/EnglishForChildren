@@ -53,3 +53,15 @@ func TestWeChatServerDefaultsAndExplicitLocalDevelopment(t *testing.T) {
 		t.Fatalf("development login: %d %s", w.Code, w.Body)
 	}
 }
+
+func TestMySQLConfigurationFailsClosed(t *testing.T) {
+	env := map[string]string{"WECHAT_APP_ID": "app", "WECHAT_APP_SECRET": "secret", "WECHAT_SESSION_KEY": "0123456789abcdef0123456789abcdef", "WECHAT_STORAGE": "mysql"}
+	_, err := newServer(nil, func(k string) string { return env[k] })
+	if err == nil || !strings.Contains(err.Error(), "MySQL") {
+		t.Fatalf("missing MySQL configuration: %v", err)
+	}
+	env["WECHAT_STORAGE"] = "invalid"
+	if _, err = newServer(nil, func(k string) string { return env[k] }); err == nil {
+		t.Fatal("unknown storage accepted")
+	}
+}

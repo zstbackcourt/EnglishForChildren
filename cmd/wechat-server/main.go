@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"crypto/rand"
 	"englishadventure/internal/game"
 	"errors"
@@ -46,6 +47,23 @@ func newServer(args []string, getenv func(string) string) (*http.Server, error) 
 	if len(config.SessionKey) < 32 {
 		return nil, errors.New("WECHAT_SESSION_KEY must contain at least 32 bytes")
 	}
+	storage := getenv("WECHAT_STORAGE")
+	if storage != "" && storage != "file" && storage != "mysql" {
+		return nil, errors.New("invalid WECHAT_STORAGE")
+	}
+	if storage == "mysql" {
+		backend, err := game.OpenMySQLAccounts(context.Background(), getenv("MYSQL_ADDRESS"), getenv("MYSQL_USERNAME"), getenv("MYSQL_PASSWORD"), getenv("MYSQL_DATABASE"))
+		if err != nil {
+			return nil, err
+		}
+		config.Backend = backend
+	}
+	var initialized bool
+	defer func() {
+		if !initialized && config.Backend != nil {
+			config.Backend.(*game.MySQLAccounts).Close()
+		}
+	}()
 	abs, err := filepath.Abs(*root)
 	if err != nil {
 		return nil, errors.New("invalid project root")
@@ -58,11 +76,16 @@ func newServer(args []string, getenv func(string) string) (*http.Server, error) 
 	if err != nil {
 		return nil, err
 	}
-	return &http.Server{
+	initialized = true
+	server := &http.Server{
 		Addr: *addr, Handler: handler,
 		ReadHeaderTimeout: 5 * time.Second, ReadTimeout: 15 * time.Second,
 		WriteTimeout: 30 * time.Second, IdleTimeout: 60 * time.Second, MaxHeaderBytes: 16 * 1024,
-	}, nil
+	}
+	if config.Backend != nil {
+		server.RegisterOnShutdown(func() { config.Backend.(*game.MySQLAccounts).Close() })
+	}
+	return server, nil
 }
 
 func main() {
