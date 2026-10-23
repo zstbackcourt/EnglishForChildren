@@ -59,7 +59,7 @@ curl --fail -r 0-3 https://golang-8467-333734-12-1514891213.sh.run.tcloudbase.co
 
 ## GitHub 自动部署与客户端上传
 
-推送 `wechat` 会触发已绑定的云托管 GitHub 部署，并运行 [WeChat release 工作流](../.github/workflows/wechat-release.yml)。工作流依次运行 Go、Node 与官方小程序模板编译，构建生产 Docker 镜像，用临时 MySQL 启动并检查健康、登录保护和音频 Range，再等待线上 API 的版本标记与本次推送匹配。每次推送前必须为 `deploy/wechat/release-id.txt` 写入新的 32 位十六进制随机值；流水线会比较推送前的值，避免旧版健康服务使客户端提前上传。镜像检查使用一次性测试密码，不访问用户数据库。云端仍需要上面的服务环境变量；工作流无法替代云托管管理权限。
+推送 `wechat` 会触发已绑定的云托管 GitHub 部署，并运行 [WeChat release 工作流](../.github/workflows/wechat-release.yml)。Linux runner 拉取固定版本教材音频、运行 Go/Node 测试，并用临时 MySQL 启动生产 Docker 镜像，检查健康、登录保护和音频 Range；Intel macOS runner 用官方微信编译模块检查 WXML/WXSS。之后等待线上 API 的版本标记与本次推送匹配。每次推送前必须为 `deploy/wechat/release-id.txt` 写入新的 32 位十六进制随机值；流水线会比较推送前的值，避免旧版健康服务使客户端提前上传。镜像检查使用一次性测试密码，不访问用户数据库。云端仍需要上面的服务环境变量；工作流无法替代云托管管理权限。
 
 仓库 Actions Secret `WECHAT_UPLOAD_KEY` 存放微信小程序**代码上传私钥**，已在用户明确授权后通过 GitHub 公钥加密接口配置；其值不在仓库或日志中。`WECHAT_APP_SECRET` 和 `WECHAT_SESSION_KEY` 只保存在云托管服务环境变量，不能放在仓库或客户端。Actions Variable `WECHAT_UPLOAD_RUNNER` 应为有固定公网出口的自托管 runner 标签 JSON，例如 `["self-hosted","linux","wechat-upload"]`；`WECHAT_UPLOAD_EGRESS_IP` 填该 runner 的公网 IPv4。先把该出口 IP 加入微信小程序的上传 IP 白名单。工作流会检查标签和实际出口地址，再调用微信上传接口。普通 GitHub 托管 runner 的出口 IP 会变化；未配置专用 runner 时工作流会明确失败，不会悄悄禁用白名单或反复尝试上传。
 

@@ -71,3 +71,5 @@
 本地最终验证：51/51 JavaScript 测试、5/5 Python 测试、Go `-race` 及 `vet` 通过；官方模板编译得到 6 个 WXML、7 个 WXSS。入口变量检查、发布标记对应、旧版健康服务拒绝和 GitHub 密文格式分别做了针对性验证。本机没有 Docker，生产镜像的真实启动检查交给本次 GitHub Actions 的 `verify` job，未提前宣称通过。实际云端仍返回示例 HTML，`/healthz` 发布门禁拒绝将其标为游戏服务。
 
 首次 GitHub Actions 运行 `39915173903` 暴露干净 runner 中没有教材音频：Go 目录测试因此失败，尚未进入镜像构建。修复为在 Go 测试前执行锁定教材提交的 `scripts/fetch_assets.sh`，并更新本次发布标记以防旧构建满足就绪检查；后续结果仍以实际新 run 为准。`release-config` 同时明确因尚未设置专用 runner 和出口 IP 失败，微信上传步骤未执行。
+
+第二次运行 `39915544889` 的 Go、Node、Python 测试通过，失败点是 Linux 上的官方 WXML/WXSS 编译模块：锁定的 `miniprogram-ci@2.1.31` 只含 Darwin/Windows 原生模块，返回 `id argument ... undefined`。将编译移至 GitHub 官方 `macos-15-intel` runner，Linux runner 继续负责源码测试、镜像和临时数据库冒烟。再次更新发布标记；新 workflow 的真实结果尚待运行，不将仅本机 macOS 编译结果当成 CI 成功。

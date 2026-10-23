@@ -48,10 +48,8 @@ jobs:
           go vet ./cmd/... ./internal/...
           node --test tests/*.test.mjs tests/miniprogram/*.test.cjs web/*.test.js
           python3 scripts/test_share.py
-      - name: Compile native mini-program
+      - name: Prepare the native client release package
         run: |
-          npm ci --prefix tools/wechat-ci
-          node scripts/compile_wechat.cjs
           node scripts/prepare_wechat.mjs --cloudrun --release --output tmp/wechat-release
       - name: Build and boot the production image with disposable MySQL
         run: |
@@ -63,6 +61,22 @@ jobs:
           path: tmp/wechat-release
           if-no-files-found: error
           retention-days: 7
+
+  native-compile:
+    # Pinned miniprogram-ci ships the WXML/WXSS addon for macOS Intel, not Linux.
+    runs-on: macos-15-intel
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24'
+      - name: Compile six WXML and seven WXSS files with the official tool
+        run: |
+          npm ci --prefix tools/wechat-ci
+          node scripts/compile_wechat.cjs
 
   release-config:
     runs-on: ubuntu-24.04
@@ -97,7 +111,7 @@ jobs:
           NODE
 
   backend-ready:
-    needs: [verify]
+    needs: [verify, native-compile]
     runs-on: ubuntu-24.04
     timeout-minutes: 13
     steps:
